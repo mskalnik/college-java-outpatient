@@ -2,15 +2,15 @@ CREATE DATABASE OutPatientManagement;
 USE OutPatientManagement;
 
 CREATE TABLE Person (
-	IDPerson	int NOT NULL AUTO_INCREMENT,
-	FirstName	nvarchar(50),
+    IDPerson	int NOT NULL AUTO_INCREMENT,
+    FirstName	nvarchar(50),
     MiddleName	nvarchar(50),
     Surname		nvarchar(50),
     CONSTRAINT PK_IDPerson PRIMARY KEY (IDPerson)
 );
 
 CREATE TABLE Doctor (
-	IDDoctor	int NOT NULL AUTO_INCREMENT,
+    IDDoctor	int NOT NULL AUTO_INCREMENT,
     Title		nvarchar(50),
     PersonID	int NOT NULL,
     CONSTRAINT PK_IDDoctor PRIMARY KEY (IDDoctor),
@@ -18,7 +18,7 @@ CREATE TABLE Doctor (
 );
 
 CREATE TABLE Patient (
-	OPID		int NOT NULL AUTO_INCREMENT,
+    OPID		int NOT NULL AUTO_INCREMENT,
     DateOfBirth	datetime,
     Sex			char,
     Complaint	nvarchar(200),
@@ -28,7 +28,7 @@ CREATE TABLE Patient (
 );
 
 CREATE TABLE NextOfKin (
-	IDNextOfKin		int NOT NULL AUTO_INCREMENT,
+    IDNextOfKin		int NOT NULL AUTO_INCREMENT,
     Relationship	nvarchar(50),
     PatientID		int NOT NULL,
     PersonID		int NOT NULL,
@@ -38,13 +38,13 @@ CREATE TABLE NextOfKin (
 );
 
 CREATE TABLE Telephone (
-	IDTelephone	int NOT NULL AUTO_INCREMENT,
+    IDTelephone	int NOT NULL AUTO_INCREMENT,
     Number		nvarchar(10),
     CONSTRAINT PK_IDTelephone PRIMARY KEY (IDTelephone)
 );
 
 CREATE TABLE Address (
-	IDAddress	int NOT NULL AUTO_INCREMENT,
+    IDAddress	int NOT NULL AUTO_INCREMENT,
     DoorNo		nvarchar(10),
     Street		nvarchar(50),
     Area		nvarchar(50),
@@ -54,12 +54,12 @@ CREATE TABLE Address (
 );
 
 CREATE TABLE Contact (
-	IDContact			int NOT NULL AUTO_INCREMENT,
+    IDContact			int NOT NULL AUTO_INCREMENT,
     Email				nvarchar(50),
     PressentAddressID	int NOT NULL,
     PermanentAdressID	int NOT NULL,
     TelephoneWorkID		int NOT NULL,
-	TelephoneHomeID		int NOT NULL,
+    TelephoneHomeID		int NOT NULL,
     MobileID			int NOT NULL,
     PagerID				int NOT NULL,
     FaxID				int NOT NULL,
@@ -76,19 +76,19 @@ CREATE TABLE Contact (
 );
 
 CREATE TABLE MaritalStatus (
-	IDMaritalStatus	int NOT NULL AUTO_INCREMENT,
+    IDMaritalStatus	int NOT NULL AUTO_INCREMENT,
     MaritalStatus	nvarchar(50),
     CONSTRAINT PK_IDMaritalStatus PRIMARY KEY (IDMaritalStatus)
 );
 
 CREATE TABLE BlodType (
-	IDBlodType		int NOT NULL AUTO_INCREMENT,
+    IDBlodType		int NOT NULL AUTO_INCREMENT,
     BloodType		nvarchar(2),
     CONSTRAINT PK_BlodType PRIMARY KEY (IDBlodType)
 );
 
 CREATE TABLE PersonalDetails (
-	IDPersonalDetails	int NOT NULL AUTO_INCREMENT,
+    IDPersonalDetails	int NOT NULL AUTO_INCREMENT,
     NoOfDependents		int,
     Height				double,
     Weight				double,
@@ -102,7 +102,7 @@ CREATE TABLE PersonalDetails (
 );
 
 CREATE TABLE ProfessionDetails (
-	IDProfessiondetails	int NOT NULL AUTO_INCREMENT,
+    IDProfessiondetails	int NOT NULL AUTO_INCREMENT,
     Occupation			nvarchar(50),
     GrossAnnualIncome	int,
     PersonID			int NOT NULL,
@@ -111,7 +111,7 @@ CREATE TABLE ProfessionDetails (
 );
 
 CREATE TABLE Lifestyle (
-	IDLifestyle			int NOT NULL AUTO_INCREMENT,
+    IDLifestyle			int NOT NULL AUTO_INCREMENT,
     Vegeterian			bool,
     Smoker				bool,
     AverageCigarettes	smallint,
@@ -123,12 +123,12 @@ CREATE TABLE Lifestyle (
     RegularMeals		bool,
     EatHomeFood			bool,
     PersonID			int NOT NULL,
-	CONSTRAINT PK_IDLifestyle PRIMARY KEY (IDLifestyle),
+    CONSTRAINT PK_IDLifestyle PRIMARY KEY (IDLifestyle),
     CONSTRAINT FK_Lifestyle FOREIGN KEY (PersonID) REFERENCES Person(IDPerson)
 );
 
 CREATE TABLE BasicComplaints (
-	IDBasicComplaints	int NOT NULL AUTO_INCREMENT,
+    IDBasicComplaints	int NOT NULL AUTO_INCREMENT,
     Statement			nvarchar(500),
     HistoryOfPrevoius	nvarchar(500),
     PhysicianTreated	nvarchar(500),
@@ -138,7 +138,7 @@ CREATE TABLE BasicComplaints (
 );
 
 CREATE TABLE MedicalComplaints (
-	IDMedicalComplaints			int NOT NULL AUTO_INCREMENT,
+    IDMedicalComplaints			int NOT NULL AUTO_INCREMENT,
     Diabetic					nvarchar(200),
     Hypertensive				nvarchar(200),
     CardicConcition				nvarchar(200),
