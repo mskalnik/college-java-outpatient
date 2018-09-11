@@ -5,18 +5,24 @@
  */
 package com.mskalnik.gui;
 
+import java.awt.CardLayout;
+import java.awt.Container;
+import javax.swing.JPanel;
+
 /**
  *
  * @author mskalnik
  */
-public class Main extends javax.swing.JPanel {
+public class Main extends javax.swing.JFrame {
+    
+    private JPanel current = null;
 
     /**
-     * Creates new form Main
+     * Creates new form MainForm
      */
     public Main() {
         initComponents();
-        
+        current = panelMiniForm1;
     }
 
     /**
@@ -28,112 +34,149 @@ public class Main extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainTabbedPanel = new javax.swing.JTabbedPane();
-        receptionPanel = new javax.swing.JPanel();
-        lblRegistration = new javax.swing.JLabel();
-        lblAppointements = new javax.swing.JLabel();
-        lblBill = new javax.swing.JLabel();
-        btnMiniForm = new javax.swing.JButton();
-        btnAppointment = new javax.swing.JButton();
-        btnBill = new javax.swing.JButton();
-        btnComprehensiveForm = new javax.swing.JButton();
-        physicianPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        doctorPanel = new javax.swing.JPanel();
-        managementPanel = new javax.swing.JPanel();
+        panelMiniForm1 = new com.mskalnik.gui.PanelMiniForm();
+        comprehensiveFormPanel1 = new com.mskalnik.gui.ComprehensiveFormPanel();
+        mainMenuBar = new javax.swing.JMenuBar();
+        menuReception = new javax.swing.JMenu();
+        menuRegistration = new javax.swing.JMenu();
+        miMiniForm = new javax.swing.JMenuItem();
+        miComprehensive = new javax.swing.JMenuItem();
+        miAppointements = new javax.swing.JMenuItem();
+        miBill = new javax.swing.JMenuItem();
+        menuPhysician = new javax.swing.JMenu();
+        menuDoctor = new javax.swing.JMenu();
+        menuManagement = new javax.swing.JMenu();
+        miDaily = new javax.swing.JMenuItem();
+        miWeekly = new javax.swing.JMenuItem();
+        miMonthly = new javax.swing.JMenuItem();
 
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Out Patient Management");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(0, 0));
+        getContentPane().setLayout(new java.awt.CardLayout());
+        getContentPane().add(panelMiniForm1, "card2");
+        getContentPane().add(comprehensiveFormPanel1, "card3");
 
-        receptionPanel.setLayout(new java.awt.GridLayout(3, 3));
+        menuReception.setText("Reception");
 
-        lblRegistration.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        lblRegistration.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRegistration.setText("Registration form:");
-        lblRegistration.setToolTipText("");
-        receptionPanel.add(lblRegistration);
+        menuRegistration.setText("Registration");
 
-        lblAppointements.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        lblAppointements.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAppointements.setText("Appointements:");
-        receptionPanel.add(lblAppointements);
-
-        lblBill.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        lblBill.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBill.setText("Bill:");
-        receptionPanel.add(lblBill);
-
-        btnMiniForm.setText("Mini form");
-        receptionPanel.add(btnMiniForm);
-
-        btnAppointment.setText("Make appointment");
-        receptionPanel.add(btnAppointment);
-
-        btnBill.setText("New bill");
-        receptionPanel.add(btnBill);
-
-        btnComprehensiveForm.setText("Comprehensive form");
-        receptionPanel.add(btnComprehensiveForm);
-
-        mainTabbedPanel.addTab("Reception", receptionPanel);
-
-        physicianPanel.setLayout(new javax.swing.BoxLayout(physicianPanel, javax.swing.BoxLayout.LINE_AXIS));
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        miMiniForm.setText("Mini form");
+        miMiniForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miMiniFormActionPerformed(evt);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
+        menuRegistration.add(miMiniForm);
 
-        physicianPanel.add(jScrollPane1);
+        miComprehensive.setText("Comprehensive form");
+        miComprehensive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miComprehensiveActionPerformed(evt);
+            }
+        });
+        menuRegistration.add(miComprehensive);
 
-        mainTabbedPanel.addTab("Physician", physicianPanel);
+        menuReception.add(menuRegistration);
 
-        javax.swing.GroupLayout doctorPanelLayout = new javax.swing.GroupLayout(doctorPanel);
-        doctorPanel.setLayout(doctorPanelLayout);
-        doctorPanelLayout.setHorizontalGroup(
-            doctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 608, Short.MAX_VALUE)
-        );
-        doctorPanelLayout.setVerticalGroup(
-            doctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 147, Short.MAX_VALUE)
-        );
+        miAppointements.setText("Appointements");
+        menuReception.add(miAppointements);
 
-        mainTabbedPanel.addTab("Doctor", doctorPanel);
+        miBill.setText("Bill");
+        menuReception.add(miBill);
 
-        javax.swing.GroupLayout managementPanelLayout = new javax.swing.GroupLayout(managementPanel);
-        managementPanel.setLayout(managementPanelLayout);
-        managementPanelLayout.setHorizontalGroup(
-            managementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 608, Short.MAX_VALUE)
-        );
-        managementPanelLayout.setVerticalGroup(
-            managementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 147, Short.MAX_VALUE)
-        );
+        mainMenuBar.add(menuReception);
 
-        mainTabbedPanel.addTab("Management", managementPanel);
+        menuPhysician.setText("Physician");
+        mainMenuBar.add(menuPhysician);
 
-        add(mainTabbedPanel);
+        menuDoctor.setText("Doctor");
+        mainMenuBar.add(menuDoctor);
+
+        menuManagement.setText("Management");
+
+        miDaily.setText("Daily report");
+        menuManagement.add(miDaily);
+
+        miWeekly.setText("Weekly report");
+        menuManagement.add(miWeekly);
+
+        miMonthly.setText("Monthly report");
+        menuManagement.add(miMonthly);
+
+        mainMenuBar.add(menuManagement);
+
+        setJMenuBar(mainMenuBar);
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void miMiniFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miMiniFormActionPerformed
+        // TODO add your handling code here:
+        current.setVisible(false);
+        panelMiniForm1.setVisible(true);
+        current = panelMiniForm1;  
+    }//GEN-LAST:event_miMiniFormActionPerformed
+
+    private void miComprehensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miComprehensiveActionPerformed
+        // TODO add your handling code here:
+        current.setVisible(false);
+        comprehensiveFormPanel1.setVisible(true);
+        current = comprehensiveFormPanel1;        
+    }//GEN-LAST:event_miComprehensiveActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void start() {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Main().setVisible(true);                
+            }
+        });
+    }      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAppointment;
-    private javax.swing.JButton btnBill;
-    private javax.swing.JButton btnComprehensiveForm;
-    private javax.swing.JButton btnMiniForm;
-    private javax.swing.JPanel doctorPanel;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAppointements;
-    private javax.swing.JLabel lblBill;
-    private javax.swing.JLabel lblRegistration;
-    private javax.swing.JTabbedPane mainTabbedPanel;
-    private javax.swing.JPanel managementPanel;
-    private javax.swing.JPanel physicianPanel;
-    private javax.swing.JPanel receptionPanel;
+    private com.mskalnik.gui.ComprehensiveFormPanel comprehensiveFormPanel1;
+    private javax.swing.JMenuBar mainMenuBar;
+    private javax.swing.JMenu menuDoctor;
+    private javax.swing.JMenu menuManagement;
+    private javax.swing.JMenu menuPhysician;
+    private javax.swing.JMenu menuReception;
+    private javax.swing.JMenu menuRegistration;
+    private javax.swing.JMenuItem miAppointements;
+    private javax.swing.JMenuItem miBill;
+    private javax.swing.JMenuItem miComprehensive;
+    private javax.swing.JMenuItem miDaily;
+    private javax.swing.JMenuItem miMiniForm;
+    private javax.swing.JMenuItem miMonthly;
+    private javax.swing.JMenuItem miWeekly;
+    private com.mskalnik.gui.PanelMiniForm panelMiniForm1;
     // End of variables declaration//GEN-END:variables
 }
