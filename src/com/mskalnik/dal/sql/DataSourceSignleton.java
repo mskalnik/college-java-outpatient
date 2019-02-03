@@ -5,7 +5,7 @@
  */
 package com.mskalnik.dal.sql;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import javax.sql.DataSource;
 
 /**
@@ -13,24 +13,23 @@ import javax.sql.DataSource;
  * @author mskalnik
  */
 public class DataSourceSignleton {
-    private static final String SERVER_NAME = "localhost";
+    private static final String SERVER_NAME = ".\\SQLSERVER";
     private static final String DATABASE_NAME = "OutPatientManagement";
-    private static final String USER = "root";
-    private static final String PASSWORD = "stotebriga";    
+    private static final String USER = "sa";
+    private static final String PASSWORD = "SQL";    
 
     public DataSourceSignleton() {}
     
     private static DataSource instance;
     
     public static DataSource getInstance() {
-        if (instance == null) {
+        if (instance == null)
             instance = createInstance();
-        }
         return instance;
     }
     
     private static DataSource createInstance() {
-        MysqlDataSource dataSource = new MysqlDataSource();
+        SQLServerDataSource dataSource = new SQLServerDataSource();
         dataSource.setServerName(SERVER_NAME);
         dataSource.setDatabaseName(DATABASE_NAME);
         dataSource.setUser(USER);

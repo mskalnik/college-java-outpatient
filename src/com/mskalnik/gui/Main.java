@@ -5,8 +5,7 @@
  */
 package com.mskalnik.gui;
 
-import java.awt.CardLayout;
-import java.awt.Container;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -21,6 +20,11 @@ public class Main extends javax.swing.JFrame {
      * Creates new form MainForm
      */
     public Main() {
+        try {
+            setIconImage(new ImageIcon("logo.png").getImage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         initComponents();
         current = panelMiniForm1;
     }
@@ -114,16 +118,12 @@ public class Main extends javax.swing.JFrame {
 
     private void miMiniFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miMiniFormActionPerformed
         // TODO add your handling code here:
-        current.setVisible(false);
-        panelMiniForm1.setVisible(true);
-        current = panelMiniForm1;  
+        changeToPanel(panelMiniForm1);  
     }//GEN-LAST:event_miMiniFormActionPerformed
 
     private void miComprehensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miComprehensiveActionPerformed
         // TODO add your handling code here:
-        current.setVisible(false);
-        comprehensiveFormPanel1.setVisible(true);
-        current = comprehensiveFormPanel1;        
+        changeToPanel(comprehensiveFormPanel1);  
     }//GEN-LAST:event_miComprehensiveActionPerformed
 
     /**
@@ -156,12 +156,12 @@ public class Main extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Main().setVisible(true);                
+            public void run() {                               
+                new Main().setVisible(true);
             }
         });
-    }      
-
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.mskalnik.gui.ComprehensiveFormPanel comprehensiveFormPanel1;
     private javax.swing.JMenuBar mainMenuBar;
@@ -179,4 +179,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem miWeekly;
     private com.mskalnik.gui.PanelMiniForm panelMiniForm1;
     // End of variables declaration//GEN-END:variables
+
+    private void changeToPanel(JPanel panel) {
+        current.setVisible(false);
+        panel.setVisible(true);
+        current = panel;
+    }
 }

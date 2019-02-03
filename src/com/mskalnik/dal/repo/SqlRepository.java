@@ -8,8 +8,8 @@ package com.mskalnik.dal.repo;
 import com.mskalnik.dal.sql.DataSourceSignleton;
 import com.mskalnik.model.Doctor;
 import com.mskalnik.model.Patient;
-import com.mysql.jdbc.Connection;
 import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.util.List;
 import javax.sql.DataSource;
 
