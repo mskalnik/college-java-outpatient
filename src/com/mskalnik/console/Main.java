@@ -5,7 +5,7 @@
  */
 package com.mskalnik.console;
 
-import com.mskalnik.bl.DoctorHandler;
+import com.mskalnik.bl.DoctorsHandler;
 import com.mskalnik.model.Doctor;
 
 /**

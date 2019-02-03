@@ -13,11 +13,6 @@ import java.util.Objects;
  */
 public class Doctor extends Person {
     private String title;
-    
-    public Doctor(String title, String firstName, String surname) {
-        super(firstName, surname);
-        this.title = title;
-    }
 
     public Doctor(String title, String firstName, String middleName, String surname) {
         super(firstName, middleName, surname);

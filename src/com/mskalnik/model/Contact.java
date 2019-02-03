@@ -18,18 +18,11 @@ public class Contact {
     private String pager;
     private String fax;
 
-    public Contact() {}
-
-    public Contact(Address presentAddress, Address permanentAddress, String telephoneWork, String telephoneHome, String mobile, String pager, String fax) {
-        this.presentAddress = presentAddress;
-        this.permanentAddress = permanentAddress;
+    public Contact(String telephoneWork, String telephoneHome) {
         this.telephoneWork = telephoneWork;
         this.telephoneHome = telephoneHome;
-        this.mobile = mobile;
-        this.pager = pager;
-        this.fax = fax;
     }
-
+    
     public Address getPresentAddress() {
         return presentAddress;
     }

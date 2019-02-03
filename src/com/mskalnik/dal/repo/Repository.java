@@ -14,6 +14,10 @@ import java.util.List;
  * @author mskalnik
  */
 public interface Repository {
+    //Patient actions
+    void insertPatientMiniForm(Patient patient);
+    void insertPatientComprahensiveForm(int id, Patient patient);
+    
     int insertDoctor(Doctor doctor);
     void updateDoctor(Doctor dummy, int idDoctor);
     void deleteDoctor(int idDoctor);

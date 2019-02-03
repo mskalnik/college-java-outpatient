@@ -5,7 +5,12 @@
  */
 package com.mskalnik.gui;
 
-import java.util.ArrayList;
+import com.mskalnik.bl.PatientsHandler;
+import com.mskalnik.model.Contact;
+import com.mskalnik.model.NextOfKin;
+import com.mskalnik.model.Patient;
+import java.time.LocalDate;
+import java.util.Date;
 
 /**
  *
@@ -13,6 +18,8 @@ import java.util.ArrayList;
  */
 public class PanelMiniForm extends javax.swing.JPanel {
 
+    private static final PatientsHandler PATIENTS_HANDLER = new PatientsHandler();
+    
     /**
      * Creates new form panelMiniForm
      */
@@ -176,6 +183,11 @@ public class PanelMiniForm extends javax.swing.JPanel {
         txtKinRelationship.setBounds(130, 510, 550, 29);
 
         btnConfirm.setText("Confirm");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
         panelMiniForm.add(btnConfirm);
         btnConfirm.setBounds(130, 540, 550, 32);
 
@@ -218,6 +230,14 @@ public class PanelMiniForm extends javax.swing.JPanel {
     private void cbYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbYearActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbYearActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        // TODO add your handling code here:
+        NextOfKin nok = new NextOfKin(txtKinFirstName.getText(), txtKinMiddleName.getText(), txtKinLastName.getText(), txtKinRelationship.getText());
+        Contact contact = new Contact(txtTelephone.getText(), txtTelephone2.getText());
+        Patient p = new Patient(txtPatientFirstName.getText(), txtPatientMiddleName.getText(), txtPatientLastName.getText(), new Date(1994, 4, 27), nok, taComplaint.getText(), contact);   
+        PATIENTS_HANDLER.insertPatientMiniForm(p);
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

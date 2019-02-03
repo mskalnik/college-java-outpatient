@@ -16,17 +16,6 @@ public class PersonalDetails {
     private double weight;
     private BloodType bloodType;
 
-    public PersonalDetails() {
-    }
-
-    public PersonalDetails(Martial martialStatus, int noOfDependents, double height, double weight, BloodType bloodType) {
-        this.martialStatus = martialStatus;
-        this.noOfDependents = noOfDependents;
-        this.height = height;
-        this.weight = weight;
-        this.bloodType = bloodType;
-    }
-
     public Martial getMartialStatus() {
         return martialStatus;
     }

@@ -12,12 +12,6 @@ package com.mskalnik.model;
 public class Martial {
     private String martialStatus;
 
-    public Martial() {}  
-
-    public Martial(String martialStatus) {
-        this.martialStatus = martialStatus;
-    }
-
     public String getMartialStatus() {
         return martialStatus;
     }

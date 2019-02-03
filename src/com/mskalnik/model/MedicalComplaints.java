@@ -22,22 +22,6 @@ public class MedicalComplaints {
     private String knownAdverseReactionToDrugs;
     private String majorSurgeries;
 
-    public MedicalComplaints() {}
-
-    public MedicalComplaints(String diabetic, String hypertensive, String cardicCondition, String respiratoryCondition, String diagestiveCondition, String orthopedicCondition, String muscularCondition, String neurologicalCondition, String knownAllergies, String knownAdverseReactionToDrugs, String majorSurgeries) {
-        this.diabetic = diabetic;
-        this.hypertensive = hypertensive;
-        this.cardicCondition = cardicCondition;
-        this.respiratoryCondition = respiratoryCondition;
-        this.diagestiveCondition = diagestiveCondition;
-        this.orthopedicCondition = orthopedicCondition;
-        this.muscularCondition = muscularCondition;
-        this.neurologicalCondition = neurologicalCondition;
-        this.knownAllergies = knownAllergies;
-        this.knownAdverseReactionToDrugs = knownAdverseReactionToDrugs;
-        this.majorSurgeries = majorSurgeries;
-    }
-
     public String getDiabetic() {
         return diabetic;
     }

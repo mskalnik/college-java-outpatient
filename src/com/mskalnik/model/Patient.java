@@ -15,6 +15,7 @@ public class Patient extends Person {
     private int opid;
     private Date dateOfBirth;
     private char sex;
+    private NextOfKin nextOfKin;
     private String Complaint;
     private Contact contact;
     private PersonalDetails personalDetails;
@@ -23,40 +24,16 @@ public class Patient extends Person {
     private BasicComplaints basicComplaints;
     private MedicalComplaints medicalComplaints;
 
-    public Patient(String firstName, String surname) {
-        super(firstName, surname);
+    public Patient(String firstName, String middleName, String surname, Date dateOfBirth, NextOfKin nextOfKin, String Complaint, Contact contact) {
+        super(firstName, middleName, surname);
+        this.dateOfBirth = dateOfBirth;
+        this.nextOfKin = nextOfKin;
+        this.Complaint = Complaint;
+        this.contact = contact;
     }
-
+    
     public Patient(String firstName, String middleName, String surname) {
         super(firstName, middleName, surname);
-    }
-
-    public Patient(int opid, Date dateOfBirth, char sex, String Complaint, Contact contact, PersonalDetails personalDetails, ProffesionDetails proffesionDetails, Lifestyle lifestyle, BasicComplaints basicComplaints, MedicalComplaints medicalComplaints, String firstName, String surname) {
-        super(firstName, surname);
-        this.opid = opid;
-        this.dateOfBirth = dateOfBirth;
-        this.sex = sex;
-        this.Complaint = Complaint;
-        this.contact = contact;
-        this.personalDetails = personalDetails;
-        this.proffesionDetails = proffesionDetails;
-        this.lifestyle = lifestyle;
-        this.basicComplaints = basicComplaints;
-        this.medicalComplaints = medicalComplaints;
-    }
-
-    public Patient(int opid, Date dateOfBirth, char sex, String Complaint, Contact contact, PersonalDetails personalDetails, ProffesionDetails proffesionDetails, Lifestyle lifestyle, BasicComplaints basicComplaints, MedicalComplaints medicalComplaints, String firstName, String middleName, String surname) {
-        super(firstName, middleName, surname);
-        this.opid = opid;
-        this.dateOfBirth = dateOfBirth;
-        this.sex = sex;
-        this.Complaint = Complaint;
-        this.contact = contact;
-        this.personalDetails = personalDetails;
-        this.proffesionDetails = proffesionDetails;
-        this.lifestyle = lifestyle;
-        this.basicComplaints = basicComplaints;
-        this.medicalComplaints = medicalComplaints;
     }
 
     public int getOpid() {
@@ -139,6 +116,14 @@ public class Patient extends Person {
         this.medicalComplaints = medicalComplaints;
     }
 
+    public NextOfKin getNextOfKin() {
+        return nextOfKin;
+    }
+
+    public void setNextOfKin(NextOfKin nextOfKin) {
+        this.nextOfKin = nextOfKin;
+    }  
+    
     @Override
     public String toString() {
         return "Patient{" + "opid=" + opid + ", dateOfBirth=" + dateOfBirth + ", sex=" + sex + ", Complaint=" + Complaint + ", contact=" + contact + ", personalDetails=" + personalDetails + ", proffesionDetails=" + proffesionDetails + ", lifestyle=" + lifestyle + ", basicComplaints=" + basicComplaints + ", medicalComplaints=" + medicalComplaints + '}';

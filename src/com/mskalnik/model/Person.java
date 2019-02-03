@@ -15,11 +15,6 @@ public class Person {
     private String middleName;
     private String surname;
 
-    public Person(String firstName, String surname) {
-        this.firstName = firstName;
-        this.surname = surname;
-    }
-
     public Person(String firstName, String middleName, String surname) {
         this.firstName = firstName;
         this.middleName = middleName;

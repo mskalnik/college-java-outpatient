@@ -21,21 +21,6 @@ public class Lifestyle {
     private Boolean regularMeals;
     private Boolean eatHomeFood;
 
-    public Lifestyle() {}
-
-    public Lifestyle(Boolean vegeterian, Boolean smoker, int averageCigarettes, Boolean alcohol, int averageDrinks, String stimulans, int coffeTeaDay, int softDrinksDay, Boolean regularMeals, Boolean eatHomeFood) {
-        this.vegeterian = vegeterian;
-        this.smoker = smoker;
-        this.averageCigarettes = averageCigarettes;
-        this.alcohol = alcohol;
-        this.averageDrinks = averageDrinks;
-        this.stimulans = stimulans;
-        this.coffeTeaDay = coffeTeaDay;
-        this.softDrinksDay = softDrinksDay;
-        this.regularMeals = regularMeals;
-        this.eatHomeFood = eatHomeFood;
-    }
-
     public Boolean getVegeterian() {
         return vegeterian;
     }

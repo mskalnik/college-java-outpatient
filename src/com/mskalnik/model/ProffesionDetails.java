@@ -13,13 +13,6 @@ public class ProffesionDetails {
     private String occupation;
     private int grossAnnualIncome;
 
-    public ProffesionDetails() {}
-
-    public ProffesionDetails(String occupation, int grossAnnualIncome) {
-        this.occupation = occupation;
-        this.grossAnnualIncome = grossAnnualIncome;
-    }
-
     public String getOccupation() {
         return occupation;
     }

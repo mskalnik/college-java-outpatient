@@ -10,13 +10,7 @@ package com.mskalnik.model;
  * @author mskalnik
  */
 public class BloodType {
-    private String type;
-
-    public BloodType() {}
-    
-    public BloodType(String type) {
-        this.type = type;
-    }
+    private String type;    
 
     public String getType() {
         return type;

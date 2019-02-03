@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author mskalnik
  */
-public class DoctorHandler extends HandlerBase {
+public class DoctorsHandler extends HandlerBase {
     
     public int insertDoctor(Doctor doctor) {
         return repository.insertDoctor(doctor);        

@@ -14,15 +14,6 @@ public class BasicComplaints {
     private String historyOfPrevious;
     private String physicianTreated;
 
-    public BasicComplaints() {
-    }
-
-    public BasicComplaints(String statement, String historyOfPrevious, String physicianTreated) {
-        this.statement = statement;
-        this.historyOfPrevious = historyOfPrevious;
-        this.physicianTreated = physicianTreated;
-    }
-
     public String getStatement() {
         return statement;
     }

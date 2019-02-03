@@ -17,17 +17,6 @@ public class Address {
     private String state;
     private String pincode;
 
-    public Address() {}  
-    
-    public Address(String door, String street, String area, String city, String state, String pincode) {
-        this.door = door;
-        this.street = street;
-        this.area = area;
-        this.city = city;
-        this.state = state;
-        this.pincode = pincode;
-    }
-
     public String getDoor() {
         return door;
     }

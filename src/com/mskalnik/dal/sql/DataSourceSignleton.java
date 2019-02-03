@@ -13,7 +13,7 @@ import javax.sql.DataSource;
  * @author mskalnik
  */
 public class DataSourceSignleton {
-    private static final String SERVER_NAME = ".\\SQLSERVER";
+    private static final String SERVER_NAME = "localhost.\\SQLExpress";
     private static final String DATABASE_NAME = "OutPatientManagement";
     private static final String USER = "sa";
     private static final String PASSWORD = "SQL";    
