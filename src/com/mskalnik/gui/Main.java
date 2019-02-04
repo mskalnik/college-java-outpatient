@@ -7,6 +7,7 @@ package com.mskalnik.gui;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 /**
  *
@@ -22,6 +23,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         try {
             setIconImage(new ImageIcon("logo.png").getImage());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }
