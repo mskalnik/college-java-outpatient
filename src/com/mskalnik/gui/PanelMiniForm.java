@@ -11,6 +11,8 @@ import com.mskalnik.model.NextOfKin;
 import com.mskalnik.model.Patient;
 import java.time.LocalDate;
 import java.util.Date;
+import javafx.scene.control.Alert;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -233,10 +235,18 @@ public class PanelMiniForm extends javax.swing.JPanel {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
+        String firstName = txtPatientFirstName.getText();
+        String lastName = txtPatientLastName.getText();
         NextOfKin nok = new NextOfKin(txtKinFirstName.getText(), txtKinMiddleName.getText(), txtKinLastName.getText(), txtKinRelationship.getText());
         Contact contact = new Contact(txtTelephone.getText(), txtTelephone2.getText());
-        Patient p = new Patient(txtPatientFirstName.getText(), txtPatientMiddleName.getText(), txtPatientLastName.getText(), new Date(1994, 4, 27), nok, taComplaint.getText(), contact);   
-        PATIENTS_HANDLER.insertPatientMiniForm(p);
+        Patient p = new Patient(firstName, txtPatientMiddleName.getText(), lastName, new Date(1994, 4, 27), nok, taComplaint.getText(), contact);   
+        try {
+            PATIENTS_HANDLER.insertPatientMiniForm(p);            
+            JOptionPane.showMessageDialog(null, "User " + firstName + " " + lastName + " added!\n");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "WARNING: User " + firstName + " " + lastName + " not added!\n" + e.getMessage());
+        }
+        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
 
