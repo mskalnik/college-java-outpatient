@@ -27,6 +27,7 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         basicPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -35,56 +36,763 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         txtLastName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtLastName1 = new javax.swing.JTextField();
+        txtLastName2 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         contactPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
+        jTextField15 = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
+        jTextField17 = new javax.swing.JTextField();
+        jTextField18 = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
         kinPanel = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jTextField19 = new javax.swing.JTextField();
+        jTextField20 = new javax.swing.JTextField();
+        jTextField21 = new javax.swing.JTextField();
+        jTextField22 = new javax.swing.JTextField();
+        jTextField23 = new javax.swing.JTextField();
+        jTextField24 = new javax.swing.JTextField();
+        jTextField25 = new javax.swing.JTextField();
+        jTextField26 = new javax.swing.JTextField();
+        jTextField27 = new javax.swing.JTextField();
+        jTextField28 = new javax.swing.JTextField();
+        jTextField29 = new javax.swing.JTextField();
+        jTextField30 = new javax.swing.JTextField();
+        jTextField31 = new javax.swing.JTextField();
+        jTextField32 = new javax.swing.JTextField();
+        jTextField33 = new javax.swing.JTextField();
+        jTextField34 = new javax.swing.JTextField();
         personalPanel = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jTextField35 = new javax.swing.JTextField();
+        jTextField36 = new javax.swing.JTextField();
+        jTextField37 = new javax.swing.JTextField();
+        jTextField38 = new javax.swing.JTextField();
+        jTextField39 = new javax.swing.JTextField();
+        jTextField40 = new javax.swing.JTextField();
         professionPanel = new javax.swing.JPanel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jTextField41 = new javax.swing.JTextField();
+        jTextField42 = new javax.swing.JTextField();
         lifestylePanel = new javax.swing.JPanel();
+        jLabel50 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel52 = new javax.swing.JLabel();
+        jTextField43 = new javax.swing.JTextField();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jTextField44 = new javax.swing.JTextField();
+        jTextField45 = new javax.swing.JTextField();
+        jTextField46 = new javax.swing.JTextField();
+        jTextField47 = new javax.swing.JTextField();
+        jTextField48 = new javax.swing.JTextField();
         basicComplaintsPanel = new javax.swing.JPanel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         medicalComplaintsPanel = new javax.swing.JPanel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jTextField49 = new javax.swing.JTextField();
+        jTextField51 = new javax.swing.JTextField();
+        jTextField52 = new javax.swing.JTextField();
+        jTextField53 = new javax.swing.JTextField();
+        jTextField54 = new javax.swing.JTextField();
+        jTextField55 = new javax.swing.JTextField();
+        jTextField56 = new javax.swing.JTextField();
+        jTextField57 = new javax.swing.JTextField();
+        jTextField58 = new javax.swing.JTextField();
+        jTextField59 = new javax.swing.JTextField();
+        jCheckBox3 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
+
+        jMenuItem1.setText("jMenuItem1");
 
         basicPanel.setLayout(null);
 
         jLabel2.setText("First name:");
         basicPanel.add(jLabel2);
-        jLabel2.setBounds(10, 10, 76, 17);
+        jLabel2.setBounds(10, 10, 63, 16);
         basicPanel.add(txtFirstName);
-        txtFirstName.setBounds(120, 10, 560, 27);
+        txtFirstName.setBounds(120, 10, 250, 24);
         basicPanel.add(txtMiddleName);
-        txtMiddleName.setBounds(120, 40, 560, 27);
+        txtMiddleName.setBounds(120, 40, 250, 24);
         basicPanel.add(txtLastName);
-        txtLastName.setBounds(120, 70, 560, 27);
+        txtLastName.setBounds(120, 130, 250, 24);
 
         jLabel3.setText("Middle name:");
         basicPanel.add(jLabel3);
-        jLabel3.setBounds(10, 40, 93, 17);
+        jLabel3.setBounds(10, 40, 75, 16);
 
-        jLabel4.setText("Last name:");
+        jLabel4.setText("Date of Birth:");
         basicPanel.add(jLabel4);
-        jLabel4.setBounds(10, 70, 80, 17);
+        jLabel4.setBounds(10, 130, 80, 16);
+
+        jLabel5.setText("Last name:");
+        basicPanel.add(jLabel5);
+        jLabel5.setBounds(10, 70, 80, 16);
+        basicPanel.add(txtLastName1);
+        txtLastName1.setBounds(120, 70, 250, 24);
+        basicPanel.add(txtLastName2);
+        txtLastName2.setBounds(120, 100, 250, 24);
+
+        jLabel6.setText("Sex:");
+        basicPanel.add(jLabel6);
+        jLabel6.setBounds(10, 100, 80, 16);
 
         jTabbedPane1.addTab("Basic", basicPanel);
 
         contactPanel.setLayout(null);
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setText("Present Address");
+        contactPanel.add(jLabel7);
+        jLabel7.setBounds(10, 10, 130, 19);
+
+        jLabel8.setText("Pincode:");
+        contactPanel.add(jLabel8);
+        jLabel8.setBounds(10, 180, 80, 30);
+
+        jLabel9.setText("Door No:");
+        contactPanel.add(jLabel9);
+        jLabel9.setBounds(10, 30, 80, 30);
+
+        jLabel10.setText("Street:");
+        contactPanel.add(jLabel10);
+        jLabel10.setBounds(10, 50, 80, 40);
+
+        jLabel11.setText("Area:");
+        contactPanel.add(jLabel11);
+        jLabel11.setBounds(10, 80, 80, 40);
+
+        jLabel12.setText("City:");
+        contactPanel.add(jLabel12);
+        jLabel12.setBounds(10, 110, 80, 40);
+
+        jLabel13.setText("State:");
+        contactPanel.add(jLabel13);
+        jLabel13.setBounds(10, 150, 80, 30);
+
+        jTextField1.setText("jTextField1");
+        contactPanel.add(jTextField1);
+        jTextField1.setBounds(130, 180, 250, 24);
+
+        jTextField2.setText("jTextField1");
+        jTextField2.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(jTextField2);
+        jTextField2.setBounds(130, 390, 250, 24);
+
+        jTextField3.setText("jTextField1");
+        contactPanel.add(jTextField3);
+        jTextField3.setBounds(130, 60, 250, 24);
+
+        jTextField4.setText("jTextField1");
+        contactPanel.add(jTextField4);
+        jTextField4.setBounds(130, 90, 250, 24);
+
+        jTextField5.setText("jTextField1");
+        contactPanel.add(jTextField5);
+        jTextField5.setBounds(130, 120, 250, 24);
+
+        jTextField6.setText("jTextField1");
+        contactPanel.add(jTextField6);
+        jTextField6.setBounds(130, 150, 250, 24);
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setText("Permanent Address");
+        contactPanel.add(jLabel14);
+        jLabel14.setBounds(420, 10, 140, 19);
+
+        jTextField7.setText("jTextField1");
+        jTextField7.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(jTextField7);
+        jTextField7.setBounds(540, 30, 250, 24);
+
+        jTextField8.setText("jTextField1");
+        contactPanel.add(jTextField8);
+        jTextField8.setBounds(540, 60, 250, 24);
+
+        jTextField9.setText("jTextField1");
+        contactPanel.add(jTextField9);
+        jTextField9.setBounds(540, 90, 250, 24);
+
+        jTextField10.setText("jTextField1");
+        contactPanel.add(jTextField10);
+        jTextField10.setBounds(540, 120, 250, 24);
+
+        jTextField11.setText("jTextField1");
+        contactPanel.add(jTextField11);
+        jTextField11.setBounds(540, 150, 250, 24);
+
+        jTextField12.setText("jTextField1");
+        contactPanel.add(jTextField12);
+        jTextField12.setBounds(540, 180, 250, 24);
+
+        jLabel15.setText("Door No:");
+        contactPanel.add(jLabel15);
+        jLabel15.setBounds(420, 30, 80, 30);
+
+        jLabel16.setText("Street:");
+        contactPanel.add(jLabel16);
+        jLabel16.setBounds(420, 50, 80, 40);
+
+        jLabel17.setText("Area:");
+        contactPanel.add(jLabel17);
+        jLabel17.setBounds(420, 80, 80, 40);
+
+        jLabel18.setText("City:");
+        contactPanel.add(jLabel18);
+        jLabel18.setBounds(420, 110, 80, 40);
+
+        jLabel19.setText("State:");
+        contactPanel.add(jLabel19);
+        jLabel19.setBounds(420, 150, 80, 30);
+
+        jLabel20.setText("Pincode:");
+        contactPanel.add(jLabel20);
+        jLabel20.setBounds(420, 180, 80, 30);
+
+        jLabel21.setText("Email:");
+        contactPanel.add(jLabel21);
+        jLabel21.setBounds(10, 390, 110, 20);
+
+        jLabel22.setText("Telephone (Work):");
+        contactPanel.add(jLabel22);
+        jLabel22.setBounds(10, 240, 110, 16);
+
+        jLabel23.setText("Telephone (Home):");
+        contactPanel.add(jLabel23);
+        jLabel23.setBounds(10, 260, 110, 40);
+
+        jLabel24.setText("Mobile:");
+        contactPanel.add(jLabel24);
+        jLabel24.setBounds(10, 300, 110, 30);
+
+        jLabel25.setText("Pager:");
+        contactPanel.add(jLabel25);
+        jLabel25.setBounds(10, 330, 110, 30);
+
+        jLabel26.setText("Fax:");
+        contactPanel.add(jLabel26);
+        jLabel26.setBounds(10, 360, 110, 30);
+
+        jTextField13.setText("jTextField1");
+        jTextField13.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(jTextField13);
+        jTextField13.setBounds(130, 30, 250, 24);
+
+        jTextField14.setText("jTextField1");
+        jTextField14.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(jTextField14);
+        jTextField14.setBounds(130, 240, 250, 24);
+
+        jTextField15.setText("jTextField1");
+        jTextField15.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(jTextField15);
+        jTextField15.setBounds(130, 270, 250, 24);
+
+        jTextField16.setText("jTextField1");
+        jTextField16.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(jTextField16);
+        jTextField16.setBounds(130, 300, 250, 24);
+
+        jTextField17.setText("jTextField1");
+        jTextField17.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(jTextField17);
+        jTextField17.setBounds(130, 330, 250, 24);
+
+        jTextField18.setText("jTextField1");
+        jTextField18.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(jTextField18);
+        jTextField18.setBounds(130, 360, 250, 24);
+        contactPanel.add(jSeparator1);
+        jSeparator1.setBounds(-10, 220, 850, 10);
+
         jTabbedPane1.addTab("Contact", contactPanel);
 
         kinPanel.setLayout(null);
+
+        jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel27.setText("Address");
+        kinPanel.add(jLabel27);
+        jLabel27.setBounds(410, 10, 60, 19);
+
+        jLabel28.setText("First name:");
+        kinPanel.add(jLabel28);
+        jLabel28.setBounds(20, 40, 70, 16);
+
+        jLabel29.setText("Middle name:");
+        kinPanel.add(jLabel29);
+        jLabel29.setBounds(20, 70, 90, 16);
+
+        jLabel30.setText("Last name:");
+        kinPanel.add(jLabel30);
+        jLabel30.setBounds(20, 100, 70, 16);
+
+        jLabel31.setText("Relationship:");
+        kinPanel.add(jLabel31);
+        jLabel31.setBounds(20, 130, 80, 16);
+
+        jLabel32.setText("PIN Code:");
+        kinPanel.add(jLabel32);
+        jLabel32.setBounds(410, 190, 60, 16);
+
+        jLabel33.setText("Door No:");
+        kinPanel.add(jLabel33);
+        jLabel33.setBounds(410, 40, 48, 16);
+
+        jLabel34.setText("Street:");
+        kinPanel.add(jLabel34);
+        jLabel34.setBounds(410, 70, 38, 16);
+
+        jLabel35.setText("Area:");
+        kinPanel.add(jLabel35);
+        jLabel35.setBounds(410, 100, 48, 16);
+
+        jLabel36.setText("City:");
+        kinPanel.add(jLabel36);
+        jLabel36.setBounds(410, 130, 48, 16);
+
+        jLabel37.setText("State:");
+        kinPanel.add(jLabel37);
+        jLabel37.setBounds(410, 160, 48, 16);
+
+        jLabel38.setText("Email:");
+        kinPanel.add(jLabel38);
+        jLabel38.setBounds(20, 310, 110, 16);
+
+        jLabel39.setText("Telephone (Work):");
+        kinPanel.add(jLabel39);
+        jLabel39.setBounds(20, 160, 110, 16);
+
+        jLabel40.setText("Telephone (Home):");
+        kinPanel.add(jLabel40);
+        jLabel40.setBounds(20, 190, 110, 16);
+
+        jLabel41.setText("Mobile:");
+        kinPanel.add(jLabel41);
+        jLabel41.setBounds(20, 220, 110, 16);
+
+        jLabel42.setText("Pager:");
+        kinPanel.add(jLabel42);
+        jLabel42.setBounds(20, 250, 110, 16);
+
+        jLabel43.setText("Fax:");
+        kinPanel.add(jLabel43);
+        jLabel43.setBounds(20, 280, 110, 16);
+
+        jTextField19.setText("jTextField19");
+        kinPanel.add(jTextField19);
+        jTextField19.setBounds(530, 190, 250, 24);
+
+        jTextField20.setText("jTextField19");
+        kinPanel.add(jTextField20);
+        jTextField20.setBounds(140, 310, 250, 24);
+
+        jTextField21.setText("jTextField19");
+        kinPanel.add(jTextField21);
+        jTextField21.setBounds(530, 70, 250, 24);
+
+        jTextField22.setText("jTextField19");
+        kinPanel.add(jTextField22);
+        jTextField22.setBounds(530, 100, 250, 24);
+
+        jTextField23.setText("jTextField19");
+        kinPanel.add(jTextField23);
+        jTextField23.setBounds(530, 130, 250, 24);
+
+        jTextField24.setText("jTextField19");
+        kinPanel.add(jTextField24);
+        jTextField24.setBounds(530, 160, 250, 24);
+
+        jTextField25.setText("jTextField19");
+        kinPanel.add(jTextField25);
+        jTextField25.setBounds(530, 40, 250, 24);
+
+        jTextField26.setText("jTextField19");
+        kinPanel.add(jTextField26);
+        jTextField26.setBounds(140, 40, 250, 24);
+
+        jTextField27.setText("jTextField19");
+        kinPanel.add(jTextField27);
+        jTextField27.setBounds(140, 70, 250, 24);
+
+        jTextField28.setText("jTextField19");
+        kinPanel.add(jTextField28);
+        jTextField28.setBounds(140, 100, 250, 24);
+
+        jTextField29.setText("jTextField19");
+        kinPanel.add(jTextField29);
+        jTextField29.setBounds(140, 130, 250, 24);
+
+        jTextField30.setText("jTextField19");
+        kinPanel.add(jTextField30);
+        jTextField30.setBounds(140, 160, 250, 24);
+
+        jTextField31.setText("jTextField19");
+        kinPanel.add(jTextField31);
+        jTextField31.setBounds(140, 190, 250, 24);
+
+        jTextField32.setText("jTextField19");
+        kinPanel.add(jTextField32);
+        jTextField32.setBounds(140, 220, 250, 24);
+
+        jTextField33.setText("jTextField19");
+        kinPanel.add(jTextField33);
+        jTextField33.setBounds(140, 250, 250, 24);
+
+        jTextField34.setText("jTextField19");
+        kinPanel.add(jTextField34);
+        jTextField34.setBounds(140, 280, 250, 24);
+
         jTabbedPane1.addTab("Nex-of-Kin", kinPanel);
 
         personalPanel.setLayout(null);
+
+        jLabel44.setText("Martial Status:");
+        personalPanel.add(jLabel44);
+        jLabel44.setBounds(20, 20, 90, 16);
+
+        jLabel45.setText("Blood Type - RH:");
+        personalPanel.add(jLabel45);
+        jLabel45.setBounds(20, 140, 110, 16);
+
+        jLabel46.setText("No. of Dependents:");
+        personalPanel.add(jLabel46);
+        jLabel46.setBounds(20, 50, 110, 16);
+
+        jLabel47.setText("Height:");
+        personalPanel.add(jLabel47);
+        jLabel47.setBounds(20, 80, 110, 16);
+
+        jLabel48.setText("Weight:");
+        personalPanel.add(jLabel48);
+        jLabel48.setBounds(20, 110, 110, 16);
+
+        jTextField35.setText("jTextField35");
+        personalPanel.add(jTextField35);
+        jTextField35.setBounds(160, 140, 250, 24);
+
+        jTextField36.setText("jTextField35");
+        personalPanel.add(jTextField36);
+        jTextField36.setBounds(160, 20, 250, 24);
+
+        jTextField37.setText("jTextField35");
+        personalPanel.add(jTextField37);
+        jTextField37.setBounds(160, 50, 250, 24);
+
+        jTextField38.setText("jTextField35");
+        personalPanel.add(jTextField38);
+        jTextField38.setBounds(160, 80, 250, 24);
+
+        jTextField39.setText("jTextField35");
+        personalPanel.add(jTextField39);
+        jTextField39.setBounds(160, 110, 250, 24);
+
+        jTextField40.setText("jTextField35");
+        personalPanel.add(jTextField40);
+        jTextField40.setBounds(160, 140, 250, 24);
+
         jTabbedPane1.addTab("Personal", personalPanel);
 
         professionPanel.setLayout(null);
+
+        jLabel49.setText("Occupation:");
+        professionPanel.add(jLabel49);
+        jLabel49.setBounds(30, 20, 80, 16);
+
+        jLabel51.setText("Gross Annual Income:");
+        professionPanel.add(jLabel51);
+        jLabel51.setBounds(30, 50, 130, 16);
+
+        jTextField41.setText("jTextField41");
+        professionPanel.add(jTextField41);
+        jTextField41.setBounds(190, 50, 250, 24);
+
+        jTextField42.setText("jTextField41");
+        professionPanel.add(jTextField42);
+        jTextField42.setBounds(190, 20, 250, 24);
+
         jTabbedPane1.addTab("Profession", professionPanel);
 
         lifestylePanel.setLayout(null);
+
+        jLabel50.setText("Vegeterian:");
+        lifestylePanel.add(jLabel50);
+        jLabel50.setBounds(30, 30, 80, 16);
+
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        lifestylePanel.add(jCheckBox1);
+        jCheckBox1.setBounds(230, 240, 49, 24);
+
+        jLabel52.setText("Eat Home Food Predominantly:");
+        lifestylePanel.add(jLabel52);
+        jLabel52.setBounds(30, 240, 190, 16);
+
+        jTextField43.setText("jTextField43");
+        lifestylePanel.add(jTextField43);
+        jTextField43.setBounds(230, 210, 250, 24);
+
+        jLabel53.setText("Average No. of Cigarettes/Day:");
+        lifestylePanel.add(jLabel53);
+        jLabel53.setBounds(30, 60, 180, 16);
+
+        jLabel54.setText("Average No. of Drinks/Day:");
+        lifestylePanel.add(jLabel54);
+        jLabel54.setBounds(30, 90, 180, 16);
+
+        jLabel55.setText("Use Stimulants (Specify):");
+        lifestylePanel.add(jLabel55);
+        jLabel55.setBounds(30, 120, 180, 16);
+
+        jLabel56.setText("Consumption of Coffe-Tea/Day:");
+        lifestylePanel.add(jLabel56);
+        jLabel56.setBounds(30, 150, 180, 16);
+
+        jLabel57.setText("Consumption of Soft Drinks/Day:");
+        lifestylePanel.add(jLabel57);
+        jLabel57.setBounds(30, 180, 190, 16);
+
+        jLabel58.setText("Have Regular Meals:");
+        lifestylePanel.add(jLabel58);
+        jLabel58.setBounds(30, 210, 190, 16);
+
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+        lifestylePanel.add(jCheckBox2);
+        jCheckBox2.setBounds(230, 20, 49, 24);
+
+        jTextField44.setText("jTextField43");
+        lifestylePanel.add(jTextField44);
+        jTextField44.setBounds(230, 60, 250, 24);
+
+        jTextField45.setText("jTextField43");
+        lifestylePanel.add(jTextField45);
+        jTextField45.setBounds(230, 90, 250, 24);
+
+        jTextField46.setText("jTextField43");
+        lifestylePanel.add(jTextField46);
+        jTextField46.setBounds(230, 120, 250, 24);
+
+        jTextField47.setText("jTextField43");
+        lifestylePanel.add(jTextField47);
+        jTextField47.setBounds(230, 150, 250, 24);
+
+        jTextField48.setText("jTextField43");
+        lifestylePanel.add(jTextField48);
+        jTextField48.setBounds(230, 180, 250, 24);
+
         jTabbedPane1.addTab("Lifestyle", lifestylePanel);
 
         basicComplaintsPanel.setLayout(null);
+
+        jLabel59.setText("Physician/Hospital Treated:");
+        basicComplaintsPanel.add(jLabel59);
+        jLabel59.setBounds(20, 230, 180, 16);
+
+        jLabel60.setText("Statement of Complaint:");
+        basicComplaintsPanel.add(jLabel60);
+        jLabel60.setBounds(30, 30, 150, 16);
+
+        jLabel62.setText("HIstory of Previous Treatment:");
+        basicComplaintsPanel.add(jLabel62);
+        jLabel62.setBounds(20, 130, 180, 16);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        basicComplaintsPanel.add(jScrollPane1);
+        jScrollPane1.setBounds(200, 230, 223, 83);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        basicComplaintsPanel.add(jScrollPane2);
+        jScrollPane2.setBounds(200, 30, 223, 83);
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane3.setViewportView(jTextArea3);
+
+        basicComplaintsPanel.add(jScrollPane3);
+        jScrollPane3.setBounds(200, 130, 223, 83);
+
         jTabbedPane1.addTab("Basic Complaints", basicComplaintsPanel);
 
         medicalComplaintsPanel.setLayout(null);
+
+        jLabel61.setText("Major Surgeries (History):");
+        medicalComplaintsPanel.add(jLabel61);
+        jLabel61.setBounds(20, 320, 170, 16);
+
+        jLabel63.setText("Diabetic:");
+        medicalComplaintsPanel.add(jLabel63);
+        jLabel63.setBounds(20, 20, 60, 16);
+
+        jLabel64.setText("Hypertensive:");
+        medicalComplaintsPanel.add(jLabel64);
+        jLabel64.setBounds(20, 50, 100, 16);
+
+        jLabel65.setText("Cardiac Condition:");
+        medicalComplaintsPanel.add(jLabel65);
+        jLabel65.setBounds(20, 80, 120, 16);
+
+        jLabel66.setText("Respiratory Condition:");
+        medicalComplaintsPanel.add(jLabel66);
+        jLabel66.setBounds(20, 110, 130, 16);
+
+        jLabel67.setText("Digestive Condition:");
+        medicalComplaintsPanel.add(jLabel67);
+        jLabel67.setBounds(20, 140, 130, 16);
+
+        jLabel68.setText("Orthopedic Condition:");
+        medicalComplaintsPanel.add(jLabel68);
+        jLabel68.setBounds(20, 170, 130, 16);
+
+        jLabel69.setText("Muscular Condition:");
+        medicalComplaintsPanel.add(jLabel69);
+        jLabel69.setBounds(20, 200, 130, 16);
+
+        jLabel70.setText("Neurological Condition:");
+        medicalComplaintsPanel.add(jLabel70);
+        jLabel70.setBounds(20, 230, 130, 16);
+
+        jLabel71.setText("Known Allergies:");
+        medicalComplaintsPanel.add(jLabel71);
+        jLabel71.setBounds(20, 260, 130, 16);
+
+        jLabel72.setText("Known Reaction to Drugs:");
+        medicalComplaintsPanel.add(jLabel72);
+        jLabel72.setBounds(20, 290, 160, 16);
+
+        jTextField49.setText("jTextField49");
+        medicalComplaintsPanel.add(jTextField49);
+        jTextField49.setBounds(210, 310, 250, 24);
+
+        jTextField51.setText("jTextField49");
+        medicalComplaintsPanel.add(jTextField51);
+        jTextField51.setBounds(210, 40, 250, 24);
+
+        jTextField52.setText("jTextField49");
+        medicalComplaintsPanel.add(jTextField52);
+        jTextField52.setBounds(210, 70, 250, 24);
+
+        jTextField53.setText("jTextField49");
+        medicalComplaintsPanel.add(jTextField53);
+        jTextField53.setBounds(210, 100, 250, 24);
+
+        jTextField54.setText("jTextField49");
+        medicalComplaintsPanel.add(jTextField54);
+        jTextField54.setBounds(210, 130, 250, 24);
+
+        jTextField55.setText("jTextField49");
+        medicalComplaintsPanel.add(jTextField55);
+        jTextField55.setBounds(210, 160, 250, 24);
+
+        jTextField56.setText("jTextField49");
+        medicalComplaintsPanel.add(jTextField56);
+        jTextField56.setBounds(210, 190, 250, 24);
+
+        jTextField57.setText("jTextField49");
+        medicalComplaintsPanel.add(jTextField57);
+        jTextField57.setBounds(210, 220, 250, 24);
+
+        jTextField58.setText("jTextField49");
+        medicalComplaintsPanel.add(jTextField58);
+        jTextField58.setBounds(210, 250, 250, 24);
+
+        jTextField59.setText("jTextField49");
+        medicalComplaintsPanel.add(jTextField59);
+        jTextField59.setBounds(210, 280, 250, 24);
+        medicalComplaintsPanel.add(jCheckBox3);
+        jCheckBox3.setBounds(210, 10, 24, 24);
+
         jTabbedPane1.addTab("Medical Complaints", medicalComplaintsPanel);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -94,11 +802,13 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,16 +820,161 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basicComplaintsPanel;
     private javax.swing.JPanel basicPanel;
     private javax.swing.JPanel contactPanel;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField20;
+    private javax.swing.JTextField jTextField21;
+    private javax.swing.JTextField jTextField22;
+    private javax.swing.JTextField jTextField23;
+    private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField26;
+    private javax.swing.JTextField jTextField27;
+    private javax.swing.JTextField jTextField28;
+    private javax.swing.JTextField jTextField29;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField30;
+    private javax.swing.JTextField jTextField31;
+    private javax.swing.JTextField jTextField32;
+    private javax.swing.JTextField jTextField33;
+    private javax.swing.JTextField jTextField34;
+    private javax.swing.JTextField jTextField35;
+    private javax.swing.JTextField jTextField36;
+    private javax.swing.JTextField jTextField37;
+    private javax.swing.JTextField jTextField38;
+    private javax.swing.JTextField jTextField39;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField40;
+    private javax.swing.JTextField jTextField41;
+    private javax.swing.JTextField jTextField42;
+    private javax.swing.JTextField jTextField43;
+    private javax.swing.JTextField jTextField44;
+    private javax.swing.JTextField jTextField45;
+    private javax.swing.JTextField jTextField46;
+    private javax.swing.JTextField jTextField47;
+    private javax.swing.JTextField jTextField48;
+    private javax.swing.JTextField jTextField49;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField51;
+    private javax.swing.JTextField jTextField52;
+    private javax.swing.JTextField jTextField53;
+    private javax.swing.JTextField jTextField54;
+    private javax.swing.JTextField jTextField55;
+    private javax.swing.JTextField jTextField56;
+    private javax.swing.JTextField jTextField57;
+    private javax.swing.JTextField jTextField58;
+    private javax.swing.JTextField jTextField59;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel kinPanel;
     private javax.swing.JPanel lifestylePanel;
     private javax.swing.JPanel medicalComplaintsPanel;
@@ -127,6 +982,8 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
     private javax.swing.JPanel professionPanel;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtLastName1;
+    private javax.swing.JTextField txtLastName2;
     private javax.swing.JTextField txtMiddleName;
     // End of variables declaration//GEN-END:variables
 }
