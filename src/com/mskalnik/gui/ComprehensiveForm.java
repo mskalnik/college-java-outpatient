@@ -14,14 +14,14 @@ import javax.swing.DefaultComboBoxModel;
  *
  * @author mskalnik
  */
-public class ComprehensiveFormPanel extends javax.swing.JPanel {
+public class ComprehensiveForm extends javax.swing.JPanel {
 
     private static final PatientsHandler PATIENTS_HANDLER = new PatientsHandler();
     
     /**
      * Creates new form ComprehensiveFormPanel
      */
-    public ComprehensiveFormPanel() {
+    public ComprehensiveForm() {
         initComponents();
         cbExistingPersons.setModel(new DefaultComboBoxModel(PATIENTS_HANDLER.getExistingPatients().toArray()));
     }
@@ -195,6 +195,8 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
 
         jMenuItem1.setText("jMenuItem1");
 
+        setLayout(null);
+
         basicPanel.setLayout(null);
 
         jLabel2.setText("First name:");
@@ -259,29 +261,18 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jLabel13.setText("State:");
         contactPanel.add(jLabel13);
         jLabel13.setBounds(10, 150, 80, 30);
-
-        jTextField1.setText("jTextField1");
         contactPanel.add(jTextField1);
         jTextField1.setBounds(130, 180, 250, 24);
 
-        jTextField2.setText("jTextField1");
         jTextField2.setPreferredSize(new java.awt.Dimension(70, 24));
         contactPanel.add(jTextField2);
         jTextField2.setBounds(130, 390, 250, 24);
-
-        jTextField3.setText("jTextField1");
         contactPanel.add(jTextField3);
         jTextField3.setBounds(130, 60, 250, 24);
-
-        jTextField4.setText("jTextField1");
         contactPanel.add(jTextField4);
         jTextField4.setBounds(130, 90, 250, 24);
-
-        jTextField5.setText("jTextField1");
         contactPanel.add(jTextField5);
         jTextField5.setBounds(130, 120, 250, 24);
-
-        jTextField6.setText("jTextField1");
         contactPanel.add(jTextField6);
         jTextField6.setBounds(130, 150, 250, 24);
 
@@ -290,28 +281,29 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         contactPanel.add(jLabel14);
         jLabel14.setBounds(420, 10, 140, 19);
 
-        jTextField7.setText("jTextField1");
         jTextField7.setPreferredSize(new java.awt.Dimension(70, 24));
         contactPanel.add(jTextField7);
         jTextField7.setBounds(540, 30, 250, 24);
-
-        jTextField8.setText("jTextField1");
         contactPanel.add(jTextField8);
         jTextField8.setBounds(540, 60, 250, 24);
 
-        jTextField9.setText("jTextField1");
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
         contactPanel.add(jTextField9);
         jTextField9.setBounds(540, 90, 250, 24);
-
-        jTextField10.setText("jTextField1");
         contactPanel.add(jTextField10);
         jTextField10.setBounds(540, 120, 250, 24);
-
-        jTextField11.setText("jTextField1");
         contactPanel.add(jTextField11);
         jTextField11.setBounds(540, 150, 250, 24);
 
-        jTextField12.setText("jTextField1");
+        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField12ActionPerformed(evt);
+            }
+        });
         contactPanel.add(jTextField12);
         jTextField12.setBounds(540, 180, 250, 24);
 
@@ -363,32 +355,26 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         contactPanel.add(jLabel26);
         jLabel26.setBounds(10, 360, 110, 30);
 
-        jTextField13.setText("jTextField1");
         jTextField13.setPreferredSize(new java.awt.Dimension(70, 24));
         contactPanel.add(jTextField13);
         jTextField13.setBounds(130, 30, 250, 24);
 
-        jTextField14.setText("jTextField1");
         jTextField14.setPreferredSize(new java.awt.Dimension(70, 24));
         contactPanel.add(jTextField14);
         jTextField14.setBounds(130, 240, 250, 24);
 
-        jTextField15.setText("jTextField1");
         jTextField15.setPreferredSize(new java.awt.Dimension(70, 24));
         contactPanel.add(jTextField15);
         jTextField15.setBounds(130, 270, 250, 24);
 
-        jTextField16.setText("jTextField1");
         jTextField16.setPreferredSize(new java.awt.Dimension(70, 24));
         contactPanel.add(jTextField16);
         jTextField16.setBounds(130, 300, 250, 24);
 
-        jTextField17.setText("jTextField1");
         jTextField17.setPreferredSize(new java.awt.Dimension(70, 24));
         contactPanel.add(jTextField17);
         jTextField17.setBounds(130, 330, 250, 24);
 
-        jTextField18.setText("jTextField1");
         jTextField18.setPreferredSize(new java.awt.Dimension(70, 24));
         contactPanel.add(jTextField18);
         jTextField18.setBounds(130, 360, 250, 24);
@@ -467,68 +453,36 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jLabel43.setText("Fax:");
         kinPanel.add(jLabel43);
         jLabel43.setBounds(20, 280, 110, 16);
-
-        jTextField19.setText("jTextField19");
         kinPanel.add(jTextField19);
         jTextField19.setBounds(530, 190, 250, 24);
-
-        jTextField20.setText("jTextField19");
         kinPanel.add(jTextField20);
         jTextField20.setBounds(140, 310, 250, 24);
-
-        jTextField21.setText("jTextField19");
         kinPanel.add(jTextField21);
         jTextField21.setBounds(530, 70, 250, 24);
-
-        jTextField22.setText("jTextField19");
         kinPanel.add(jTextField22);
         jTextField22.setBounds(530, 100, 250, 24);
-
-        jTextField23.setText("jTextField19");
         kinPanel.add(jTextField23);
         jTextField23.setBounds(530, 130, 250, 24);
-
-        jTextField24.setText("jTextField19");
         kinPanel.add(jTextField24);
         jTextField24.setBounds(530, 160, 250, 24);
-
-        jTextField25.setText("jTextField19");
         kinPanel.add(jTextField25);
         jTextField25.setBounds(530, 40, 250, 24);
-
-        jTextField26.setText("jTextField19");
         kinPanel.add(jTextField26);
         jTextField26.setBounds(140, 40, 250, 24);
-
-        jTextField27.setText("jTextField19");
         kinPanel.add(jTextField27);
         jTextField27.setBounds(140, 70, 250, 24);
-
-        jTextField28.setText("jTextField19");
         kinPanel.add(jTextField28);
         jTextField28.setBounds(140, 100, 250, 24);
-
-        jTextField29.setText("jTextField19");
         kinPanel.add(jTextField29);
         jTextField29.setBounds(140, 130, 250, 24);
-
-        jTextField30.setText("jTextField19");
         kinPanel.add(jTextField30);
         jTextField30.setBounds(140, 160, 250, 24);
-
-        jTextField31.setText("jTextField19");
         kinPanel.add(jTextField31);
         jTextField31.setBounds(140, 190, 250, 24);
-
-        jTextField32.setText("jTextField19");
         kinPanel.add(jTextField32);
         jTextField32.setBounds(140, 220, 250, 24);
-
-        jTextField33.setText("jTextField19");
         kinPanel.add(jTextField33);
         jTextField33.setBounds(140, 250, 250, 24);
-
-        jTextField34.setText("jTextField19");
         kinPanel.add(jTextField34);
         jTextField34.setBounds(140, 280, 250, 24);
 
@@ -555,20 +509,12 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jLabel48.setText("Weight:");
         personalPanel.add(jLabel48);
         jLabel48.setBounds(20, 110, 110, 16);
-
-        jTextField35.setText("jTextField35");
         personalPanel.add(jTextField35);
         jTextField35.setBounds(160, 140, 250, 24);
-
-        jTextField37.setText("jTextField35");
         personalPanel.add(jTextField37);
         jTextField37.setBounds(160, 50, 250, 24);
-
-        jTextField38.setText("jTextField35");
         personalPanel.add(jTextField38);
         jTextField38.setBounds(160, 80, 250, 24);
-
-        jTextField39.setText("jTextField35");
         personalPanel.add(jTextField39);
         jTextField39.setBounds(160, 110, 250, 24);
 
@@ -591,12 +537,8 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jLabel51.setText("Gross Annual Income:");
         professionPanel.add(jLabel51);
         jLabel51.setBounds(30, 50, 130, 16);
-
-        jTextField41.setText("jTextField41");
         professionPanel.add(jTextField41);
         jTextField41.setBounds(190, 50, 250, 24);
-
-        jTextField42.setText("jTextField41");
         professionPanel.add(jTextField42);
         jTextField42.setBounds(190, 20, 250, 24);
 
@@ -651,24 +593,14 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         });
         lifestylePanel.add(jCheckBox2);
         jCheckBox2.setBounds(230, 20, 49, 24);
-
-        jTextField44.setText("jTextField43");
         lifestylePanel.add(jTextField44);
         jTextField44.setBounds(230, 60, 250, 24);
-
-        jTextField45.setText("jTextField43");
         lifestylePanel.add(jTextField45);
         jTextField45.setBounds(230, 90, 250, 24);
-
-        jTextField46.setText("jTextField43");
         lifestylePanel.add(jTextField46);
         jTextField46.setBounds(230, 120, 250, 24);
-
-        jTextField47.setText("jTextField43");
         lifestylePanel.add(jTextField47);
         jTextField47.setBounds(230, 150, 250, 24);
-
-        jTextField48.setText("jTextField43");
         lifestylePanel.add(jTextField48);
         jTextField48.setBounds(230, 180, 250, 24);
         lifestylePanel.add(jCheckBox4);
@@ -758,40 +690,22 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jLabel72.setText("Known Reaction to Drugs:");
         medicalComplaintsPanel.add(jLabel72);
         jLabel72.setBounds(20, 290, 160, 16);
-
-        jTextField49.setText("jTextField49");
         medicalComplaintsPanel.add(jTextField49);
         jTextField49.setBounds(210, 310, 250, 24);
-
-        jTextField52.setText("jTextField49");
         medicalComplaintsPanel.add(jTextField52);
         jTextField52.setBounds(210, 70, 250, 24);
-
-        jTextField53.setText("jTextField49");
         medicalComplaintsPanel.add(jTextField53);
         jTextField53.setBounds(210, 100, 250, 24);
-
-        jTextField54.setText("jTextField49");
         medicalComplaintsPanel.add(jTextField54);
         jTextField54.setBounds(210, 130, 250, 24);
-
-        jTextField55.setText("jTextField49");
         medicalComplaintsPanel.add(jTextField55);
         jTextField55.setBounds(210, 160, 250, 24);
-
-        jTextField56.setText("jTextField49");
         medicalComplaintsPanel.add(jTextField56);
         jTextField56.setBounds(210, 190, 250, 24);
-
-        jTextField57.setText("jTextField49");
         medicalComplaintsPanel.add(jTextField57);
         jTextField57.setBounds(210, 220, 250, 24);
-
-        jTextField58.setText("jTextField49");
         medicalComplaintsPanel.add(jTextField58);
         jTextField58.setBounds(210, 250, 250, 24);
-
-        jTextField59.setText("jTextField49");
         medicalComplaintsPanel.add(jTextField59);
         jTextField59.setBounds(210, 280, 250, 24);
         medicalComplaintsPanel.add(jCheckBox3);
@@ -801,43 +715,22 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Medical Complaints", medicalComplaintsPanel);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        add(jTabbedPane1);
+        jTabbedPane1.setBounds(0, 76, 824, 481);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Comprehensive registration form");
+        add(jLabel1);
+        jLabel1.setBounds(6, 6, 234, 19);
 
         jLabel73.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel73.setText("Select from an exsisting person:");
+        add(jLabel73);
+        jLabel73.setBounds(6, 47, 227, 19);
 
         cbExistingPersons.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel73)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbExistingPersons, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel73)
-                    .addComponent(cbExistingPersons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        add(cbExistingPersons);
+        cbExistingPersons.setBounds(239, 44, 229, 26);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -847,6 +740,14 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

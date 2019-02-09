@@ -40,8 +40,18 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelMiniForm1 = new com.mskalnik.gui.PanelMiniForm();
-        comprehensiveFormPanel1 = new com.mskalnik.gui.ComprehensiveFormPanel();
+        panelMiniForm1 = new com.mskalnik.gui.MiniForm();
+        comprehensiveFormPanel1 = new com.mskalnik.gui.ComprehensiveForm();
+        appointment1 = new com.mskalnik.gui.Appointment();
+        bill1 = new com.mskalnik.gui.Bill();
+        doctor1 = new com.mskalnik.gui.Doctor();
+        physicianAdd1 = new com.mskalnik.gui.PhysicianAdd();
+        physicianEdit1 = new com.mskalnik.gui.PhysicianEdit();
+        physicianList1 = new com.mskalnik.gui.PhysicianList();
+        monthlyReport1 = new com.mskalnik.gui.MonthlyReport();
+        weeklyReport1 = new com.mskalnik.gui.WeeklyReport();
+        dailyReport1 = new com.mskalnik.gui.DailyReport();
+        welcome1 = new com.mskalnik.gui.Welcome();
         mainMenuBar = new javax.swing.JMenuBar();
         menuReception = new javax.swing.JMenu();
         menuRegistration = new javax.swing.JMenu();
@@ -50,7 +60,10 @@ public class Main extends javax.swing.JFrame {
         miAppointements = new javax.swing.JMenuItem();
         miBill = new javax.swing.JMenuItem();
         menuPhysician = new javax.swing.JMenu();
-        menuDoctor = new javax.swing.JMenu();
+        menuViewDoctors = new javax.swing.JMenuItem();
+        menuCreateDoctor = new javax.swing.JMenuItem();
+        miDoctor = new javax.swing.JMenu();
+        menuDoctor = new javax.swing.JMenuItem();
         menuManagement = new javax.swing.JMenu();
         miDaily = new javax.swing.JMenuItem();
         miWeekly = new javax.swing.JMenuItem();
@@ -60,9 +73,22 @@ public class Main extends javax.swing.JFrame {
         setTitle("Out Patient Management");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocation(new java.awt.Point(0, 0));
+        setMaximumSize(new java.awt.Dimension(650, 800));
+        setMinimumSize(new java.awt.Dimension(650, 800));
+        setPreferredSize(new java.awt.Dimension(650, 800));
         getContentPane().setLayout(new java.awt.CardLayout());
         getContentPane().add(panelMiniForm1, "card2");
         getContentPane().add(comprehensiveFormPanel1, "card3");
+        getContentPane().add(appointment1, "card4");
+        getContentPane().add(bill1, "card5");
+        getContentPane().add(doctor1, "card6");
+        getContentPane().add(physicianAdd1, "card7");
+        getContentPane().add(physicianEdit1, "card8");
+        getContentPane().add(physicianList1, "card9");
+        getContentPane().add(monthlyReport1, "card10");
+        getContentPane().add(weeklyReport1, "card11");
+        getContentPane().add(dailyReport1, "card12");
+        getContentPane().add(welcome1, "card13");
 
         menuReception.setText("Reception");
 
@@ -87,28 +113,84 @@ public class Main extends javax.swing.JFrame {
         menuReception.add(menuRegistration);
 
         miAppointements.setText("Appointements");
+        miAppointements.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAppointementsActionPerformed(evt);
+            }
+        });
         menuReception.add(miAppointements);
 
         miBill.setText("Bill");
+        miBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miBillActionPerformed(evt);
+            }
+        });
         menuReception.add(miBill);
 
         mainMenuBar.add(menuReception);
 
         menuPhysician.setText("Physician");
+
+        menuViewDoctors.setText("View Doctors");
+        menuViewDoctors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuViewDoctorsActionPerformed(evt);
+            }
+        });
+        menuPhysician.add(menuViewDoctors);
+
+        menuCreateDoctor.setText("Add a Doctor");
+        menuCreateDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCreateDoctorActionPerformed(evt);
+            }
+        });
+        menuPhysician.add(menuCreateDoctor);
+
         mainMenuBar.add(menuPhysician);
 
-        menuDoctor.setText("Doctor");
-        mainMenuBar.add(menuDoctor);
+        miDoctor.setText("Doctor");
+        miDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miDoctorActionPerformed(evt);
+            }
+        });
+
+        menuDoctor.setText("Panel");
+        menuDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuDoctorActionPerformed(evt);
+            }
+        });
+        miDoctor.add(menuDoctor);
+
+        mainMenuBar.add(miDoctor);
 
         menuManagement.setText("Management");
 
         miDaily.setText("Daily report");
+        miDaily.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miDailyActionPerformed(evt);
+            }
+        });
         menuManagement.add(miDaily);
 
         miWeekly.setText("Weekly report");
+        miWeekly.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miWeeklyActionPerformed(evt);
+            }
+        });
         menuManagement.add(miWeekly);
 
         miMonthly.setText("Monthly report");
+        miMonthly.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miMonthlyActionPerformed(evt);
+            }
+        });
         menuManagement.add(miMonthly);
 
         mainMenuBar.add(menuManagement);
@@ -127,6 +209,51 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         changeToPanel(comprehensiveFormPanel1);  
     }//GEN-LAST:event_miComprehensiveActionPerformed
+
+    private void menuCreateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCreateDoctorActionPerformed
+        // TODO add your handling code here:
+        changeToPanel(physicianAdd1);
+    }//GEN-LAST:event_menuCreateDoctorActionPerformed
+
+    private void miAppointementsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAppointementsActionPerformed
+        // TODO add your handling code here:
+        changeToPanel(appointment1);
+    }//GEN-LAST:event_miAppointementsActionPerformed
+
+    private void miBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBillActionPerformed
+        // TODO add your handling code here:
+        changeToPanel(bill1);
+    }//GEN-LAST:event_miBillActionPerformed
+
+    private void menuViewDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuViewDoctorsActionPerformed
+        // TODO add your handling code here:
+        changeToPanel(physicianList1);
+    }//GEN-LAST:event_menuViewDoctorsActionPerformed
+
+    private void miDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDoctorActionPerformed
+        // TODO add your handling code here:
+        changeToPanel(doctor1);
+    }//GEN-LAST:event_miDoctorActionPerformed
+
+    private void menuDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDoctorActionPerformed
+        // TODO add your handling code here:
+        changeToPanel(doctor1);
+    }//GEN-LAST:event_menuDoctorActionPerformed
+
+    private void miDailyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDailyActionPerformed
+        // TODO add your handling code here:
+        changeToPanel(dailyReport1);
+    }//GEN-LAST:event_miDailyActionPerformed
+
+    private void miWeeklyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miWeeklyActionPerformed
+        // TODO add your handling code here:
+        changeToPanel(weeklyReport1);
+    }//GEN-LAST:event_miWeeklyActionPerformed
+
+    private void miMonthlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miMonthlyActionPerformed
+        // TODO add your handling code here:
+        changeToPanel(monthlyReport1);
+    }//GEN-LAST:event_miMonthlyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,21 +292,34 @@ public class Main extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.mskalnik.gui.ComprehensiveFormPanel comprehensiveFormPanel1;
+    private com.mskalnik.gui.Appointment appointment1;
+    private com.mskalnik.gui.Bill bill1;
+    private com.mskalnik.gui.ComprehensiveForm comprehensiveFormPanel1;
+    private com.mskalnik.gui.DailyReport dailyReport1;
+    private com.mskalnik.gui.Doctor doctor1;
     private javax.swing.JMenuBar mainMenuBar;
-    private javax.swing.JMenu menuDoctor;
+    private javax.swing.JMenuItem menuCreateDoctor;
+    private javax.swing.JMenuItem menuDoctor;
     private javax.swing.JMenu menuManagement;
     private javax.swing.JMenu menuPhysician;
     private javax.swing.JMenu menuReception;
     private javax.swing.JMenu menuRegistration;
+    private javax.swing.JMenuItem menuViewDoctors;
     private javax.swing.JMenuItem miAppointements;
     private javax.swing.JMenuItem miBill;
     private javax.swing.JMenuItem miComprehensive;
     private javax.swing.JMenuItem miDaily;
+    private javax.swing.JMenu miDoctor;
     private javax.swing.JMenuItem miMiniForm;
     private javax.swing.JMenuItem miMonthly;
     private javax.swing.JMenuItem miWeekly;
-    private com.mskalnik.gui.PanelMiniForm panelMiniForm1;
+    private com.mskalnik.gui.MonthlyReport monthlyReport1;
+    private com.mskalnik.gui.MiniForm panelMiniForm1;
+    private com.mskalnik.gui.PhysicianAdd physicianAdd1;
+    private com.mskalnik.gui.PhysicianEdit physicianEdit1;
+    private com.mskalnik.gui.PhysicianList physicianList1;
+    private com.mskalnik.gui.WeeklyReport weeklyReport1;
+    private com.mskalnik.gui.Welcome welcome1;
     // End of variables declaration//GEN-END:variables
 
     private void changeToPanel(JPanel panel) {

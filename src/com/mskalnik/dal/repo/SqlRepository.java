@@ -110,14 +110,14 @@ public class SqlRepository implements Repository {
         DataSource dataSource = DataSourceSignleton.getInstance();
         try (Connection con = dataSource.getConnection();
                 CallableStatement stmt = con.prepareCall(GET_EXISTING_PATIENTS);
-                ResultSet resultSet = stmt.executeQuery()){
+                ResultSet resultSet = stmt.executeQuery()) {
                     while (resultSet.next()) {
                         patients.add(
-                                new Patient(
-                                resultSet.getInt("IDOP"),
-                                resultSet.getString("FirstName"),
-                                resultSet.getString("MiddleName"),
-                                resultSet.getString("Surname")));
+                            new Patient(
+                            resultSet.getInt("IDOP"),
+                            resultSet.getString("FirstName"),
+                            resultSet.getString("MiddleName"),
+                            resultSet.getString("Surname")));
                     }
             return patients;
             

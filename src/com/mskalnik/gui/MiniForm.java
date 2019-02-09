@@ -23,14 +23,14 @@ import javax.swing.JTextField;
  *
  * @author mskalnik
  */
-public class PanelMiniForm extends javax.swing.JPanel {
+public class MiniForm extends javax.swing.JPanel {
 
     private static final PatientsHandler PATIENTS_HANDLER = new PatientsHandler();
     
     /**
      * Creates new form panelMiniForm
      */
-    public PanelMiniForm() {
+    public MiniForm() {
         initComponents();
         fillComboBoxes();
     }
@@ -76,17 +76,18 @@ public class PanelMiniForm extends javax.swing.JPanel {
         btnConfirm = new javax.swing.JButton();
         cbMonth = new javax.swing.JComboBox<>();
         cbDay = new javax.swing.JComboBox<>();
+        jSeparator1 = new javax.swing.JSeparator();
 
         panelMiniForm.setLayout(null);
         panelMiniForm.add(jLabel12);
         jLabel12.setBounds(346, 5, 341, 29);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Mini registration form");
         panelMiniForm.add(jLabel1);
         jLabel1.setBounds(10, 10, 341, 29);
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         jLabel2.setText("Patient");
         panelMiniForm.add(jLabel2);
         jLabel2.setBounds(10, 40, 70, 29);
@@ -154,7 +155,7 @@ public class PanelMiniForm extends javax.swing.JPanel {
         panelMiniForm.add(txtTelephone2);
         txtTelephone2.setBounds(130, 350, 250, 29);
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         jLabel10.setText("Next of Kin");
         panelMiniForm.add(jLabel10);
         jLabel10.setBounds(10, 390, 110, 29);
@@ -197,6 +198,8 @@ public class PanelMiniForm extends javax.swing.JPanel {
 
         panelMiniForm.add(cbDay);
         cbDay.setBounds(130, 160, 70, 29);
+        panelMiniForm.add(jSeparator1);
+        jSeparator1.setBounds(0, 390, 420, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -275,6 +278,7 @@ public class PanelMiniForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel panelMiniForm;
     private javax.swing.JTextArea taComplaint;
     private javax.swing.JTextField txtKinFirstName;
