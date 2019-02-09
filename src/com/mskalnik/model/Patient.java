@@ -5,6 +5,7 @@
  */
 package com.mskalnik.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Date;
  */
 public class Patient extends Person {
     private int opid;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private char sex;
     private NextOfKin nextOfKin;
     private String Complaint;
@@ -24,12 +25,26 @@ public class Patient extends Person {
     private BasicComplaints basicComplaints;
     private MedicalComplaints medicalComplaints;
 
-    public Patient(String firstName, String middleName, String surname, Date dateOfBirth, NextOfKin nextOfKin, String Complaint, Contact contact) {
+    public Patient(int opid, String firstName, String middleName, String surname, LocalDate dateOfBirth, NextOfKin nextOfKin, String Complaint, Contact contact) {
+        super(firstName, middleName, surname);
+        this.opid = opid;
+        this.dateOfBirth = dateOfBirth;
+        this.nextOfKin = nextOfKin;
+        this.Complaint = Complaint;
+        this.contact = contact;
+    }
+    
+    public Patient(String firstName, String middleName, String surname, LocalDate dateOfBirth, NextOfKin nextOfKin, String Complaint, Contact contact) {
         super(firstName, middleName, surname);
         this.dateOfBirth = dateOfBirth;
         this.nextOfKin = nextOfKin;
         this.Complaint = Complaint;
         this.contact = contact;
+    }
+    
+    public Patient(int opid, String firstName, String middleName, String surname) {
+        super(firstName, middleName, surname);
+        this.opid = opid;
     }
     
     public Patient(String firstName, String middleName, String surname) {
@@ -40,7 +55,7 @@ public class Patient extends Person {
         return opid;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -80,7 +95,7 @@ public class Patient extends Person {
         this.opid = opid;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

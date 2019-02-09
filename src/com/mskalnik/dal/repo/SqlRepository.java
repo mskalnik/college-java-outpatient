@@ -10,7 +10,10 @@ import com.mskalnik.model.Doctor;
 import com.mskalnik.model.Patient;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.util.Date;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 
@@ -21,6 +24,7 @@ import javax.sql.DataSource;
 public class SqlRepository implements Repository {
     //Patient
     private static final String INSERT_PATIENT_MINI_FORM = "{ CALL insertPatientMiniForm (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }";
+    private static final String GET_EXISTING_PATIENTS = "{ CALL getExistingPatients ";
     
     private static final String INSERT_DOCTOR = "{ CALL insertDoctor }";
     private static final String UPDATE_DOCTOR = "{ CALL updateDoctor (?,?,?,?) }";
@@ -75,7 +79,7 @@ public class SqlRepository implements Repository {
             stmt.setString(1, patient.getFirstName());
             stmt.setString(2, patient.getSurname());
             stmt.setString(3, patient.getSurname());            
-            stmt.setDate(4, new java.sql.Date(1994, 4, 27));
+            stmt.setDate(4, Date.valueOf(patient.getDateOfBirth()));
             stmt.setString(5, patient.getComplaint());
             stmt.setString(6, patient.getContact().getTelephoneHome());            
             stmt.setString(7, patient.getContact().getTelephoneWork());
@@ -88,7 +92,7 @@ public class SqlRepository implements Repository {
             e.printStackTrace();
         }
     }
-
+    
     @Override
     public void insertPatientComprahensiveForm(int id, Patient patient) {
         DataSource dataSource = DataSourceSignleton.getInstance();
@@ -98,6 +102,29 @@ public class SqlRepository implements Repository {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Patient> getExistingPatients() {
+        List<Patient> patients = new ArrayList<>();
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_EXISTING_PATIENTS);
+                ResultSet resultSet = stmt.executeQuery()){
+                    while (resultSet.next()) {
+                        patients.add(
+                                new Patient(
+                                resultSet.getInt("IDOP"),
+                                resultSet.getString("FirstName"),
+                                resultSet.getString("MiddleName"),
+                                resultSet.getString("Surname")));
+                    }
+            return patients;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return patients;
     }
         
 }

@@ -44,3 +44,10 @@ AS
 	INSERT INTO NextOfKin(Relationship, PatientID, PersonID)
 	VALUES (@kinRelationship, @patientId, @kinId)
 GO
+
+CREATE PROCEDURE getExistingPatients
+AS
+	SELECT * 
+	FROM Patient
+	INNER JOIN Person ON IDPerson = PersonID
+GO

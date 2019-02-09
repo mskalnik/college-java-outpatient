@@ -5,19 +5,27 @@
  */
 package com.mskalnik.gui;
 
+import com.mskalnik.bl.PatientsHandler;
+import com.mskalnik.model.Patient;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author mskalnik
  */
 public class ComprehensiveFormPanel extends javax.swing.JPanel {
 
+    private static final PatientsHandler PATIENTS_HANDLER = new PatientsHandler();
+    
     /**
      * Creates new form ComprehensiveFormPanel
      */
     public ComprehensiveFormPanel() {
         initComponents();
+        cbExistingPersons.setModel(new DefaultComboBoxModel(PATIENTS_HANDLER.getExistingPatients().toArray()));
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,11 +129,11 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jTextField35 = new javax.swing.JTextField();
-        jTextField36 = new javax.swing.JTextField();
         jTextField37 = new javax.swing.JTextField();
         jTextField38 = new javax.swing.JTextField();
         jTextField39 = new javax.swing.JTextField();
         jTextField40 = new javax.swing.JTextField();
+        jComboBox2 = new javax.swing.JComboBox<>();
         professionPanel = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
@@ -135,7 +143,6 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jLabel50 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel52 = new javax.swing.JLabel();
-        jTextField43 = new javax.swing.JTextField();
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
@@ -148,6 +155,7 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jTextField46 = new javax.swing.JTextField();
         jTextField47 = new javax.swing.JTextField();
         jTextField48 = new javax.swing.JTextField();
+        jCheckBox4 = new javax.swing.JCheckBox();
         basicComplaintsPanel = new javax.swing.JPanel();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
@@ -171,7 +179,6 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         jTextField49 = new javax.swing.JTextField();
-        jTextField51 = new javax.swing.JTextField();
         jTextField52 = new javax.swing.JTextField();
         jTextField53 = new javax.swing.JTextField();
         jTextField54 = new javax.swing.JTextField();
@@ -181,7 +188,10 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jTextField58 = new javax.swing.JTextField();
         jTextField59 = new javax.swing.JTextField();
         jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        cbExistingPersons = new javax.swing.JComboBox<>();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -550,10 +560,6 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         personalPanel.add(jTextField35);
         jTextField35.setBounds(160, 140, 250, 24);
 
-        jTextField36.setText("jTextField35");
-        personalPanel.add(jTextField36);
-        jTextField36.setBounds(160, 20, 250, 24);
-
         jTextField37.setText("jTextField35");
         personalPanel.add(jTextField37);
         jTextField37.setBounds(160, 50, 250, 24);
@@ -569,6 +575,10 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jTextField40.setText("jTextField35");
         personalPanel.add(jTextField40);
         jTextField40.setBounds(160, 140, 250, 24);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        personalPanel.add(jComboBox2);
+        jComboBox2.setBounds(160, 20, 250, 26);
 
         jTabbedPane1.addTab("Personal", personalPanel);
 
@@ -609,10 +619,6 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jLabel52.setText("Eat Home Food Predominantly:");
         lifestylePanel.add(jLabel52);
         jLabel52.setBounds(30, 240, 190, 16);
-
-        jTextField43.setText("jTextField43");
-        lifestylePanel.add(jTextField43);
-        jTextField43.setBounds(230, 210, 250, 24);
 
         jLabel53.setText("Average No. of Cigarettes/Day:");
         lifestylePanel.add(jLabel53);
@@ -665,6 +671,8 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jTextField48.setText("jTextField43");
         lifestylePanel.add(jTextField48);
         jTextField48.setBounds(230, 180, 250, 24);
+        lifestylePanel.add(jCheckBox4);
+        jCheckBox4.setBounds(230, 210, 24, 24);
 
         jTabbedPane1.addTab("Lifestyle", lifestylePanel);
 
@@ -755,10 +763,6 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         medicalComplaintsPanel.add(jTextField49);
         jTextField49.setBounds(210, 310, 250, 24);
 
-        jTextField51.setText("jTextField49");
-        medicalComplaintsPanel.add(jTextField51);
-        jTextField51.setBounds(210, 40, 250, 24);
-
         jTextField52.setText("jTextField49");
         medicalComplaintsPanel.add(jTextField52);
         jTextField52.setBounds(210, 70, 250, 24);
@@ -792,29 +796,45 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
         jTextField59.setBounds(210, 280, 250, 24);
         medicalComplaintsPanel.add(jCheckBox3);
         jCheckBox3.setBounds(210, 10, 24, 24);
+        medicalComplaintsPanel.add(jCheckBox5);
+        jCheckBox5.setBounds(210, 40, 24, 24);
 
         jTabbedPane1.addTab("Medical Complaints", medicalComplaintsPanel);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel1.setText("Comprehensive registration form");
 
+        jLabel73.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel73.setText("Select from an exsisting person:");
+
+        cbExistingPersons.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel73)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbExistingPersons, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel73)
+                    .addComponent(cbExistingPersons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -832,10 +852,14 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basicComplaintsPanel;
     private javax.swing.JPanel basicPanel;
+    private javax.swing.JComboBox<String> cbExistingPersons;
     private javax.swing.JPanel contactPanel;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -906,6 +930,7 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
@@ -946,7 +971,6 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField33;
     private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField35;
-    private javax.swing.JTextField jTextField36;
     private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField38;
     private javax.swing.JTextField jTextField39;
@@ -954,7 +978,6 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField40;
     private javax.swing.JTextField jTextField41;
     private javax.swing.JTextField jTextField42;
-    private javax.swing.JTextField jTextField43;
     private javax.swing.JTextField jTextField44;
     private javax.swing.JTextField jTextField45;
     private javax.swing.JTextField jTextField46;
@@ -962,7 +985,6 @@ public class ComprehensiveFormPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField48;
     private javax.swing.JTextField jTextField49;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField51;
     private javax.swing.JTextField jTextField52;
     private javax.swing.JTextField jTextField53;
     private javax.swing.JTextField jTextField54;

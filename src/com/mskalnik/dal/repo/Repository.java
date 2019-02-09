@@ -7,6 +7,7 @@ package com.mskalnik.dal.repo;
 
 import com.mskalnik.model.Doctor;
 import com.mskalnik.model.Patient;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +17,7 @@ import java.util.List;
 public interface Repository {
     //Patient actions
     void insertPatientMiniForm(Patient patient);
+    List<Patient> getExistingPatients();
     void insertPatientComprahensiveForm(int id, Patient patient);
     
     int insertDoctor(Doctor doctor);

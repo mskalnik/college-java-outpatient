@@ -6,6 +6,8 @@
 package com.mskalnik.bl;
 
 import com.mskalnik.model.Patient;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,5 +19,8 @@ public class PatientsHandler extends HandlerBase {
         repository.insertPatientMiniForm(patient);        
     }
     
+    public List<Patient> getExistingPatients() {
+        return repository.getExistingPatients();
+    }
     
 }

@@ -9,10 +9,15 @@ import com.mskalnik.bl.PatientsHandler;
 import com.mskalnik.model.Contact;
 import com.mskalnik.model.NextOfKin;
 import com.mskalnik.model.Patient;
+import java.awt.Component;
 import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javafx.scene.control.Alert;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -27,6 +32,7 @@ public class PanelMiniForm extends javax.swing.JPanel {
      */
     public PanelMiniForm() {
         initComponents();
+        fillComboBoxes();
     }
 
     /**
@@ -117,14 +123,13 @@ public class PanelMiniForm extends javax.swing.JPanel {
         panelMiniForm.add(jLabel6);
         jLabel6.setBounds(10, 160, 100, 29);
 
-        cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbYearActionPerformed(evt);
             }
         });
         panelMiniForm.add(cbYear);
-        cbYear.setBounds(280, 160, 100, 26);
+        cbYear.setBounds(270, 160, 110, 29);
 
         jLabel7.setText("Complaint:");
         panelMiniForm.add(jLabel7);
@@ -187,13 +192,11 @@ public class PanelMiniForm extends javax.swing.JPanel {
         panelMiniForm.add(btnConfirm);
         btnConfirm.setBounds(250, 540, 130, 32);
 
-        cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panelMiniForm.add(cbMonth);
-        cbMonth.setBounds(210, 160, 60, 26);
+        cbMonth.setBounds(200, 160, 70, 29);
 
-        cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panelMiniForm.add(cbDay);
-        cbDay.setBounds(130, 160, 60, 26);
+        cbDay.setBounds(130, 160, 70, 29);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -218,17 +221,35 @@ public class PanelMiniForm extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
         String firstName = txtPatientFirstName.getText();
+        String middleName = txtPatientMiddleName.getText();
         String lastName = txtPatientLastName.getText();
-        NextOfKin nok = new NextOfKin(txtKinFirstName.getText(), txtKinMiddleName.getText(), txtKinLastName.getText(), txtKinRelationship.getText());
-        Contact contact = new Contact(txtTelephone.getText(), txtTelephone2.getText());
-        Patient p = new Patient(firstName, txtPatientMiddleName.getText(), lastName, new Date(1994, 4, 27), nok, taComplaint.getText(), contact);   
-        try {
-            PATIENTS_HANDLER.insertPatientMiniForm(p);            
-            JOptionPane.showMessageDialog(null, "User " + firstName + " " + lastName + " added!\n");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "WARNING: User " + firstName + " " + lastName + " not added!\n" + e.getMessage());
-        }
+        String complaint = taComplaint.getText();
+        String kinFirst = txtKinFirstName.getText();
+        String kinMiddle = txtKinMiddleName.getText();
+        String kinLast = txtKinLastName.getText();
+        String relationship = txtKinRelationship.getText();
+        String telephone = txtTelephone.getText();
+        String telephone2 = txtTelephone2.getText();
+        int year = Integer.parseInt(cbYear.getSelectedItem().toString());
+        int month = Integer.parseInt(cbMonth.getSelectedItem().toString());
+        int day = Integer.parseInt(cbDay.getSelectedItem().toString());
+        LocalDate date = LocalDate.of(year, month, day);
         
+        NextOfKin nok = new NextOfKin(kinFirst, kinMiddle, kinLast, relationship);
+        Contact contact = new Contact(telephone, telephone2);
+        Patient p = new Patient(firstName, middleName, lastName, date, nok, complaint, contact);
+        
+        if (correctFormat(firstName, 50) && correctFormat(middleName, 50) &&
+                correctFormat(lastName, 50) && correctFormat(complaint, 200) &&
+                        correctFormat(kinFirst, 50) && correctFormat(kinMiddle, 50) &&
+                                correctFormat(kinLast, 50) && correctFormat(relationship, 50) &&
+                                    correctFormat(telephone, 50) && correctFormat(telephone2, 50)) {
+            PATIENTS_HANDLER.insertPatientMiniForm(p);
+            JOptionPane.showMessageDialog(null, "User " + firstName + " " + lastName + " added!\n");
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "WARNING: All data must be entered");
+        }        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
 
@@ -266,5 +287,25 @@ public class PanelMiniForm extends javax.swing.JPanel {
     private javax.swing.JTextField txtTelephone;
     private javax.swing.JTextField txtTelephone2;
     // End of variables declaration//GEN-END:variables
+
+    private void fillComboBoxes() {
+        for (int i = 1; i <= 31; i++) {
+            cbDay.addItem(String.valueOf(i));
+        }
+        
+        for (int i = 1; i <= 12; i++) {
+            cbMonth.addItem(String.valueOf(i));
+        }
+        
+        for (int i = 2019; i >= 1990; i--) {
+            cbYear.addItem(String.valueOf(i));
+        }
+    }
+
+    private Boolean correctFormat(String text, int max) {
+        if (text.trim().length() > 0 && text.length() < max)
+            return true;
+        return false;
+    }
 
 }
