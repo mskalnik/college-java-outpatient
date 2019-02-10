@@ -23,11 +23,7 @@ public class ComprehensiveForm extends javax.swing.JPanel {
      * Creates new form ComprehensiveFormPanel
      */
     public ComprehensiveForm() {
-        initComponents();
-        List<Patient> patients = PATIENTS_HANDLER.getExistingPatients();
-        patients.forEach((patient) -> {
-            cbExistingPersons.addItem(patient.getOpid() + ": " + patient.getFirstName() + " " + patient.getSurname());
-        });
+        initComponents();        
         
         fillComboBoxes();
     }
@@ -806,6 +802,12 @@ public class ComprehensiveForm extends javax.swing.JPanel {
             Patient p = PATIENTS_HANDLER.getExistingPatient(id);
             setEditable(false, p);
         }
+        
+        List<Patient> patients = PATIENTS_HANDLER.getExistingPatients();
+        cbExistingPersons.removeAllItems();
+        patients.forEach((patient) -> {
+            cbExistingPersons.addItem(patient.getOpid() + ": " + patient.getFirstName() + " " + patient.getSurname());
+        });
     }//GEN-LAST:event_cbExistingPersonsActionPerformed
 
     private void tbFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbFemaleActionPerformed
@@ -1057,6 +1059,11 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         }
         
         rbMale.setSelected(true);
+        
+        List<Patient> patients = PATIENTS_HANDLER.getExistingPatients();
+        patients.forEach((patient) -> {
+            cbExistingPersons.addItem(patient.getOpid() + ": " + patient.getFirstName() + " " + patient.getSurname());
+        });
     }
 
 }

@@ -76,7 +76,6 @@ public class MiniForm extends javax.swing.JPanel {
         btnConfirm = new javax.swing.JButton();
         cbMonth = new javax.swing.JComboBox<>();
         cbDay = new javax.swing.JComboBox<>();
-        jSeparator1 = new javax.swing.JSeparator();
 
         panelMiniForm.setLayout(null);
         panelMiniForm.add(jLabel12);
@@ -198,8 +197,6 @@ public class MiniForm extends javax.swing.JPanel {
 
         panelMiniForm.add(cbDay);
         cbDay.setBounds(130, 160, 70, 29);
-        panelMiniForm.add(jSeparator1);
-        jSeparator1.setBounds(0, 390, 420, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -277,7 +274,6 @@ public class MiniForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel panelMiniForm;
     private javax.swing.JTextArea taComplaint;
     private javax.swing.JTextField txtKinFirstName;
