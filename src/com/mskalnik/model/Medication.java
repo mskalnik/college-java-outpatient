@@ -10,12 +10,23 @@ package com.mskalnik.model;
  * @author mskalnik
  */
 public class Medication {
+    private int medicationId;
     private String name;
     private int price;
+
+    public Medication(int medicationId, String name, int price) {
+        this.medicationId = medicationId;
+        this.name = name;
+        this.price = price;
+    }
 
     public Medication(String name, int price) {
         this.name = name;
         this.price = price;
+    }
+
+    public int getMedicationId() {
+        return medicationId;
     }
 
     public String getName() {
@@ -24,6 +35,10 @@ public class Medication {
 
     public int getPrice() {
         return price;
+    }
+
+    public void setMedicationId(int medicationId) {
+        this.medicationId = medicationId;
     }
 
     public void setName(String name) {
@@ -36,6 +51,8 @@ public class Medication {
 
     @Override
     public String toString() {
-        return "Medication{" + "name=" + name + ", price=" + price + '}';
+        return "Medication{" + "medicationId=" + medicationId + ", name=" + name + ", price=" + price + '}';
     }
+
+    
 }

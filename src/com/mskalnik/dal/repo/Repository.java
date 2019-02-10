@@ -8,6 +8,7 @@ package com.mskalnik.dal.repo;
 import com.mskalnik.model.Doctor;
 import com.mskalnik.model.Patient;
 import com.mskalnik.model.Appointment;
+import com.mskalnik.model.Bill;
 import com.mskalnik.model.Medication;
 import java.time.LocalDate;
 import java.util.List;
@@ -33,7 +34,10 @@ public interface Repository {
     
     //Appointments
     void insertAppointments(Appointment appointment);
-    List<Appointment> getAppointment(int id);
+    void insertBill(Bill bill);
+    List<Appointment> getAppointment(int id);    
     List<Appointment> getAppointments();
     List<Medication> getMedications();
+    Medication getMedication(int id);
+    List<Bill> getBill(int id);
 }

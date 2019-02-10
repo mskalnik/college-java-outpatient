@@ -183,10 +183,22 @@ GO
 CREATE TABLE Appointment (
 	IDAppointment	int NOT NULL IDENTITY,
 	[Time]			date,
-	DoctorID		int,
-	PatientID		int,
+	DoctorID		int NOT NULL,
+	PatientID		int NOT NULL,
 	CONSTRAINT PK_IDAppointment PRIMARY KEY (IDAppointment),
 	CONSTRAINT FK_Appointment_DoctorID FOREIGN KEY (DoctorID) REFERENCES Doctor(IDDoctor),
 	CONSTRAINT FK_Appointment_PatientID FOREIGN KEY (PatientID) REFERENCES Patient(OPID)
+)
+GO
+
+CREATE TABLE Bill (
+	IDBill			int NOT NULL IDENTITY,
+	Diagnosis		int,
+	Payed			bit,
+	PatientID		int NOT NULL,
+	MedicationID	int NOT NULL
+	CONSTRAINT PK_IDBill PRIMARY KEY (IDBill),
+	CONSTRAINT FK_Bill_PatientID FOREIGN KEY (PatientID) REFERENCES Patient(OPID),
+	CONSTRAINT FK_Bill_MedicationID FOREIGN KEY (MedicationID) REFERENCES Medication(IDMedication)
 )
 GO

@@ -98,8 +98,9 @@ public class PhysicianAdd extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Doctor " + firstName + " " + lastName + " added!\n");
         } else {
             JOptionPane.showMessageDialog(null, "WARNING: All data must be entered");
-        }      
-        
+        }
+        revalidate();
+        repaint();
     }//GEN-LAST:event_btnAddActionPerformed
 
     private Boolean correctFormat(String text, int max) {

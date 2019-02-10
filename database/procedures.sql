@@ -200,6 +200,15 @@ AS
 	FROM Medication
 GO
 
+CREATE PROCEDURE getMedication
+	@id int
+AS
+	SELECT
+		*
+	FROM Medication
+	WHERE @id = IDMedication
+GO
+
 INSERT INTO Medication(Name, Price)
 Values ('Vilpin', 124), ('Alvonamid', 432),('Belodin', 34),('Sinecod', 14),('Lotar', 50)
 GO
@@ -226,4 +235,22 @@ AS
 	FROM Appointment AS a
 	INNER JOIN Doctor AS d ON d.IDDoctor = a.DoctorID
 	WHERE @id = a.DoctorID
+GO
+
+CREATE PROCEDURE insertBill	
+	@diagnosis		int,
+	@payed			bit,
+	@patientId		int,
+	@medicationId	int
+AS
+	INSERT INTO Bill(Diagnosis, Payed, PatientID, MedicationID)
+	VALUES (@diagnosis, @payed, @patientId, @medicationId)
+GO
+
+CREATE PROCEDURE getBill
+	@id	int
+AS
+	SELECT * 
+	FROM Bill
+	WHERE @id = PatientID
 GO

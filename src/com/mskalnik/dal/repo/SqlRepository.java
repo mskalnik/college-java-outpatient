@@ -7,6 +7,7 @@ package com.mskalnik.dal.repo;
 
 import com.mskalnik.dal.sql.DataSourceSignleton;
 import com.mskalnik.model.Appointment;
+import com.mskalnik.model.Bill;
 import com.mskalnik.model.Contact;
 import com.mskalnik.model.Doctor;
 import com.mskalnik.model.Medication;
@@ -42,6 +43,9 @@ public class SqlRepository implements Repository {
     private static final String GET_APPOINTMENTS = "{ CALL getAppointments }";
     private static final String GET_APPOINTMENT = "{ CALL getAppointment (?) }";
     private static final String GET_MEDICATIONS = "{ CALL getMedications }";
+    private static final String GET_MEDICATION = "{ CALL getMedications (?) }";
+    private static final String GET_BILL = "{ CALL getBill }";
+    private static final String INSERT_BILL = "{ CALL insertBill (?, ?, ?, ?) }";
     
     @Override
     public void insertDoctor(Doctor doctor) {
@@ -239,12 +243,110 @@ public class SqlRepository implements Repository {
 
     @Override
     public List<Appointment> getAppointments() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Appointment> appointments = new ArrayList<>();
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_APPOINTMENTS);
+                ResultSet resultSet = stmt.executeQuery()) {
+                    while (resultSet.next()) {
+                        appointments.add(
+                            new Appointment(
+                                resultSet.getInt("IDAppointment"),                                
+                                getDoctor(resultSet.getInt("DoctorID")),
+                                getExistingPatient(resultSet.getInt("PatientID")),
+                                resultSet.getDate("Time").toLocalDate()
+                            ));
+                    }
+            return appointments;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return appointments;
     }
 
     @Override
     public List<Medication> getMedications() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Medication> medications = new ArrayList<>();
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_MEDICATIONS);
+                ResultSet resultSet = stmt.executeQuery()) {
+                    while (resultSet.next()) {
+                        medications.add(
+                            new Medication(
+                                resultSet.getInt("IDMedication"),
+                                resultSet.getString("Name"),
+                                resultSet.getInt("Price")
+                            ));
+                    }
+            return medications;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return medications;
+    }
+
+    @Override
+    public void insertBill(Bill bill) {
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = (Connection) dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(INSERT_BILL)) {
+            stmt.setInt(1, bill.getDiagnosis());
+            stmt.setBoolean(2, bill.getPayed());
+            stmt.setInt(3, bill.getPatient().getOpid());            
+            stmt.setInt(4, bill.getMedication().getMedicationId());
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Bill> getBill(int id) {
+        List<Bill> bill =  new ArrayList<>();
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_BILL)){
+                stmt.setInt(1, id);
+            try(ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet.next()) {
+                    bill.add(
+                        new Bill(
+                            resultSet.getInt("IDBill"),
+                            getExistingPatient(resultSet.getInt("PatientID")),
+                            getMedication(resultSet.getInt("MedicationID")),
+                            resultSet.getInt("Diagnosis"),
+                            resultSet.getBoolean("Payed")
+                    ));
+                }
+            }   
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Medication getMedication(int id) {
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_MEDICATION)){
+                stmt.setInt(1, id);
+            try(ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet.next()) {
+                    return new Medication(
+                        resultSet.getInt("IDMedication"),
+                        resultSet.getString("Name"),
+                        resultSet.getInt("Price")
+                    );
+                }
+            }   
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
         
 }

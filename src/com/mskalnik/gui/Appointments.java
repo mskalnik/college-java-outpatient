@@ -13,6 +13,7 @@ import com.mskalnik.model.Doctor;
 import com.mskalnik.model.Patient;
 import java.time.LocalDate;
 import java.util.List;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -177,5 +178,14 @@ public class Appointments extends javax.swing.JPanel {
         for (int i = 2019; i >= 1990; i--) {
             cbYear.addItem(String.valueOf(i));
         }
+        
+        List<Appointment> appointments = APPOINTMENTS_HANDLER.getAppointments();
+        DefaultListModel model = new DefaultListModel();
+        
+        for (Appointment appointment : appointments) {
+            model.addElement(appointment.getId() + ": Doctor " + appointment.getDoctor().getFirstName() + " " + appointment.getDoctor().getSurname() + ", Patient " + appointment.getPatient().getFirstName() + " " + appointment.getPatient().getSurname());
+        }
+        
+        liAppointments.setModel(model);
     }
 }

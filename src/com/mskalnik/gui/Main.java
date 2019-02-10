@@ -43,7 +43,7 @@ public class Main extends javax.swing.JFrame {
         panelMiniForm1 = new com.mskalnik.gui.MiniForm();
         comprehensiveFormPanel1 = new com.mskalnik.gui.ComprehensiveForm();
         appointment1 = new com.mskalnik.gui.Appointments();
-        bill1 = new com.mskalnik.gui.Bill();
+        bill1 = new com.mskalnik.gui.Bills();
         doctor1 = new com.mskalnik.gui.DoctorPanel();
         physicianAdd1 = new com.mskalnik.gui.PhysicianAdd();
         physicianEdit1 = new com.mskalnik.gui.PhysicianEdit();
@@ -293,7 +293,7 @@ public class Main extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.mskalnik.gui.Appointments appointment1;
-    private com.mskalnik.gui.Bill bill1;
+    private com.mskalnik.gui.Bills bill1;
     private com.mskalnik.gui.ComprehensiveForm comprehensiveFormPanel1;
     private com.mskalnik.gui.DailyReport dailyReport1;
     private com.mskalnik.gui.DoctorPanel doctor1;
@@ -323,7 +323,7 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void changeToPanel(JPanel panel) {
-        current.setVisible(false);
+        current.setVisible(false);       
         panel.setVisible(true);
         current = panel;
     }
