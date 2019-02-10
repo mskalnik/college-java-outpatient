@@ -15,8 +15,8 @@ import java.util.List;
  */
 public class DoctorsHandler extends HandlerBase {
     
-    public int insertDoctor(Doctor doctor) {
-        return repository.insertDoctor(doctor);        
+    public void insertDoctor(Doctor doctor) {
+        repository.insertDoctor(doctor);        
     }
 
     public void updateDoctor(Doctor doctor, int id) {

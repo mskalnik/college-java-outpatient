@@ -248,8 +248,7 @@ public class MiniForm extends javax.swing.JPanel {
                                 correctFormat(kinLast, 50) && correctFormat(relationship, 50) &&
                                     correctFormat(telephone, 50) && correctFormat(telephone2, 50)) {
             PATIENTS_HANDLER.insertPatientMiniForm(p);
-            JOptionPane.showMessageDialog(null, "User " + firstName + " " + lastName + " added!\n");
-            
+            JOptionPane.showMessageDialog(null, "User " + firstName + " " + lastName + " added!\n");            
         } else {
             JOptionPane.showMessageDialog(null, "WARNING: All data must be entered");
         }        

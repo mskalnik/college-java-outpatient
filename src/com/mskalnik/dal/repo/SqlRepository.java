@@ -29,7 +29,7 @@ public class SqlRepository implements Repository {
     private static final String GET_EXISTING_PATIENTS = "{ CALL getExistingPatients }";
     private static final String GET_EXISTING_PATIENT = "{ CALL getExistingPatient (?) }";
     
-    private static final String INSERT_DOCTOR = "{ CALL insertDoctor }";
+    private static final String INSERT_DOCTOR = "{ CALL insertDoctor (?, ?, ?, ?) }";
     private static final String UPDATE_DOCTOR = "{ CALL updateDoctor (?,?,?,?) }";
     private static final String DELETE_DOCTOR = "{ CALL deleteDoctor (?) }";
     private static final String GET_DOCTOR = "{ CALL getDoctor (?) }";
@@ -37,16 +37,18 @@ public class SqlRepository implements Repository {
     private static final String GET_PATIENTS_FOR_DOCTOR = "{ CALL getPatientsForDoctor (?) }";
 
     @Override
-    public int insertDoctor(Doctor doctor) {
+    public void insertDoctor(Doctor doctor) {
         DataSource dataSource = DataSourceSignleton.getInstance();
         try (Connection con = (Connection) dataSource.getConnection();
                 CallableStatement stmt = con.prepareCall(INSERT_DOCTOR)) {
+            stmt.setString(1, doctor.getFirstName());
+            stmt.setString(2, doctor.getMiddleName());
+            stmt.setString(3, doctor.getSurname());            
+            stmt.setString(4, doctor.getTitle());
             stmt.executeUpdate();
-            return 0;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return -1;
     }
 
     @Override
@@ -66,7 +68,27 @@ public class SqlRepository implements Repository {
 
     @Override
     public List<Doctor> getDoctors() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Doctor> doctors = new ArrayList<>();
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_DOCTORS);
+                ResultSet resultSet = stmt.executeQuery()) {
+                    while (resultSet.next()) {
+                        doctors.add(
+                            new Doctor(
+                                resultSet.getInt("IDDoctor"),
+                                resultSet.getString("Title"),
+                                resultSet.getString("FirstName"), 
+                                resultSet.getString("MiddleName"),
+                                resultSet.getString("Surname"))
+                            );
+                    }
+            return doctors;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return doctors;
     }
 
     @Override
@@ -149,7 +171,7 @@ public class SqlRepository implements Repository {
                 stmt.setInt(1, id);
             try(ResultSet resultSet = stmt.executeQuery()) {
                 if (resultSet.next()) {
-                    new Patient(
+                    return new Patient(
                         resultSet.getInt("OPID"),
                         resultSet.getString("FirstName"),
                         resultSet.getString("MiddleName"),

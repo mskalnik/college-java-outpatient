@@ -5,12 +5,18 @@
  */
 package com.mskalnik.gui;
 
+import com.mskalnik.bl.DoctorsHandler;
+import com.mskalnik.model.Doctor;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mskalnik
  */
 public class PhysicianAdd extends javax.swing.JPanel {
 
+    private static final DoctorsHandler DOCTORS_HANDLER = new DoctorsHandler();
+    
     /**
      * Creates new form AddDoctor
      */
@@ -32,10 +38,11 @@ public class PhysicianAdd extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtTitle = new javax.swing.JTextField();
+        txtFirstName = new javax.swing.JTextField();
+        txtMiddleName = new javax.swing.JTextField();
+        txtLastName = new javax.swing.JTextField();
+        btnAdd = new javax.swing.JButton();
 
         setLayout(null);
 
@@ -59,26 +66,58 @@ public class PhysicianAdd extends javax.swing.JPanel {
         jLabel5.setText("Title:");
         add(jLabel5);
         jLabel5.setBounds(10, 130, 27, 16);
-        add(jTextField1);
-        jTextField1.setBounds(100, 130, 250, 24);
-        add(jTextField2);
-        jTextField2.setBounds(100, 40, 250, 24);
-        add(jTextField3);
-        jTextField3.setBounds(100, 70, 250, 24);
-        add(jTextField4);
-        jTextField4.setBounds(100, 100, 250, 24);
+        add(txtTitle);
+        txtTitle.setBounds(100, 130, 250, 24);
+        add(txtFirstName);
+        txtFirstName.setBounds(100, 40, 250, 24);
+        add(txtMiddleName);
+        txtMiddleName.setBounds(100, 70, 250, 24);
+        add(txtLastName);
+        txtLastName.setBounds(100, 100, 250, 24);
+
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        add(btnAdd);
+        btnAdd.setBounds(100, 160, 52, 32);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        String firstName = txtFirstName.getText();
+        String middleName = txtMiddleName.getText();
+        String lastName = txtLastName.getText();
+        String title = txtTitle.getText();
+        
+        if (correctFormat(firstName, 50) && correctFormat(middleName, 50) && correctFormat(lastName, 50) && correctFormat(title, 50)) {
+            Doctor doctor = new Doctor(title, firstName, middleName, lastName);
+            DOCTORS_HANDLER.insertDoctor(doctor);
+            JOptionPane.showMessageDialog(null, "Doctor " + firstName + " " + lastName + " added!\n");
+        } else {
+            JOptionPane.showMessageDialog(null, "WARNING: All data must be entered");
+        }      
+        
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private Boolean correctFormat(String text, int max) {
+        if (text.trim().length() > 0 && text.length() < max)
+            return true;
+        return false;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtFirstName;
+    private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtMiddleName;
+    private javax.swing.JTextField txtTitle;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,7 +21,7 @@ public interface Repository {
     Patient getExistingPatient(int id);
     void insertPatientComprahensiveForm(int id, Patient patient);
     
-    int insertDoctor(Doctor doctor);
+    void insertDoctor(Doctor doctor);
     void updateDoctor(Doctor dummy, int idDoctor);
     void deleteDoctor(int idDoctor);
     Doctor getDoctor(int idDoctor);

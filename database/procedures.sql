@@ -47,7 +47,7 @@ AS
 	VALUES (@kinRelationship, @patientId, @kinId)
 GO
 
-ALTER PROCEDURE getExistingPatients
+CREATE PROCEDURE getExistingPatients
 AS
 	SELECT 
 		pa.OPID AS OPID,
@@ -90,3 +90,47 @@ AS
 	INNER JOIN Contact AS c ON c.PersonID = pe.IDPerson	
 	WHERE @id = pa.OPID
 GO
+
+CREATE PROCEDURE insertDoctor
+	@firstName nvarchar(50),
+	@middleName nvarchar(50),
+	@lastName nvarchar(50),
+	@title nvarchar(50)
+AS
+	DECLARE @id int
+
+	INSERT INTO Person(FirstName, MiddleName, Surname)
+	VALUES (@firstName, @middleName, @lastName)
+	SET @id = SCOPE_IDENTITY()
+
+	INSERT INTO Doctor(Title, PersonID)
+	VALUES (@title, @id)
+GO
+
+CREATE PROCEDURE getDoctors
+AS
+	SELECT 
+		d.IDDoctor,
+		p.FirstName,
+		p.MiddleName,
+		p.Surname,
+		d.Title
+	FROM Doctor AS d
+	INNER JOIN Person AS p ON p.IDPerson = d.PersonID
+GO
+
+CREATE PROCEDURE getDoctor
+	@id int
+AS
+	SELECT 
+		d.IDDoctor,
+		p.FirstName,
+		p.MiddleName,
+		p.Surname,
+		d.Title
+	FROM Doctor AS d
+	INNER JOIN Person AS p ON p.IDPerson = d.PersonID
+	WHERE @id = d.IDDoctor
+GO
+
+exec getDoctors

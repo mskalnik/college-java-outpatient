@@ -12,9 +12,15 @@ import java.util.Objects;
  * @author mskalnik
  */
 public class Doctor extends Person {
+    private int idDoctor;   
     private String title;
 
     public Doctor(String title, String firstName, String middleName, String surname) {
+        super(firstName, middleName, surname);
+        this.title = title;
+    }
+    
+    public Doctor(int id, String title, String firstName, String middleName, String surname) {
         super(firstName, middleName, surname);
         this.title = title;
     }
@@ -25,6 +31,14 @@ public class Doctor extends Person {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+    
+     public void setIdDoctor(int idDoctor) {
+        this.idDoctor = idDoctor;
+    }
+
+    public int getIdDoctor() {
+        return idDoctor;
     }
 
     @Override

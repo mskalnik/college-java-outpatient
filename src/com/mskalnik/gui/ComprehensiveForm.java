@@ -29,12 +29,7 @@ public class ComprehensiveForm extends javax.swing.JPanel {
             cbExistingPersons.addItem(patient.getOpid() + ": " + patient.getFirstName() + " " + patient.getSurname());
         });
         
-        String selected = cbExistingPersons.getSelectedItem().toString();
-        if (selected != "None") {
-            String[] list = selected.split(":");
-            int id = Integer.parseInt(list[0]);
-            setExistingValues(id);
-        }
+        fillComboBoxes();
     }
     
     /**
@@ -47,6 +42,7 @@ public class ComprehensiveForm extends javax.swing.JPanel {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         basicPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -56,11 +52,12 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtPatientLastName1 = new javax.swing.JTextField();
-        txtPatientLastName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         cbYear = new javax.swing.JComboBox<>();
         cbDay = new javax.swing.JComboBox<>();
         cbMonth = new javax.swing.JComboBox<>();
+        tbFemale = new javax.swing.JRadioButton();
+        rbMale = new javax.swing.JRadioButton();
         contactPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -233,24 +230,39 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel5.setBounds(10, 70, 80, 16);
         basicPanel.add(txtPatientLastName1);
         txtPatientLastName1.setBounds(120, 70, 250, 24);
-        basicPanel.add(txtPatientLastName);
-        txtPatientLastName.setBounds(120, 100, 250, 24);
 
         jLabel6.setText("Sex:");
         basicPanel.add(jLabel6);
         jLabel6.setBounds(10, 100, 80, 16);
 
-        cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         basicPanel.add(cbYear);
-        cbYear.setBounds(260, 130, 110, 26);
+        cbYear.setBounds(270, 130, 100, 26);
 
-        cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         basicPanel.add(cbDay);
-        cbDay.setBounds(120, 130, 65, 26);
+        cbDay.setBounds(120, 130, 60, 26);
 
-        cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         basicPanel.add(cbMonth);
-        cbMonth.setBounds(190, 130, 65, 26);
+        cbMonth.setBounds(190, 130, 70, 26);
+
+        buttonGroup1.add(tbFemale);
+        tbFemale.setText("Female");
+        tbFemale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbFemaleActionPerformed(evt);
+            }
+        });
+        basicPanel.add(tbFemale);
+        tbFemale.setBounds(190, 100, 111, 28);
+
+        buttonGroup1.add(rbMale);
+        rbMale.setText("Male");
+        rbMale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMaleActionPerformed(evt);
+            }
+        });
+        basicPanel.add(rbMale);
+        rbMale.setBounds(120, 100, 59, 28);
 
         jTabbedPane1.addTab("Basic", basicPanel);
 
@@ -777,32 +789,33 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPermanentPincodeActionPerformed
 
-    private void setExistingValues(int id) {
-        Patient p = PATIENTS_HANDLER.getExistingPatient(id);
-        System.out.println(p.getFirstName());
-    }
-    
     private void cbExistingPersonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbExistingPersonsActionPerformed
         // TODO add your handling code here:
-        txtPatientFirstName.setEnabled(false);
-        txtPatientMiddleName.setEnabled(false);
-        txtPatientLastName1.setEnabled(false);
-        cbDay.setEnabled(false);
-        cbMonth.setEnabled(false);
-        cbYear.setEnabled(false);
-        txtKinFirstName.setEnabled(false);
-        txtKinMiddleName.setEnabled(false);
-        txtKinLastName.setEnabled(false);
-        txtKinRelationship.setEnabled(false);
-        taComplaint.setEnabled(false);
-        txtPatientTelephoneHome.setEnabled(false);
-        txtPatientTelephoneWork.setEnabled(false);
+        String selected = cbExistingPersons.getSelectedItem().toString();        
+        
+        if (selected.equals("None")) {            
+            setEditable(true, null);
+        } else {
+            String[] list = selected.split(":");
+            int id = Integer.parseInt(list[0]);
+            Patient p = PATIENTS_HANDLER.getExistingPatient(id);
+            setEditable(false, p);
+        }
     }//GEN-LAST:event_cbExistingPersonsActionPerformed
+
+    private void tbFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbFemaleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbFemaleActionPerformed
+
+    private void rbMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMaleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbMaleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basicComplaintsPanel;
     private javax.swing.JPanel basicPanel;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbDay;
     private javax.swing.JCheckBox cbDiabetic;
     private javax.swing.JComboBox<String> cbExistingPersons;
@@ -899,8 +912,10 @@ public class ComprehensiveForm extends javax.swing.JPanel {
     private javax.swing.JPanel medicalComplaintsPanel;
     private javax.swing.JPanel personalPanel;
     private javax.swing.JPanel professionPanel;
+    private javax.swing.JRadioButton rbMale;
     private javax.swing.JTextArea taComplaint;
     private javax.swing.JTextArea taPreviousTreatment;
+    private javax.swing.JRadioButton tbFemale;
     private javax.swing.JTextField txtAllergies;
     private javax.swing.JTextField txtBloodType;
     private javax.swing.JTextField txtCardiac;
@@ -935,7 +950,6 @@ public class ComprehensiveForm extends javax.swing.JPanel {
     private javax.swing.JTextField txtPatientEmail;
     private javax.swing.JTextField txtPatientFax;
     private javax.swing.JTextField txtPatientFirstName;
-    private javax.swing.JTextField txtPatientLastName;
     private javax.swing.JTextField txtPatientLastName1;
     private javax.swing.JTextField txtPatientMiddleName;
     private javax.swing.JTextField txtPatientPager;
@@ -961,5 +975,82 @@ public class ComprehensiveForm extends javax.swing.JPanel {
     private javax.swing.JTextField txtSurgeries;
     private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
+
+    private void setEditable(boolean b, Patient p) {
+        if (p != null) {
+            txtPatientFirstName.setText(p.getFirstName());
+            txtPatientMiddleName.setText(p.getMiddleName());
+            txtPatientLastName1.setText(p.getSurname());            
+            txtKinFirstName.setText(p.getNextOfKin().getFirstName());
+            txtKinMiddleName.setText(p.getNextOfKin().getMiddleName());
+            txtKinLastName.setText(p.getNextOfKin().getSurname());
+            txtKinRelationship.setText(p.getNextOfKin().getRelationship());
+            taComplaint.setText(p.getComplaint());
+            txtPatientTelephoneHome.setText(p.getContact().getTelephoneHome());
+            txtPatientTelephoneWork.setText(p.getContact().getTelephoneWork());            
+            for (int i = 0; i < cbDay.getItemCount(); i++) {
+                if (Integer.parseInt(cbDay.getItemAt(i)) == (p.getDateOfBirth().getDayOfMonth())) {
+                    cbDay.setSelectedIndex(i);
+                }
+            }
+            
+            for (int i = 0; i < cbMonth.getItemCount(); i++) {
+                if (Integer.parseInt(cbMonth.getItemAt(i)) == (p.getDateOfBirth().getMonthValue())) {
+                    cbMonth.setSelectedIndex(i);
+                }
+            }
+            
+            for (int i = 0; i < cbYear.getItemCount(); i++) {
+                if (Integer.parseInt(cbYear.getItemAt(i)) == (p.getDateOfBirth().getYear())) {
+                    cbYear.setSelectedIndex(i);
+                }
+            }
+        } else {            
+            txtPatientFirstName.setText("");
+            txtPatientFirstName.requestFocus();
+            txtPatientMiddleName.setText("");
+            txtPatientLastName1.setText("");            
+            txtKinFirstName.setText("");
+            txtKinMiddleName.setText("");
+            txtKinLastName.setText("");
+            txtKinRelationship.setText("");
+            taComplaint.setText("");
+            txtPatientTelephoneHome.setText("");
+            txtPatientTelephoneWork.setText("");
+            cbDay.setSelectedItem("1");
+            cbMonth.setSelectedItem("1");
+            cbYear.setSelectedItem("2019");
+            rbMale.setSelected(true);
+        }
+        txtPatientFirstName.setEnabled(b);
+        txtPatientMiddleName.setEnabled(b);
+        txtPatientLastName1.setEnabled(b);
+        cbDay.setEnabled(b);
+        cbMonth.setEnabled(b);
+        cbYear.setEnabled(b);
+        txtKinFirstName.setEnabled(b);
+        txtKinMiddleName.setEnabled(b);
+        txtKinLastName.setEnabled(b);
+        txtKinRelationship.setEnabled(b);
+        taComplaint.setEnabled(b);
+        txtPatientTelephoneHome.setEnabled(b);
+        txtPatientTelephoneWork.setEnabled(b);    
+    }
+    
+    private void fillComboBoxes() {
+        for (int i = 1; i <= 31; i++) {
+            cbDay.addItem(String.valueOf(i));
+        }
+        
+        for (int i = 1; i <= 12; i++) {
+            cbMonth.addItem(String.valueOf(i));
+        }
+        
+        for (int i = 2019; i >= 1990; i--) {
+            cbYear.addItem(String.valueOf(i));
+        }
+        
+        rbMale.setSelected(true);
+    }
 
 }
