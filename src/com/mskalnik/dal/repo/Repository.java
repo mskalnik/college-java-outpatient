@@ -18,6 +18,7 @@ public interface Repository {
     //Patient actions
     void insertPatientMiniForm(Patient patient);
     List<Patient> getExistingPatients();
+    Patient getExistingPatient(int id);
     void insertPatientComprahensiveForm(int id, Patient patient);
     
     int insertDoctor(Doctor doctor);

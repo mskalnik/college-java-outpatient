@@ -6,7 +6,9 @@
 package com.mskalnik.dal.repo;
 
 import com.mskalnik.dal.sql.DataSourceSignleton;
+import com.mskalnik.model.Contact;
 import com.mskalnik.model.Doctor;
+import com.mskalnik.model.NextOfKin;
 import com.mskalnik.model.Patient;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -25,6 +27,7 @@ public class SqlRepository implements Repository {
     //Patient
     private static final String INSERT_PATIENT_MINI_FORM = "{ CALL insertPatientMiniForm (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }";
     private static final String GET_EXISTING_PATIENTS = "{ CALL getExistingPatients }";
+    private static final String GET_EXISTING_PATIENT = "{ CALL getExistingPatient (?) }";
     
     private static final String INSERT_DOCTOR = "{ CALL insertDoctor }";
     private static final String UPDATE_DOCTOR = "{ CALL updateDoctor (?,?,?,?) }";
@@ -80,7 +83,7 @@ public class SqlRepository implements Repository {
             stmt.setString(2, patient.getMiddleName());
             stmt.setString(3, patient.getSurname());            
             stmt.setDate(4, Date.valueOf(patient.getDateOfBirth())); 
-           stmt.setString(5, patient.getComplaint());
+            stmt.setString(5, patient.getComplaint());
             stmt.setString(6, patient.getContact().getTelephoneHome());            
             stmt.setString(7, patient.getContact().getTelephoneWork());
             stmt.setString(8, patient.getNextOfKin().getFirstName());            
@@ -114,10 +117,21 @@ public class SqlRepository implements Repository {
                     while (resultSet.next()) {
                         patients.add(
                             new Patient(
-                            resultSet.getInt("OPID"),
-                            resultSet.getString("FirstName"),
-                            resultSet.getString("MiddleName"),
-                            resultSet.getString("Surname")));
+                                resultSet.getInt("OPID"),
+                                resultSet.getString("FirstName"),
+                                resultSet.getString("MiddleName"),
+                                resultSet.getString("Surname"),
+                                resultSet.getDate("DateOfBirth").toLocalDate(),
+                                new NextOfKin(
+                                    resultSet.getString("KinFirstName"),
+                                    resultSet.getString("KinMiddleName"),
+                                    resultSet.getString("KinLastName"),
+                                    resultSet.getString("Relationship")),
+                                resultSet.getString("Complaint"),
+                                new Contact(
+                                    resultSet.getString("TelephoneHome"),
+                                    resultSet.getString("TelephoneWork"))
+                            ));
                     }
             return patients;
             
@@ -125,6 +139,37 @@ public class SqlRepository implements Repository {
             e.printStackTrace();
         }
         return patients;
+    }
+    
+    @Override
+    public Patient getExistingPatient(int id) {
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_EXISTING_PATIENT)){
+                stmt.setInt(1, id);
+            try(ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet.next()) {
+                    new Patient(
+                        resultSet.getInt("OPID"),
+                        resultSet.getString("FirstName"),
+                        resultSet.getString("MiddleName"),
+                        resultSet.getString("Surname"),
+                        resultSet.getDate("DateOfBirth").toLocalDate(),
+                        new NextOfKin(
+                            resultSet.getString("KinFirstName"),
+                            resultSet.getString("KinMiddleName"),
+                            resultSet.getString("KinLastName"),
+                            resultSet.getString("Relationship")),
+                        resultSet.getString("Complaint"),
+                        new Contact(
+                            resultSet.getString("TelephoneHome"),
+                            resultSet.getString("TelephoneWork")));
+                }
+            }   
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
         
 }

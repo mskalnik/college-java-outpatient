@@ -23,4 +23,8 @@ public class PatientsHandler extends HandlerBase {
         return repository.getExistingPatients();
     }
     
+    public Patient getExistingPatient(int id) {
+        return repository.getExistingPatient(id);
+    }   
+    
 }

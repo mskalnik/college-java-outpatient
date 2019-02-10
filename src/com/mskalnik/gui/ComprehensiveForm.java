@@ -8,6 +8,7 @@ package com.mskalnik.gui;
 import com.mskalnik.bl.PatientsHandler;
 import com.mskalnik.model.Patient;
 import java.util.List;
+import java.util.Set;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -27,6 +28,13 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         patients.forEach((patient) -> {
             cbExistingPersons.addItem(patient.getOpid() + ": " + patient.getFirstName() + " " + patient.getSurname());
         });
+        
+        String selected = cbExistingPersons.getSelectedItem().toString();
+        if (selected != "None") {
+            String[] list = selected.split(":");
+            int id = Integer.parseInt(list[0]);
+            setExistingValues(id);
+        }
     }
     
     /**
@@ -769,14 +777,26 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPermanentPincodeActionPerformed
 
+    private void setExistingValues(int id) {
+        Patient p = PATIENTS_HANDLER.getExistingPatient(id);
+        System.out.println(p.getFirstName());
+    }
+    
     private void cbExistingPersonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbExistingPersonsActionPerformed
         // TODO add your handling code here:
-        String selected = cbExistingPersons.getSelectedItem().toString();
-        if (selected != "None") {
-            String[] list = selected.split(":");
-            int id = Integer.parseInt(list[0]);
-            System.out.println(id);
-        }
+        txtPatientFirstName.setEnabled(false);
+        txtPatientMiddleName.setEnabled(false);
+        txtPatientLastName1.setEnabled(false);
+        cbDay.setEnabled(false);
+        cbMonth.setEnabled(false);
+        cbYear.setEnabled(false);
+        txtKinFirstName.setEnabled(false);
+        txtKinMiddleName.setEnabled(false);
+        txtKinLastName.setEnabled(false);
+        txtKinRelationship.setEnabled(false);
+        taComplaint.setEnabled(false);
+        txtPatientTelephoneHome.setEnabled(false);
+        txtPatientTelephoneWork.setEnabled(false);
     }//GEN-LAST:event_cbExistingPersonsActionPerformed
 
 
@@ -941,4 +961,5 @@ public class ComprehensiveForm extends javax.swing.JPanel {
     private javax.swing.JTextField txtSurgeries;
     private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
+
 }
