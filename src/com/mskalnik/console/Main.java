@@ -5,18 +5,21 @@
  */
 package com.mskalnik.console;
 
-import com.mskalnik.bl.DoctorsHandler;
+import com.mskalnik.bl.PatientsHandler;
 import com.mskalnik.model.Doctor;
+import com.mskalnik.model.Patient;
 
 /**
  *
  * @author mskalnik
  */
 public class Main {
-//    private static final DoctorHandler DOCTOR_HANDLER = new DoctorHandler();
-//    
-//    public static void main(String[] args) {
-//        Doctor d = new Doctor("321", "321", "321");
-//        DOCTOR_HANDLER.insertDoctor(d);
-//    }
+    private static final PatientsHandler PATIENTS_HANDLER = new PatientsHandler();
+   
+    public static void start() {
+        System.out.println("Patients:\n--------------------------------------------------");
+        for (Patient patient : PATIENTS_HANDLER.getExistingPatients()) {
+            System.out.println("ID: " + patient.getOpid() + ", " + patient.getFirstName() + " " + patient.getMiddleName() + " " + patient.getSurname());
+        }
+    }
 }

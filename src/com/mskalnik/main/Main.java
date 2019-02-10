@@ -21,7 +21,7 @@ public class Main {
             int switcher = readFromFile();
             switch(switcher) {
                 case 1:
-                    //com.mskalnik.console.Main.start();
+                    com.mskalnik.console.Main.start();
                     break;
                 case 2:
                     com.mskalnik.gui.Main.start();
