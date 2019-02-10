@@ -42,9 +42,9 @@ public class Main extends javax.swing.JFrame {
 
         panelMiniForm1 = new com.mskalnik.gui.MiniForm();
         comprehensiveFormPanel1 = new com.mskalnik.gui.ComprehensiveForm();
-        appointment1 = new com.mskalnik.gui.Appointment();
+        appointment1 = new com.mskalnik.gui.Appointments();
         bill1 = new com.mskalnik.gui.Bill();
-        doctor1 = new com.mskalnik.gui.Doctor();
+        doctor1 = new com.mskalnik.gui.DoctorPanel();
         physicianAdd1 = new com.mskalnik.gui.PhysicianAdd();
         physicianEdit1 = new com.mskalnik.gui.PhysicianEdit();
         physicianList1 = new com.mskalnik.gui.PhysicianList();
@@ -292,11 +292,11 @@ public class Main extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.mskalnik.gui.Appointment appointment1;
+    private com.mskalnik.gui.Appointments appointment1;
     private com.mskalnik.gui.Bill bill1;
     private com.mskalnik.gui.ComprehensiveForm comprehensiveFormPanel1;
     private com.mskalnik.gui.DailyReport dailyReport1;
-    private com.mskalnik.gui.Doctor doctor1;
+    private com.mskalnik.gui.DoctorPanel doctor1;
     private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JMenuItem menuCreateDoctor;
     private javax.swing.JMenuItem menuDoctor;

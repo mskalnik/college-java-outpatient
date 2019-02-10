@@ -6,8 +6,10 @@
 package com.mskalnik.dal.repo;
 
 import com.mskalnik.dal.sql.DataSourceSignleton;
+import com.mskalnik.model.Appointment;
 import com.mskalnik.model.Contact;
 import com.mskalnik.model.Doctor;
+import com.mskalnik.model.Medication;
 import com.mskalnik.model.NextOfKin;
 import com.mskalnik.model.Patient;
 import java.sql.CallableStatement;
@@ -35,7 +37,12 @@ public class SqlRepository implements Repository {
     private static final String GET_DOCTOR = "{ CALL getDoctor (?) }";
     private static final String GET_DOCTORS = "{ CALL getDoctors }";
     private static final String GET_PATIENTS_FOR_DOCTOR = "{ CALL getPatientsForDoctor (?) }";
-
+    
+    private static final String INSERT_APPOINTMENTS = "{ CALL insertAppointments (?, ?, ?) }";
+    private static final String GET_APPOINTMENTS = "{ CALL getAppointments }";
+    private static final String GET_APPOINTMENT = "{ CALL getAppointment (?) }";
+    private static final String GET_MEDICATIONS = "{ CALL getMedications }";
+    
     @Override
     public void insertDoctor(Doctor doctor) {
         DataSource dataSource = DataSourceSignleton.getInstance();
@@ -52,18 +59,35 @@ public class SqlRepository implements Repository {
     }
 
     @Override
-    public void updateDoctor(Doctor dummy, int idDoctor) {
+    public void updateDoctor(Doctor dummy, int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void deleteDoctor(int idDoctor) {
+    public void deleteDoctor(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Doctor getDoctor(int idDoctor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Doctor getDoctor(int id) {
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_DOCTOR)){
+                stmt.setInt(1, id);
+            try(ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet.next()) {
+                    return new Doctor(
+                        resultSet.getInt("IDDoctor"),
+                        resultSet.getString("FirstName"),
+                        resultSet.getString("MiddleName"),
+                        resultSet.getString("Surname"),
+                        resultSet.getString("Title"));
+                }
+            }   
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
@@ -192,6 +216,35 @@ public class SqlRepository implements Repository {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void insertAppointments(Appointment appointment) {
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = (Connection) dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(INSERT_APPOINTMENTS)) {  
+            stmt.setInt(1, appointment.getDoctor().getIdDoctor());
+            stmt.setInt(2, appointment.getPatient().getOpid());
+            stmt.setDate(3, Date.valueOf(appointment.getDate())); 
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Appointment> getAppointment(int doctorId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Appointment> getAppointments() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Medication> getMedications() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
 }

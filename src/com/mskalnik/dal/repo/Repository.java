@@ -7,7 +7,9 @@ package com.mskalnik.dal.repo;
 
 import com.mskalnik.model.Doctor;
 import com.mskalnik.model.Patient;
-import java.util.ArrayList;
+import com.mskalnik.model.Appointment;
+import com.mskalnik.model.Medication;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -21,10 +23,17 @@ public interface Repository {
     Patient getExistingPatient(int id);
     void insertPatientComprahensiveForm(int id, Patient patient);
     
+    //Doctor actions
     void insertDoctor(Doctor doctor);
     void updateDoctor(Doctor dummy, int idDoctor);
-    void deleteDoctor(int idDoctor);
-    Doctor getDoctor(int idDoctor);
+    void deleteDoctor(int id);
+    Doctor getDoctor(int id);
     List<Doctor> getDoctors();    
-    List<Patient> getPatientsForDoctor(int idDoctor);
+    List<Patient> getPatientsForDoctor(int id);
+    
+    //Appointments
+    void insertAppointments(Appointment appointment);
+    List<Appointment> getAppointment(int id);
+    List<Appointment> getAppointments();
+    List<Medication> getMedications();
 }

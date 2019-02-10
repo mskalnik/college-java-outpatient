@@ -178,7 +178,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="com.mskalnik.gui.Appointment" name="appointment1">
+    <Component class="com.mskalnik.gui.Appointments" name="appointment1">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card4"/>
@@ -192,7 +192,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="com.mskalnik.gui.Doctor" name="doctor1">
+    <Component class="com.mskalnik.gui.DoctorPanel" name="doctor1">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card6"/>

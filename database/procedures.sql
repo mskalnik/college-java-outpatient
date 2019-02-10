@@ -47,6 +47,66 @@ AS
 	VALUES (@kinRelationship, @patientId, @kinId)
 GO
 
+--CREATE PROCEDURE insertPatient
+--	@patientFirstName nvarchar(50),
+--	@patientMiddleName nvarchar(50),
+--	@patientLastName nvarchar(50),
+--	@sex char,
+--	@date datetime,
+
+--	@complaint nvarchar(50),
+
+--	@presentDoor nvarchar(50),
+--	@presentStreet nvarchar(50),
+--	@presentArea nvarchar(50),
+--	@presentCity nvarchar(50),
+--	@presentState nvarchar(50),
+--	@presentPincode nvarchar(50),
+
+--	@permanentDoor nvarchar(50),
+--	@permanentStreet nvarchar(50),
+--	@permanentArea nvarchar(50),
+--	@permanentCity nvarchar(50),
+--	@permanentState nvarchar(50),
+--	@permanentPincode nvarchar(50),
+
+--	@telephoneWork nvarchar(50),
+--	@telephoneHome nvarchar(50),
+--	@mobile nvarchar(50),
+--	@pager nvarchar(50),
+--	@fax nvarchar(50),
+--	@email nvarchar(50),
+
+--	@kinFirstName nvarchar(50),
+--	@kinMiddleName nvarchar(50),
+--	@kinLastName nvarchar(50),
+--	@kinRelationship nvarchar(50),
+--	@kinTelephoneHome nvarchar(50),
+--	@kinTelephoneWork nvarchar(50),
+--	@kinMobile nvarchar(50),
+--	@kinPager nvarchar(50),
+--	@kinFax nvarchar(50),
+--	@kinEmail nvarchar(50),
+
+--	@kinDoor nvarchar(50),
+--	@kinStreet nvarchar(50),
+--	@kinArea nvarchar(50),
+--	@kinCity nvarchar(50),
+--	@kinState nvarchar(50),
+--	@kinPincode nvarchar(50),
+
+--	@martial nvarchar(50),
+--	@noOfDependents nvarchar(50),
+--	@height int,
+--	@width int,
+--	@bloodtype nvarchar(50),
+
+--	@occupation nvarchar(50),
+--	@income nvarchar(50)
+--AS
+	
+--GO
+
 CREATE PROCEDURE getExistingPatients
 AS
 	SELECT 
@@ -133,4 +193,37 @@ AS
 	WHERE @id = d.IDDoctor
 GO
 
-exec getDoctors
+CREATE PROCEDURE getMedications
+AS
+	SELECT
+		*
+	FROM Medication
+GO
+
+INSERT INTO Medication(Name, Price)
+Values ('Vilpin', 124), ('Alvonamid', 432),('Belodin', 34),('Sinecod', 14),('Lotar', 50)
+GO
+
+CREATE PROCEDURE insertAppointments
+	@doctorId int,
+	@patientId int,
+	@time date
+AS
+	INSERT INTO Appointment([Time], DoctorID, PatientID)
+	VALUES (@time, @doctorId, @patientId)
+GO
+
+CREATE PROCEDURE getAppointments
+AS
+	SELECT *
+	FROM Appointment
+GO
+
+CREATE PROCEDURE getAppointment
+	@id int
+AS
+	SELECT *
+	FROM Appointment AS a
+	INNER JOIN Doctor AS d ON d.IDDoctor = a.DoctorID
+	WHERE @id = a.DoctorID
+GO

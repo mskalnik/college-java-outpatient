@@ -171,3 +171,22 @@ CREATE TABLE MedicalComplaints (
     CONSTRAINT FK_MedicalComplaints_PersonID FOREIGN KEY (PersonID) REFERENCES Person(IDPerson)
 )
 GO
+
+CREATE TABLE Medication (
+	IDMedication	int NOT NULL IDENTITY,
+	Name			nvarchar(50),
+	Price			int,
+	CONSTRAINT PK_IDMedication PRIMARY KEY (IDMedication)
+)
+GO
+
+CREATE TABLE Appointment (
+	IDAppointment	int NOT NULL IDENTITY,
+	[Time]			date,
+	DoctorID		int,
+	PatientID		int,
+	CONSTRAINT PK_IDAppointment PRIMARY KEY (IDAppointment),
+	CONSTRAINT FK_Appointment_DoctorID FOREIGN KEY (DoctorID) REFERENCES Doctor(IDDoctor),
+	CONSTRAINT FK_Appointment_PatientID FOREIGN KEY (PatientID) REFERENCES Patient(OPID)
+)
+GO

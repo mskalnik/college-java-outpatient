@@ -25,6 +25,37 @@ public class Patient extends Person {
     private BasicComplaints basicComplaints;
     private MedicalComplaints medicalComplaints;
 
+    public Patient(int opid, LocalDate dateOfBirth, char sex, NextOfKin nextOfKin, String Complaint, Contact contact, PersonalDetails personalDetails, ProffesionDetails proffesionDetails, Lifestyle lifestyle, BasicComplaints basicComplaints, MedicalComplaints medicalComplaints, String firstName, String middleName, String surname) {
+        super(firstName, middleName, surname);
+        this.opid = opid;
+        this.dateOfBirth = dateOfBirth;
+        this.sex = sex;
+        this.nextOfKin = nextOfKin;
+        this.Complaint = Complaint;
+        this.contact = contact;
+        this.personalDetails = personalDetails;
+        this.proffesionDetails = proffesionDetails;
+        this.lifestyle = lifestyle;
+        this.basicComplaints = basicComplaints;
+        this.medicalComplaints = medicalComplaints;
+    }
+
+    public Patient(LocalDate dateOfBirth, char sex, NextOfKin nextOfKin, String Complaint, Contact contact, PersonalDetails personalDetails, ProffesionDetails proffesionDetails, Lifestyle lifestyle, BasicComplaints basicComplaints, MedicalComplaints medicalComplaints, String firstName, String middleName, String surname) {
+        super(firstName, middleName, surname);
+        this.dateOfBirth = dateOfBirth;
+        this.sex = sex;
+        this.nextOfKin = nextOfKin;
+        this.Complaint = Complaint;
+        this.contact = contact;
+        this.personalDetails = personalDetails;
+        this.proffesionDetails = proffesionDetails;
+        this.lifestyle = lifestyle;
+        this.basicComplaints = basicComplaints;
+        this.medicalComplaints = medicalComplaints;
+    }
+
+    
+    
     public Patient(int opid, String firstName, String middleName, String surname, LocalDate dateOfBirth, NextOfKin nextOfKin, String Complaint, Contact contact) {
         super(firstName, middleName, surname);
         this.opid = opid;

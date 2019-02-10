@@ -5,17 +5,32 @@
  */
 package com.mskalnik.gui;
 
+import com.mskalnik.model.Doctor;
+import com.mskalnik.bl.DoctorsHandler;
+import java.util.List;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author mskalnik
  */
 public class PhysicianList extends javax.swing.JPanel {
 
+    private static final DoctorsHandler DOCTORS_HANDLER = new DoctorsHandler();
     /**
      * Creates new form DoctorPanel
      */
     public PhysicianList() {
         initComponents();
+        
+        List<Doctor> doctors = DOCTORS_HANDLER.getDoctors();
+        DefaultListModel model = new DefaultListModel();
+        
+        for (Doctor doctor : doctors) {
+            model.addElement(doctor.getIdDoctor() + ": " + doctor.getTitle() + " " + doctor.getFirstName() + " " + doctor.getSurname());
+        }
+        
+        liDoctors.setModel(model);
     }
 
     /**
@@ -29,7 +44,9 @@ public class PhysicianList extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        liDoctors = new javax.swing.JList<>();
+        btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setLayout(null);
 
@@ -38,21 +55,26 @@ public class PhysicianList extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(6, 6, 110, 19);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(liDoctors);
 
         add(jScrollPane1);
         jScrollPane1.setBounds(10, 30, 380, 260);
+
+        btnEdit.setText("Edit");
+        add(btnEdit);
+        btnEdit.setBounds(10, 300, 51, 32);
+
+        btnDelete.setText("Delete");
+        add(btnDelete);
+        btnDelete.setBounds(100, 300, 66, 32);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> liDoctors;
     // End of variables declaration//GEN-END:variables
 }

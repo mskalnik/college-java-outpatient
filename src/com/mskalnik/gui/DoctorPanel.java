@@ -5,17 +5,28 @@
  */
 package com.mskalnik.gui;
 
+import com.mskalnik.bl.DoctorsHandler;
+import com.mskalnik.bl.PatientsHandler;
+import com.mskalnik.model.Doctor;
+import java.util.List;
+
 /**
  *
  * @author mskalnik
  */
-public class Doctor extends javax.swing.JPanel {
+public class DoctorPanel extends javax.swing.JPanel {
 
+    private static final PatientsHandler PATIENTS_HANDLER = new PatientsHandler();
+    private static final DoctorsHandler DOCTORS_HANDLER = new DoctorsHandler();
     /**
      * Creates new form Doctor
      */
-    public Doctor() {
+    public DoctorPanel() {
         initComponents();
+        List<Doctor> doctors = DOCTORS_HANDLER.getDoctors();
+        doctors.forEach((doctor) -> {
+            cbDoctor.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
+        });
     }
 
     /**
@@ -29,16 +40,16 @@ public class Doctor extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbSpecialist = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbDoctor = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        taDiagnosis = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        cbPatient = new javax.swing.JComboBox<>();
+        cbMedication = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -52,25 +63,23 @@ public class Doctor extends javax.swing.JPanel {
         add(jLabel2);
         jLabel2.setBounds(10, 30, 41, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox1);
-        jComboBox1.setBounds(80, 240, 250, 26);
+        add(cbSpecialist);
+        cbSpecialist.setBounds(80, 240, 250, 26);
 
         jLabel3.setText("Patient:");
         add(jLabel3);
         jLabel3.setBounds(10, 70, 50, 16);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox2);
-        jComboBox2.setBounds(80, 30, 250, 26);
+        add(cbDoctor);
+        cbDoctor.setBounds(80, 30, 250, 26);
 
         jLabel4.setText("Diagnosis:");
         add(jLabel4);
         jLabel4.setBounds(10, 110, 60, 16);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        taDiagnosis.setColumns(20);
+        taDiagnosis.setRows(5);
+        jScrollPane1.setViewportView(taDiagnosis);
 
         add(jScrollPane1);
         jScrollPane1.setBounds(80, 110, 250, 83);
@@ -88,13 +97,11 @@ public class Doctor extends javax.swing.JPanel {
         add(jLabel5);
         jLabel5.setBounds(10, 240, 70, 30);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox3);
-        jComboBox3.setBounds(80, 70, 250, 26);
+        add(cbPatient);
+        cbPatient.setBounds(80, 70, 250, 26);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox4);
-        jComboBox4.setBounds(80, 210, 250, 26);
+        add(cbMedication);
+        cbMedication.setBounds(80, 210, 250, 26);
 
         jLabel6.setText("Medication:");
         add(jLabel6);
@@ -107,11 +114,11 @@ public class Doctor extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbDoctor;
+    private javax.swing.JComboBox<String> cbMedication;
+    private javax.swing.JComboBox<String> cbPatient;
+    private javax.swing.JComboBox<String> cbSpecialist;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -119,6 +126,6 @@ public class Doctor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea taDiagnosis;
     // End of variables declaration//GEN-END:variables
 }

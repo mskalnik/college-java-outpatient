@@ -20,8 +20,9 @@ public class Doctor extends Person {
         this.title = title;
     }
     
-    public Doctor(int id, String title, String firstName, String middleName, String surname) {
+    public Doctor(int idDoctor, String title, String firstName, String middleName, String surname) {
         super(firstName, middleName, surname);
+        this.idDoctor = idDoctor;
         this.title = title;
     }
 
