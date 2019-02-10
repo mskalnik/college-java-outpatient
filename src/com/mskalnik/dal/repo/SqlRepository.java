@@ -43,8 +43,8 @@ public class SqlRepository implements Repository {
     private static final String GET_APPOINTMENTS = "{ CALL getAppointments }";
     private static final String GET_APPOINTMENT = "{ CALL getAppointment (?) }";
     private static final String GET_MEDICATIONS = "{ CALL getMedications }";
-    private static final String GET_MEDICATION = "{ CALL getMedications (?) }";
-    private static final String GET_BILL = "{ CALL getBill }";
+    private static final String GET_MEDICATION = "{ CALL getMedication (?) }";
+    private static final String GET_BILL = "{ CALL getBill (?) }";
     private static final String INSERT_BILL = "{ CALL insertBill (?, ?, ?, ?) }";
     
     @Override
@@ -321,7 +321,8 @@ public class SqlRepository implements Repository {
                             resultSet.getBoolean("Payed")
                     ));
                 }
-            }   
+            }  
+            return bill;
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -5,8 +5,10 @@
  */
 package com.mskalnik.gui;
 
+import com.mskalnik.bl.AppointmentsHandler;
 import com.mskalnik.bl.PatientsHandler;
 import com.mskalnik.model.Appointment;
+import com.mskalnik.model.Bill;
 import com.mskalnik.model.Patient;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -18,6 +20,7 @@ import javax.swing.DefaultListModel;
 public class Bills extends javax.swing.JPanel {
 
     private static final PatientsHandler PATIENTS_HANDLER = new PatientsHandler();
+    private static final AppointmentsHandler APPOINTMENTS_HANDLER = new AppointmentsHandler();
     /**
      * Creates new form Bill
      */
@@ -42,8 +45,6 @@ public class Bills extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         liBill = new javax.swing.JList<>();
-        jLabel4 = new javax.swing.JLabel();
-        lblPrice = new javax.swing.JLabel();
         btnCredit = new javax.swing.JButton();
         btnCash = new javax.swing.JButton();
 
@@ -58,6 +59,11 @@ public class Bills extends javax.swing.JPanel {
         add(jLabel2);
         jLabel2.setBounds(10, 30, 60, 30);
 
+        cbPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPatientActionPerformed(evt);
+            }
+        });
         add(cbPatient);
         cbPatient.setBounds(90, 30, 250, 26);
 
@@ -70,14 +76,6 @@ public class Bills extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(90, 70, 250, 131);
 
-        jLabel4.setText("Total:");
-        add(jLabel4);
-        jLabel4.setBounds(10, 230, 31, 16);
-
-        lblPrice.setText("0.00 HRK");
-        add(lblPrice);
-        lblPrice.setBounds(90, 230, 100, 16);
-
         btnCredit.setText("Credit");
         btnCredit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +83,7 @@ public class Bills extends javax.swing.JPanel {
             }
         });
         add(btnCredit);
-        btnCredit.setBounds(150, 260, 77, 32);
+        btnCredit.setBounds(160, 210, 77, 32);
 
         btnCash.setText("Cash");
         btnCash.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +92,7 @@ public class Bills extends javax.swing.JPanel {
             }
         });
         add(btnCash);
-        btnCash.setBounds(90, 260, 59, 32);
+        btnCash.setBounds(90, 210, 59, 32);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditActionPerformed
@@ -105,6 +103,27 @@ public class Bills extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCashActionPerformed
 
+    private void cbPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPatientActionPerformed
+        // TODO add your handling code here:
+        String[] list = cbPatient.getSelectedItem().toString().split(":");
+        int id = Integer.parseInt(list[0]);
+                
+        List<Bill> bills = APPOINTMENTS_HANDLER.getBill(id);
+        DefaultListModel model = new DefaultListModel();
+                
+        if (bills != null) {
+            for (Bill bill : bills) {
+                if (!bill.getPayed()) {
+                    model.addElement(bill.getIdBill() + ": " + bill.getMedication().getName() + " " + bill.getMedication().getPrice() + " HRK");
+                }
+            }
+        } else {
+            liBill.clearSelection();
+        }
+        
+        liBill.setModel(model);
+    }//GEN-LAST:event_cbPatientActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCash;
@@ -113,9 +132,7 @@ public class Bills extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblPrice;
     private javax.swing.JList<String> liBill;
     // End of variables declaration//GEN-END:variables
 
