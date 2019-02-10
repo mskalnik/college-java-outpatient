@@ -5,9 +5,13 @@
  */
 package com.mskalnik.gui;
 
+import com.mskalnik.bl.AppointmentsHandler;
 import com.mskalnik.bl.DoctorsHandler;
 import com.mskalnik.bl.PatientsHandler;
+import com.mskalnik.model.Bill;
 import com.mskalnik.model.Doctor;
+import com.mskalnik.model.Medication;
+import com.mskalnik.model.Patient;
 import java.util.List;
 
 /**
@@ -18,6 +22,7 @@ public class DoctorPanel extends javax.swing.JPanel {
 
     private static final PatientsHandler PATIENTS_HANDLER = new PatientsHandler();
     private static final DoctorsHandler DOCTORS_HANDLER = new DoctorsHandler();
+    private static final AppointmentsHandler APPOINTMENTS_HANDLER = new AppointmentsHandler();
     /**
      * Creates new form Doctor
      */
@@ -26,6 +31,15 @@ public class DoctorPanel extends javax.swing.JPanel {
         List<Doctor> doctors = DOCTORS_HANDLER.getDoctors();
         doctors.forEach((doctor) -> {
             cbDoctor.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
+        });
+        
+        doctors.forEach((doctor) -> {
+            cbSpecialist.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
+        });
+        
+        List<Medication> medications = APPOINTMENTS_HANDLER.getMedications();
+        medications.forEach((medication) -> {
+            cbMedication.addItem(medication.getMedicationId()+ ": " + medication.getName() + ", " + medication.getPrice() + " HRK");
         });
     }
 
@@ -70,6 +84,11 @@ public class DoctorPanel extends javax.swing.JPanel {
         add(jLabel3);
         jLabel3.setBounds(10, 70, 50, 16);
 
+        cbDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbDoctorActionPerformed(evt);
+            }
+        });
         add(cbDoctor);
         cbDoctor.setBounds(80, 30, 250, 26);
 
@@ -110,7 +129,26 @@ public class DoctorPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String[] patients = cbPatient.getSelectedItem().toString().split(":");
+        String[] medications = cbMedication.getSelectedItem().toString().split(":");
+        
+        Boolean payed = false;
+        Patient patient = PATIENTS_HANDLER.getExistingPatient(Integer.parseInt(patients[0]));
+        Medication medication = APPOINTMENTS_HANDLER.getMedication(Integer.parseInt(medications[0]));
+        
+        APPOINTMENTS_HANDLER.insertBill(new Bill(patient, medication, 200, payed));        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cbDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDoctorActionPerformed
+        // TODO add your handling code here:        
+        String[] list = cbDoctor.getSelectedItem().toString().split(":");
+        int id = Integer.parseInt(list[0]);
+        
+        cbPatient.removeAllItems();
+        for (Patient patient : PATIENTS_HANDLER.getAppointment(id)) {
+            cbPatient.addItem(patient.getOpid() + ": " + patient.getFirstName() + " " + patient.getSurname());
+        }
+    }//GEN-LAST:event_cbDoctorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

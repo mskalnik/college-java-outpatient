@@ -237,8 +237,22 @@ public class SqlRepository implements Repository {
     }
 
     @Override
-    public List<Appointment> getAppointment(int doctorId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Patient> getAppointment(int id) {
+        List<Patient> patients =  new ArrayList<>();
+        DataSource dataSource = DataSourceSignleton.getInstance();
+        try (Connection con = dataSource.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_APPOINTMENT)){
+                stmt.setInt(1, id);
+            try(ResultSet resultSet = stmt.executeQuery()) {
+                while (resultSet.next()) {
+                    patients.add(getExistingPatient(resultSet.getInt("PatientID")));
+                }
+            }  
+            return patients;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
@@ -311,7 +325,7 @@ public class SqlRepository implements Repository {
                 CallableStatement stmt = con.prepareCall(GET_BILL)){
                 stmt.setInt(1, id);
             try(ResultSet resultSet = stmt.executeQuery()) {
-                if (resultSet.next()) {
+                while (resultSet.next()) {
                     bill.add(
                         new Bill(
                             resultSet.getInt("IDBill"),

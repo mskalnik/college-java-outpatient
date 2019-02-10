@@ -8,6 +8,7 @@ package com.mskalnik.bl;
 import com.mskalnik.model.Appointment;
 import com.mskalnik.model.Bill;
 import com.mskalnik.model.Medication;
+import com.mskalnik.model.Patient;
 import java.util.List;
 
 /**
@@ -21,10 +22,6 @@ public class AppointmentsHandler extends HandlerBase {
     
     public void insertBill(Bill bill) {
         repository.insertBill(bill);
-    }
-    
-    public List<Appointment> getAppointment(int doctorId) {
-        return repository.getAppointment(doctorId);
     }
     
     public List<Appointment> getAppointments() {

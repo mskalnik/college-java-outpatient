@@ -27,4 +27,8 @@ public class PatientsHandler extends HandlerBase {
         return repository.getExistingPatient(id);
     }   
     
+    public List<Patient> getAppointment(int doctorId) {
+        return repository.getAppointment(doctorId);
+    }
+    
 }

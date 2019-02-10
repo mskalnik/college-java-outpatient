@@ -231,7 +231,7 @@ GO
 CREATE PROCEDURE getAppointment
 	@id int
 AS
-	SELECT *
+	SELECT a.PatientID
 	FROM Appointment AS a
 	INNER JOIN Doctor AS d ON d.IDDoctor = a.DoctorID
 	WHERE @id = a.DoctorID
@@ -254,3 +254,5 @@ AS
 	FROM Bill
 	WHERE @id = PatientID
 GO
+
+select * from Appointment

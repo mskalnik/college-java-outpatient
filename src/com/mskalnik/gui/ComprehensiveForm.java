@@ -199,6 +199,7 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         txtDrugs = new javax.swing.JTextField();
         cbDiabetic = new javax.swing.JCheckBox();
         cbHypertensive = new javax.swing.JCheckBox();
+        btnRegister = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
         cbExistingPersons = new javax.swing.JComboBox<>();
@@ -748,6 +749,10 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         medicalComplaintsPanel.add(cbHypertensive);
         cbHypertensive.setBounds(210, 40, 24, 24);
 
+        btnRegister.setText("Register");
+        medicalComplaintsPanel.add(btnRegister);
+        btnRegister.setBounds(210, 340, 90, 32);
+
         jTabbedPane1.addTab("Medical Complaints", medicalComplaintsPanel);
 
         add(jTabbedPane1);
@@ -815,6 +820,7 @@ public class ComprehensiveForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basicComplaintsPanel;
     private javax.swing.JPanel basicPanel;
+    private javax.swing.JButton btnRegister;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbDay;
     private javax.swing.JCheckBox cbDiabetic;

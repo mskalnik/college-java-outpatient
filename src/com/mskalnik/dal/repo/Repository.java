@@ -35,7 +35,7 @@ public interface Repository {
     //Appointments
     void insertAppointments(Appointment appointment);
     void insertBill(Bill bill);
-    List<Appointment> getAppointment(int id);    
+    List<Patient> getAppointment(int id);    
     List<Appointment> getAppointments();
     List<Medication> getMedications();
     Medication getMedication(int id);

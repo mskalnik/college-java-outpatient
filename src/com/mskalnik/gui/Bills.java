@@ -117,10 +117,7 @@ public class Bills extends javax.swing.JPanel {
                     model.addElement(bill.getIdBill() + ": " + bill.getMedication().getName() + " " + bill.getMedication().getPrice() + " HRK");
                 }
             }
-        } else {
-            liBill.clearSelection();
-        }
-        
+        } 
         liBill.setModel(model);
     }//GEN-LAST:event_cbPatientActionPerformed
 
