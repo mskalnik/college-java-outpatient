@@ -23,7 +23,10 @@ public class ComprehensiveForm extends javax.swing.JPanel {
      */
     public ComprehensiveForm() {
         initComponents();
-        cbExistingPersons.setModel(new DefaultComboBoxModel(PATIENTS_HANDLER.getExistingPatients().toArray()));
+        List<Patient> patients = PATIENTS_HANDLER.getExistingPatients();
+        patients.forEach((patient) -> {
+            cbExistingPersons.addItem(patient.getOpid() + ": " + patient.getFirstName() + " " + patient.getSurname());
+        });
     }
     
     /**
@@ -39,15 +42,17 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         basicPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtFirstName = new javax.swing.JTextField();
-        txtMiddleName = new javax.swing.JTextField();
-        txtLastName = new javax.swing.JTextField();
+        txtPatientFirstName = new javax.swing.JTextField();
+        txtPatientMiddleName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtLastName1 = new javax.swing.JTextField();
-        txtLastName2 = new javax.swing.JTextField();
+        txtPatientLastName1 = new javax.swing.JTextField();
+        txtPatientLastName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        cbYear = new javax.swing.JComboBox<>();
+        cbDay = new javax.swing.JComboBox<>();
+        cbMonth = new javax.swing.JComboBox<>();
         contactPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -56,19 +61,19 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtPresentPincode = new javax.swing.JTextField();
+        txtPatientEmail = new javax.swing.JTextField();
+        txtPresentStreet = new javax.swing.JTextField();
+        txtPresentArea = new javax.swing.JTextField();
+        txtPresentCity = new javax.swing.JTextField();
+        txtPresentState = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        txtPermanentAddress = new javax.swing.JTextField();
+        txtPermanentStreet = new javax.swing.JTextField();
+        txtPermanentArea = new javax.swing.JTextField();
+        txtPermanentCity = new javax.swing.JTextField();
+        txtPermanentState = new javax.swing.JTextField();
+        txtPermanentPincode = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -81,12 +86,12 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
+        txtPresentDoor = new javax.swing.JTextField();
+        txtPatientTelephoneWork = new javax.swing.JTextField();
+        txtPatientTelephoneHome = new javax.swing.JTextField();
+        txtPatientPhone = new javax.swing.JTextField();
+        txtPatientPager = new javax.swing.JTextField();
+        txtPatientFax = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         kinPanel = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -106,42 +111,42 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
-        jTextField21 = new javax.swing.JTextField();
-        jTextField22 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
-        jTextField24 = new javax.swing.JTextField();
-        jTextField25 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
-        jTextField27 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
-        jTextField30 = new javax.swing.JTextField();
-        jTextField31 = new javax.swing.JTextField();
-        jTextField32 = new javax.swing.JTextField();
-        jTextField33 = new javax.swing.JTextField();
-        jTextField34 = new javax.swing.JTextField();
+        txtKinPincode = new javax.swing.JTextField();
+        txtKinEmail = new javax.swing.JTextField();
+        txtKinStreet = new javax.swing.JTextField();
+        txtKinArea = new javax.swing.JTextField();
+        txtKinCity = new javax.swing.JTextField();
+        txtKinState = new javax.swing.JTextField();
+        txtKinDoor = new javax.swing.JTextField();
+        txtKinFirstName = new javax.swing.JTextField();
+        txtKinMiddleName = new javax.swing.JTextField();
+        txtKinLastName = new javax.swing.JTextField();
+        txtKinRelationship = new javax.swing.JTextField();
+        txtKinTelephoneWork = new javax.swing.JTextField();
+        txtKinTelephoneHome = new javax.swing.JTextField();
+        txtKinMobile = new javax.swing.JTextField();
+        txtKinPager = new javax.swing.JTextField();
+        txtKinFax = new javax.swing.JTextField();
         personalPanel = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-        jTextField35 = new javax.swing.JTextField();
-        jTextField37 = new javax.swing.JTextField();
-        jTextField38 = new javax.swing.JTextField();
-        jTextField39 = new javax.swing.JTextField();
+        txtBloodType = new javax.swing.JTextField();
+        txtNoOfDependents = new javax.swing.JTextField();
+        txtHeight = new javax.swing.JTextField();
+        txtWeight = new javax.swing.JTextField();
         jTextField40 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbMartial = new javax.swing.JComboBox<>();
         professionPanel = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        jTextField41 = new javax.swing.JTextField();
-        jTextField42 = new javax.swing.JTextField();
+        txtGrossIncome = new javax.swing.JTextField();
+        txtOccupation = new javax.swing.JTextField();
         lifestylePanel = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        cbHomeFood = new javax.swing.JCheckBox();
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
@@ -149,23 +154,23 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jTextField44 = new javax.swing.JTextField();
-        jTextField45 = new javax.swing.JTextField();
-        jTextField46 = new javax.swing.JTextField();
-        jTextField47 = new javax.swing.JTextField();
-        jTextField48 = new javax.swing.JTextField();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        cbVegeterian = new javax.swing.JCheckBox();
+        txtNoOfCigarettes = new javax.swing.JTextField();
+        txtNoOfDrinks = new javax.swing.JTextField();
+        txtStimulans = new javax.swing.JTextField();
+        txtCoffeTea = new javax.swing.JTextField();
+        txtSoftDrinks = new javax.swing.JTextField();
+        cbMeals = new javax.swing.JCheckBox();
         basicComplaintsPanel = new javax.swing.JPanel();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtPhysicianTreated = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        taComplaint = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        taPreviousTreatment = new javax.swing.JTextArea();
         medicalComplaintsPanel = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
@@ -178,17 +183,17 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel70 = new javax.swing.JLabel();
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
-        jTextField49 = new javax.swing.JTextField();
-        jTextField52 = new javax.swing.JTextField();
-        jTextField53 = new javax.swing.JTextField();
-        jTextField54 = new javax.swing.JTextField();
-        jTextField55 = new javax.swing.JTextField();
-        jTextField56 = new javax.swing.JTextField();
-        jTextField57 = new javax.swing.JTextField();
-        jTextField58 = new javax.swing.JTextField();
-        jTextField59 = new javax.swing.JTextField();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        txtSurgeries = new javax.swing.JTextField();
+        txtCardiac = new javax.swing.JTextField();
+        txtRespiratory = new javax.swing.JTextField();
+        txtDigestive = new javax.swing.JTextField();
+        txtOrthopedic = new javax.swing.JTextField();
+        txtMuscular = new javax.swing.JTextField();
+        txtNeurological = new javax.swing.JTextField();
+        txtAllergies = new javax.swing.JTextField();
+        txtDrugs = new javax.swing.JTextField();
+        cbDiabetic = new javax.swing.JCheckBox();
+        cbHypertensive = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
         cbExistingPersons = new javax.swing.JComboBox<>();
@@ -202,12 +207,10 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel2.setText("First name:");
         basicPanel.add(jLabel2);
         jLabel2.setBounds(10, 10, 63, 16);
-        basicPanel.add(txtFirstName);
-        txtFirstName.setBounds(120, 10, 250, 24);
-        basicPanel.add(txtMiddleName);
-        txtMiddleName.setBounds(120, 40, 250, 24);
-        basicPanel.add(txtLastName);
-        txtLastName.setBounds(120, 130, 250, 24);
+        basicPanel.add(txtPatientFirstName);
+        txtPatientFirstName.setBounds(120, 10, 250, 24);
+        basicPanel.add(txtPatientMiddleName);
+        txtPatientMiddleName.setBounds(120, 40, 250, 24);
 
         jLabel3.setText("Middle name:");
         basicPanel.add(jLabel3);
@@ -220,14 +223,26 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel5.setText("Last name:");
         basicPanel.add(jLabel5);
         jLabel5.setBounds(10, 70, 80, 16);
-        basicPanel.add(txtLastName1);
-        txtLastName1.setBounds(120, 70, 250, 24);
-        basicPanel.add(txtLastName2);
-        txtLastName2.setBounds(120, 100, 250, 24);
+        basicPanel.add(txtPatientLastName1);
+        txtPatientLastName1.setBounds(120, 70, 250, 24);
+        basicPanel.add(txtPatientLastName);
+        txtPatientLastName.setBounds(120, 100, 250, 24);
 
         jLabel6.setText("Sex:");
         basicPanel.add(jLabel6);
         jLabel6.setBounds(10, 100, 80, 16);
+
+        cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        basicPanel.add(cbYear);
+        cbYear.setBounds(260, 130, 110, 26);
+
+        cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        basicPanel.add(cbDay);
+        cbDay.setBounds(120, 130, 65, 26);
+
+        cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        basicPanel.add(cbMonth);
+        cbMonth.setBounds(190, 130, 65, 26);
 
         jTabbedPane1.addTab("Basic", basicPanel);
 
@@ -261,51 +276,51 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel13.setText("State:");
         contactPanel.add(jLabel13);
         jLabel13.setBounds(10, 150, 80, 30);
-        contactPanel.add(jTextField1);
-        jTextField1.setBounds(130, 180, 250, 24);
+        contactPanel.add(txtPresentPincode);
+        txtPresentPincode.setBounds(130, 180, 250, 24);
 
-        jTextField2.setPreferredSize(new java.awt.Dimension(70, 24));
-        contactPanel.add(jTextField2);
-        jTextField2.setBounds(130, 390, 250, 24);
-        contactPanel.add(jTextField3);
-        jTextField3.setBounds(130, 60, 250, 24);
-        contactPanel.add(jTextField4);
-        jTextField4.setBounds(130, 90, 250, 24);
-        contactPanel.add(jTextField5);
-        jTextField5.setBounds(130, 120, 250, 24);
-        contactPanel.add(jTextField6);
-        jTextField6.setBounds(130, 150, 250, 24);
+        txtPatientEmail.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(txtPatientEmail);
+        txtPatientEmail.setBounds(130, 390, 250, 24);
+        contactPanel.add(txtPresentStreet);
+        txtPresentStreet.setBounds(130, 60, 250, 24);
+        contactPanel.add(txtPresentArea);
+        txtPresentArea.setBounds(130, 90, 250, 24);
+        contactPanel.add(txtPresentCity);
+        txtPresentCity.setBounds(130, 120, 250, 24);
+        contactPanel.add(txtPresentState);
+        txtPresentState.setBounds(130, 150, 250, 24);
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setText("Permanent Address");
         contactPanel.add(jLabel14);
         jLabel14.setBounds(420, 10, 140, 19);
 
-        jTextField7.setPreferredSize(new java.awt.Dimension(70, 24));
-        contactPanel.add(jTextField7);
-        jTextField7.setBounds(540, 30, 250, 24);
-        contactPanel.add(jTextField8);
-        jTextField8.setBounds(540, 60, 250, 24);
+        txtPermanentAddress.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(txtPermanentAddress);
+        txtPermanentAddress.setBounds(540, 30, 250, 24);
+        contactPanel.add(txtPermanentStreet);
+        txtPermanentStreet.setBounds(540, 60, 250, 24);
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        txtPermanentArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                txtPermanentAreaActionPerformed(evt);
             }
         });
-        contactPanel.add(jTextField9);
-        jTextField9.setBounds(540, 90, 250, 24);
-        contactPanel.add(jTextField10);
-        jTextField10.setBounds(540, 120, 250, 24);
-        contactPanel.add(jTextField11);
-        jTextField11.setBounds(540, 150, 250, 24);
+        contactPanel.add(txtPermanentArea);
+        txtPermanentArea.setBounds(540, 90, 250, 24);
+        contactPanel.add(txtPermanentCity);
+        txtPermanentCity.setBounds(540, 120, 250, 24);
+        contactPanel.add(txtPermanentState);
+        txtPermanentState.setBounds(540, 150, 250, 24);
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        txtPermanentPincode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                txtPermanentPincodeActionPerformed(evt);
             }
         });
-        contactPanel.add(jTextField12);
-        jTextField12.setBounds(540, 180, 250, 24);
+        contactPanel.add(txtPermanentPincode);
+        txtPermanentPincode.setBounds(540, 180, 250, 24);
 
         jLabel15.setText("Door No:");
         contactPanel.add(jLabel15);
@@ -355,29 +370,29 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         contactPanel.add(jLabel26);
         jLabel26.setBounds(10, 360, 110, 30);
 
-        jTextField13.setPreferredSize(new java.awt.Dimension(70, 24));
-        contactPanel.add(jTextField13);
-        jTextField13.setBounds(130, 30, 250, 24);
+        txtPresentDoor.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(txtPresentDoor);
+        txtPresentDoor.setBounds(130, 30, 250, 24);
 
-        jTextField14.setPreferredSize(new java.awt.Dimension(70, 24));
-        contactPanel.add(jTextField14);
-        jTextField14.setBounds(130, 240, 250, 24);
+        txtPatientTelephoneWork.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(txtPatientTelephoneWork);
+        txtPatientTelephoneWork.setBounds(130, 240, 250, 24);
 
-        jTextField15.setPreferredSize(new java.awt.Dimension(70, 24));
-        contactPanel.add(jTextField15);
-        jTextField15.setBounds(130, 270, 250, 24);
+        txtPatientTelephoneHome.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(txtPatientTelephoneHome);
+        txtPatientTelephoneHome.setBounds(130, 270, 250, 24);
 
-        jTextField16.setPreferredSize(new java.awt.Dimension(70, 24));
-        contactPanel.add(jTextField16);
-        jTextField16.setBounds(130, 300, 250, 24);
+        txtPatientPhone.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(txtPatientPhone);
+        txtPatientPhone.setBounds(130, 300, 250, 24);
 
-        jTextField17.setPreferredSize(new java.awt.Dimension(70, 24));
-        contactPanel.add(jTextField17);
-        jTextField17.setBounds(130, 330, 250, 24);
+        txtPatientPager.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(txtPatientPager);
+        txtPatientPager.setBounds(130, 330, 250, 24);
 
-        jTextField18.setPreferredSize(new java.awt.Dimension(70, 24));
-        contactPanel.add(jTextField18);
-        jTextField18.setBounds(130, 360, 250, 24);
+        txtPatientFax.setPreferredSize(new java.awt.Dimension(70, 24));
+        contactPanel.add(txtPatientFax);
+        txtPatientFax.setBounds(130, 360, 250, 24);
         contactPanel.add(jSeparator1);
         jSeparator1.setBounds(-10, 220, 850, 10);
 
@@ -453,38 +468,38 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel43.setText("Fax:");
         kinPanel.add(jLabel43);
         jLabel43.setBounds(20, 280, 110, 16);
-        kinPanel.add(jTextField19);
-        jTextField19.setBounds(530, 190, 250, 24);
-        kinPanel.add(jTextField20);
-        jTextField20.setBounds(140, 310, 250, 24);
-        kinPanel.add(jTextField21);
-        jTextField21.setBounds(530, 70, 250, 24);
-        kinPanel.add(jTextField22);
-        jTextField22.setBounds(530, 100, 250, 24);
-        kinPanel.add(jTextField23);
-        jTextField23.setBounds(530, 130, 250, 24);
-        kinPanel.add(jTextField24);
-        jTextField24.setBounds(530, 160, 250, 24);
-        kinPanel.add(jTextField25);
-        jTextField25.setBounds(530, 40, 250, 24);
-        kinPanel.add(jTextField26);
-        jTextField26.setBounds(140, 40, 250, 24);
-        kinPanel.add(jTextField27);
-        jTextField27.setBounds(140, 70, 250, 24);
-        kinPanel.add(jTextField28);
-        jTextField28.setBounds(140, 100, 250, 24);
-        kinPanel.add(jTextField29);
-        jTextField29.setBounds(140, 130, 250, 24);
-        kinPanel.add(jTextField30);
-        jTextField30.setBounds(140, 160, 250, 24);
-        kinPanel.add(jTextField31);
-        jTextField31.setBounds(140, 190, 250, 24);
-        kinPanel.add(jTextField32);
-        jTextField32.setBounds(140, 220, 250, 24);
-        kinPanel.add(jTextField33);
-        jTextField33.setBounds(140, 250, 250, 24);
-        kinPanel.add(jTextField34);
-        jTextField34.setBounds(140, 280, 250, 24);
+        kinPanel.add(txtKinPincode);
+        txtKinPincode.setBounds(530, 190, 250, 24);
+        kinPanel.add(txtKinEmail);
+        txtKinEmail.setBounds(140, 310, 250, 24);
+        kinPanel.add(txtKinStreet);
+        txtKinStreet.setBounds(530, 70, 250, 24);
+        kinPanel.add(txtKinArea);
+        txtKinArea.setBounds(530, 100, 250, 24);
+        kinPanel.add(txtKinCity);
+        txtKinCity.setBounds(530, 130, 250, 24);
+        kinPanel.add(txtKinState);
+        txtKinState.setBounds(530, 160, 250, 24);
+        kinPanel.add(txtKinDoor);
+        txtKinDoor.setBounds(530, 40, 250, 24);
+        kinPanel.add(txtKinFirstName);
+        txtKinFirstName.setBounds(140, 40, 250, 24);
+        kinPanel.add(txtKinMiddleName);
+        txtKinMiddleName.setBounds(140, 70, 250, 24);
+        kinPanel.add(txtKinLastName);
+        txtKinLastName.setBounds(140, 100, 250, 24);
+        kinPanel.add(txtKinRelationship);
+        txtKinRelationship.setBounds(140, 130, 250, 24);
+        kinPanel.add(txtKinTelephoneWork);
+        txtKinTelephoneWork.setBounds(140, 160, 250, 24);
+        kinPanel.add(txtKinTelephoneHome);
+        txtKinTelephoneHome.setBounds(140, 190, 250, 24);
+        kinPanel.add(txtKinMobile);
+        txtKinMobile.setBounds(140, 220, 250, 24);
+        kinPanel.add(txtKinPager);
+        txtKinPager.setBounds(140, 250, 250, 24);
+        kinPanel.add(txtKinFax);
+        txtKinFax.setBounds(140, 280, 250, 24);
 
         jTabbedPane1.addTab("Nex-of-Kin", kinPanel);
 
@@ -509,22 +524,22 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel48.setText("Weight:");
         personalPanel.add(jLabel48);
         jLabel48.setBounds(20, 110, 110, 16);
-        personalPanel.add(jTextField35);
-        jTextField35.setBounds(160, 140, 250, 24);
-        personalPanel.add(jTextField37);
-        jTextField37.setBounds(160, 50, 250, 24);
-        personalPanel.add(jTextField38);
-        jTextField38.setBounds(160, 80, 250, 24);
-        personalPanel.add(jTextField39);
-        jTextField39.setBounds(160, 110, 250, 24);
+        personalPanel.add(txtBloodType);
+        txtBloodType.setBounds(160, 140, 250, 24);
+        personalPanel.add(txtNoOfDependents);
+        txtNoOfDependents.setBounds(160, 50, 250, 24);
+        personalPanel.add(txtHeight);
+        txtHeight.setBounds(160, 80, 250, 24);
+        personalPanel.add(txtWeight);
+        txtWeight.setBounds(160, 110, 250, 24);
 
         jTextField40.setText("jTextField35");
         personalPanel.add(jTextField40);
         jTextField40.setBounds(160, 140, 250, 24);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        personalPanel.add(jComboBox2);
-        jComboBox2.setBounds(160, 20, 250, 26);
+        cbMartial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        personalPanel.add(cbMartial);
+        cbMartial.setBounds(160, 20, 250, 26);
 
         jTabbedPane1.addTab("Personal", personalPanel);
 
@@ -537,10 +552,10 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel51.setText("Gross Annual Income:");
         professionPanel.add(jLabel51);
         jLabel51.setBounds(30, 50, 130, 16);
-        professionPanel.add(jTextField41);
-        jTextField41.setBounds(190, 50, 250, 24);
-        professionPanel.add(jTextField42);
-        jTextField42.setBounds(190, 20, 250, 24);
+        professionPanel.add(txtGrossIncome);
+        txtGrossIncome.setBounds(190, 50, 250, 24);
+        professionPanel.add(txtOccupation);
+        txtOccupation.setBounds(190, 20, 250, 24);
 
         jTabbedPane1.addTab("Profession", professionPanel);
 
@@ -550,13 +565,13 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         lifestylePanel.add(jLabel50);
         jLabel50.setBounds(30, 30, 80, 16);
 
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbHomeFood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cbHomeFoodActionPerformed(evt);
             }
         });
-        lifestylePanel.add(jCheckBox1);
-        jCheckBox1.setBounds(230, 240, 49, 24);
+        lifestylePanel.add(cbHomeFood);
+        cbHomeFood.setBounds(230, 240, 49, 24);
 
         jLabel52.setText("Eat Home Food Predominantly:");
         lifestylePanel.add(jLabel52);
@@ -586,25 +601,25 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         lifestylePanel.add(jLabel58);
         jLabel58.setBounds(30, 210, 190, 16);
 
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        cbVegeterian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                cbVegeterianActionPerformed(evt);
             }
         });
-        lifestylePanel.add(jCheckBox2);
-        jCheckBox2.setBounds(230, 20, 49, 24);
-        lifestylePanel.add(jTextField44);
-        jTextField44.setBounds(230, 60, 250, 24);
-        lifestylePanel.add(jTextField45);
-        jTextField45.setBounds(230, 90, 250, 24);
-        lifestylePanel.add(jTextField46);
-        jTextField46.setBounds(230, 120, 250, 24);
-        lifestylePanel.add(jTextField47);
-        jTextField47.setBounds(230, 150, 250, 24);
-        lifestylePanel.add(jTextField48);
-        jTextField48.setBounds(230, 180, 250, 24);
-        lifestylePanel.add(jCheckBox4);
-        jCheckBox4.setBounds(230, 210, 24, 24);
+        lifestylePanel.add(cbVegeterian);
+        cbVegeterian.setBounds(230, 20, 49, 24);
+        lifestylePanel.add(txtNoOfCigarettes);
+        txtNoOfCigarettes.setBounds(230, 60, 250, 24);
+        lifestylePanel.add(txtNoOfDrinks);
+        txtNoOfDrinks.setBounds(230, 90, 250, 24);
+        lifestylePanel.add(txtStimulans);
+        txtStimulans.setBounds(230, 120, 250, 24);
+        lifestylePanel.add(txtCoffeTea);
+        txtCoffeTea.setBounds(230, 150, 250, 24);
+        lifestylePanel.add(txtSoftDrinks);
+        txtSoftDrinks.setBounds(230, 180, 250, 24);
+        lifestylePanel.add(cbMeals);
+        cbMeals.setBounds(230, 210, 24, 24);
 
         jTabbedPane1.addTab("Lifestyle", lifestylePanel);
 
@@ -622,23 +637,23 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         basicComplaintsPanel.add(jLabel62);
         jLabel62.setBounds(20, 130, 180, 16);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtPhysicianTreated.setColumns(20);
+        txtPhysicianTreated.setRows(5);
+        jScrollPane1.setViewportView(txtPhysicianTreated);
 
         basicComplaintsPanel.add(jScrollPane1);
         jScrollPane1.setBounds(200, 230, 223, 83);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        taComplaint.setColumns(20);
+        taComplaint.setRows(5);
+        jScrollPane2.setViewportView(taComplaint);
 
         basicComplaintsPanel.add(jScrollPane2);
         jScrollPane2.setBounds(200, 30, 223, 83);
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        taPreviousTreatment.setColumns(20);
+        taPreviousTreatment.setRows(5);
+        jScrollPane3.setViewportView(taPreviousTreatment);
 
         basicComplaintsPanel.add(jScrollPane3);
         jScrollPane3.setBounds(200, 130, 223, 83);
@@ -690,28 +705,28 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel72.setText("Known Reaction to Drugs:");
         medicalComplaintsPanel.add(jLabel72);
         jLabel72.setBounds(20, 290, 160, 16);
-        medicalComplaintsPanel.add(jTextField49);
-        jTextField49.setBounds(210, 310, 250, 24);
-        medicalComplaintsPanel.add(jTextField52);
-        jTextField52.setBounds(210, 70, 250, 24);
-        medicalComplaintsPanel.add(jTextField53);
-        jTextField53.setBounds(210, 100, 250, 24);
-        medicalComplaintsPanel.add(jTextField54);
-        jTextField54.setBounds(210, 130, 250, 24);
-        medicalComplaintsPanel.add(jTextField55);
-        jTextField55.setBounds(210, 160, 250, 24);
-        medicalComplaintsPanel.add(jTextField56);
-        jTextField56.setBounds(210, 190, 250, 24);
-        medicalComplaintsPanel.add(jTextField57);
-        jTextField57.setBounds(210, 220, 250, 24);
-        medicalComplaintsPanel.add(jTextField58);
-        jTextField58.setBounds(210, 250, 250, 24);
-        medicalComplaintsPanel.add(jTextField59);
-        jTextField59.setBounds(210, 280, 250, 24);
-        medicalComplaintsPanel.add(jCheckBox3);
-        jCheckBox3.setBounds(210, 10, 24, 24);
-        medicalComplaintsPanel.add(jCheckBox5);
-        jCheckBox5.setBounds(210, 40, 24, 24);
+        medicalComplaintsPanel.add(txtSurgeries);
+        txtSurgeries.setBounds(210, 310, 250, 24);
+        medicalComplaintsPanel.add(txtCardiac);
+        txtCardiac.setBounds(210, 70, 250, 24);
+        medicalComplaintsPanel.add(txtRespiratory);
+        txtRespiratory.setBounds(210, 100, 250, 24);
+        medicalComplaintsPanel.add(txtDigestive);
+        txtDigestive.setBounds(210, 130, 250, 24);
+        medicalComplaintsPanel.add(txtOrthopedic);
+        txtOrthopedic.setBounds(210, 160, 250, 24);
+        medicalComplaintsPanel.add(txtMuscular);
+        txtMuscular.setBounds(210, 190, 250, 24);
+        medicalComplaintsPanel.add(txtNeurological);
+        txtNeurological.setBounds(210, 220, 250, 24);
+        medicalComplaintsPanel.add(txtAllergies);
+        txtAllergies.setBounds(210, 250, 250, 24);
+        medicalComplaintsPanel.add(txtDrugs);
+        txtDrugs.setBounds(210, 280, 250, 24);
+        medicalComplaintsPanel.add(cbDiabetic);
+        cbDiabetic.setBounds(210, 10, 24, 24);
+        medicalComplaintsPanel.add(cbHypertensive);
+        cbHypertensive.setBounds(210, 40, 24, 24);
 
         jTabbedPane1.addTab("Medical Complaints", medicalComplaintsPanel);
 
@@ -728,39 +743,57 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         add(jLabel73);
         jLabel73.setBounds(6, 47, 227, 19);
 
-        cbExistingPersons.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbExistingPersons.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
+        cbExistingPersons.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbExistingPersonsActionPerformed(evt);
+            }
+        });
         add(cbExistingPersons);
         cbExistingPersons.setBounds(239, 44, 229, 26);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void cbHomeFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHomeFoodActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_cbHomeFoodActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void cbVegeterianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVegeterianActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_cbVegeterianActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void txtPermanentAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPermanentAreaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_txtPermanentAreaActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void txtPermanentPincodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPermanentPincodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_txtPermanentPincodeActionPerformed
+
+    private void cbExistingPersonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbExistingPersonsActionPerformed
+        // TODO add your handling code here:
+        String selected = cbExistingPersons.getSelectedItem().toString();
+        if (selected != "None") {
+            String[] list = selected.split(":");
+            int id = Integer.parseInt(list[0]);
+            System.out.println(id);
+        }
+    }//GEN-LAST:event_cbExistingPersonsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basicComplaintsPanel;
     private javax.swing.JPanel basicPanel;
+    private javax.swing.JComboBox<String> cbDay;
+    private javax.swing.JCheckBox cbDiabetic;
     private javax.swing.JComboBox<String> cbExistingPersons;
+    private javax.swing.JCheckBox cbHomeFood;
+    private javax.swing.JCheckBox cbHypertensive;
+    private javax.swing.JComboBox<String> cbMartial;
+    private javax.swing.JCheckBox cbMeals;
+    private javax.swing.JComboBox<String> cbMonth;
+    private javax.swing.JCheckBox cbVegeterian;
+    private javax.swing.JComboBox<String> cbYear;
     private javax.swing.JPanel contactPanel;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -840,73 +873,72 @@ public class ComprehensiveForm extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
-    private javax.swing.JTextField jTextField32;
-    private javax.swing.JTextField jTextField33;
-    private javax.swing.JTextField jTextField34;
-    private javax.swing.JTextField jTextField35;
-    private javax.swing.JTextField jTextField37;
-    private javax.swing.JTextField jTextField38;
-    private javax.swing.JTextField jTextField39;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField40;
-    private javax.swing.JTextField jTextField41;
-    private javax.swing.JTextField jTextField42;
-    private javax.swing.JTextField jTextField44;
-    private javax.swing.JTextField jTextField45;
-    private javax.swing.JTextField jTextField46;
-    private javax.swing.JTextField jTextField47;
-    private javax.swing.JTextField jTextField48;
-    private javax.swing.JTextField jTextField49;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField52;
-    private javax.swing.JTextField jTextField53;
-    private javax.swing.JTextField jTextField54;
-    private javax.swing.JTextField jTextField55;
-    private javax.swing.JTextField jTextField56;
-    private javax.swing.JTextField jTextField57;
-    private javax.swing.JTextField jTextField58;
-    private javax.swing.JTextField jTextField59;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel kinPanel;
     private javax.swing.JPanel lifestylePanel;
     private javax.swing.JPanel medicalComplaintsPanel;
     private javax.swing.JPanel personalPanel;
     private javax.swing.JPanel professionPanel;
-    private javax.swing.JTextField txtFirstName;
-    private javax.swing.JTextField txtLastName;
-    private javax.swing.JTextField txtLastName1;
-    private javax.swing.JTextField txtLastName2;
-    private javax.swing.JTextField txtMiddleName;
+    private javax.swing.JTextArea taComplaint;
+    private javax.swing.JTextArea taPreviousTreatment;
+    private javax.swing.JTextField txtAllergies;
+    private javax.swing.JTextField txtBloodType;
+    private javax.swing.JTextField txtCardiac;
+    private javax.swing.JTextField txtCoffeTea;
+    private javax.swing.JTextField txtDigestive;
+    private javax.swing.JTextField txtDrugs;
+    private javax.swing.JTextField txtGrossIncome;
+    private javax.swing.JTextField txtHeight;
+    private javax.swing.JTextField txtKinArea;
+    private javax.swing.JTextField txtKinCity;
+    private javax.swing.JTextField txtKinDoor;
+    private javax.swing.JTextField txtKinEmail;
+    private javax.swing.JTextField txtKinFax;
+    private javax.swing.JTextField txtKinFirstName;
+    private javax.swing.JTextField txtKinLastName;
+    private javax.swing.JTextField txtKinMiddleName;
+    private javax.swing.JTextField txtKinMobile;
+    private javax.swing.JTextField txtKinPager;
+    private javax.swing.JTextField txtKinPincode;
+    private javax.swing.JTextField txtKinRelationship;
+    private javax.swing.JTextField txtKinState;
+    private javax.swing.JTextField txtKinStreet;
+    private javax.swing.JTextField txtKinTelephoneHome;
+    private javax.swing.JTextField txtKinTelephoneWork;
+    private javax.swing.JTextField txtMuscular;
+    private javax.swing.JTextField txtNeurological;
+    private javax.swing.JTextField txtNoOfCigarettes;
+    private javax.swing.JTextField txtNoOfDependents;
+    private javax.swing.JTextField txtNoOfDrinks;
+    private javax.swing.JTextField txtOccupation;
+    private javax.swing.JTextField txtOrthopedic;
+    private javax.swing.JTextField txtPatientEmail;
+    private javax.swing.JTextField txtPatientFax;
+    private javax.swing.JTextField txtPatientFirstName;
+    private javax.swing.JTextField txtPatientLastName;
+    private javax.swing.JTextField txtPatientLastName1;
+    private javax.swing.JTextField txtPatientMiddleName;
+    private javax.swing.JTextField txtPatientPager;
+    private javax.swing.JTextField txtPatientPhone;
+    private javax.swing.JTextField txtPatientTelephoneHome;
+    private javax.swing.JTextField txtPatientTelephoneWork;
+    private javax.swing.JTextField txtPermanentAddress;
+    private javax.swing.JTextField txtPermanentArea;
+    private javax.swing.JTextField txtPermanentCity;
+    private javax.swing.JTextField txtPermanentPincode;
+    private javax.swing.JTextField txtPermanentState;
+    private javax.swing.JTextField txtPermanentStreet;
+    private javax.swing.JTextArea txtPhysicianTreated;
+    private javax.swing.JTextField txtPresentArea;
+    private javax.swing.JTextField txtPresentCity;
+    private javax.swing.JTextField txtPresentDoor;
+    private javax.swing.JTextField txtPresentPincode;
+    private javax.swing.JTextField txtPresentState;
+    private javax.swing.JTextField txtPresentStreet;
+    private javax.swing.JTextField txtRespiratory;
+    private javax.swing.JTextField txtSoftDrinks;
+    private javax.swing.JTextField txtStimulans;
+    private javax.swing.JTextField txtSurgeries;
+    private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
 }

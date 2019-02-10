@@ -45,9 +45,13 @@ AS
 	VALUES (@kinRelationship, @patientId, @kinId)
 GO
 
-CREATE PROCEDURE getExistingPatients
+ALTER PROCEDURE getExistingPatients
 AS
-	SELECT * 
-	FROM Patient
-	INNER JOIN Person ON IDPerson = PersonID
+	SELECT 
+		pa.OPID,
+		pe.FirstName,
+		pe.MiddleName,
+		pe.Surname
+	FROM Patient AS pa
+	INNER JOIN Person AS pe ON pe.IDPerson = pa.PersonID
 GO

@@ -24,7 +24,7 @@ import javax.sql.DataSource;
 public class SqlRepository implements Repository {
     //Patient
     private static final String INSERT_PATIENT_MINI_FORM = "{ CALL insertPatientMiniForm (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }";
-    private static final String GET_EXISTING_PATIENTS = "{ CALL getExistingPatients ";
+    private static final String GET_EXISTING_PATIENTS = "{ CALL getExistingPatients }";
     
     private static final String INSERT_DOCTOR = "{ CALL insertDoctor }";
     private static final String UPDATE_DOCTOR = "{ CALL updateDoctor (?,?,?,?) }";
@@ -77,10 +77,10 @@ public class SqlRepository implements Repository {
         try (Connection con = (Connection) dataSource.getConnection();
                 CallableStatement stmt = con.prepareCall(INSERT_PATIENT_MINI_FORM)) {
             stmt.setString(1, patient.getFirstName());
-            stmt.setString(2, patient.getSurname());
+            stmt.setString(2, patient.getMiddleName());
             stmt.setString(3, patient.getSurname());            
-            stmt.setDate(4, Date.valueOf(patient.getDateOfBirth()));
-            stmt.setString(5, patient.getComplaint());
+            stmt.setDate(4, Date.valueOf(patient.getDateOfBirth())); 
+           stmt.setString(5, patient.getComplaint());
             stmt.setString(6, patient.getContact().getTelephoneHome());            
             stmt.setString(7, patient.getContact().getTelephoneWork());
             stmt.setString(8, patient.getNextOfKin().getFirstName());            
@@ -114,7 +114,7 @@ public class SqlRepository implements Repository {
                     while (resultSet.next()) {
                         patients.add(
                             new Patient(
-                            resultSet.getInt("IDOP"),
+                            resultSet.getInt("OPID"),
                             resultSet.getString("FirstName"),
                             resultSet.getString("MiddleName"),
                             resultSet.getString("Surname")));
