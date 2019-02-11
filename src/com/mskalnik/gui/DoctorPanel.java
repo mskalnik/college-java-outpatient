@@ -13,6 +13,7 @@ import com.mskalnik.model.Doctor;
 import com.mskalnik.model.Medication;
 import com.mskalnik.model.Patient;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,19 +29,7 @@ public class DoctorPanel extends javax.swing.JPanel {
      */
     public DoctorPanel() {
         initComponents();
-        List<Doctor> doctors = DOCTORS_HANDLER.getDoctors();
-        doctors.forEach((doctor) -> {
-            cbDoctor.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
-        });
-        
-        doctors.forEach((doctor) -> {
-            cbSpecialist.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
-        });
-        
-        List<Medication> medications = APPOINTMENTS_HANDLER.getMedications();
-        medications.forEach((medication) -> {
-            cbMedication.addItem(medication.getMedicationId()+ ": " + medication.getName() + ", " + medication.getPrice() + " HRK");
-        });
+        fillData();
     }
 
     /**
@@ -60,11 +49,12 @@ public class DoctorPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         taDiagnosis = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         cbPatient = new javax.swing.JComboBox<>();
         cbMedication = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
 
         setLayout(null);
 
@@ -103,14 +93,14 @@ public class DoctorPanel extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(80, 110, 250, 83);
 
-        jButton1.setText("Update");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(80, 270, 77, 32);
+        add(btnSave);
+        btnSave.setBounds(80, 270, 77, 32);
 
         jLabel5.setText("Specialist:");
         add(jLabel5);
@@ -125,9 +115,18 @@ public class DoctorPanel extends javax.swing.JPanel {
         jLabel6.setText("Medication:");
         add(jLabel6);
         jLabel6.setBounds(10, 210, 70, 20);
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        add(btnUpdate);
+        btnUpdate.setBounds(160, 270, 70, 32);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         String[] patients = cbPatient.getSelectedItem().toString().split(":");
         String[] medications = cbMedication.getSelectedItem().toString().split(":");
@@ -136,8 +135,9 @@ public class DoctorPanel extends javax.swing.JPanel {
         Patient patient = PATIENTS_HANDLER.getExistingPatient(Integer.parseInt(patients[0]));
         Medication medication = APPOINTMENTS_HANDLER.getMedication(Integer.parseInt(medications[0]));
         
-        APPOINTMENTS_HANDLER.insertBill(new Bill(patient, medication, 200, payed));        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        APPOINTMENTS_HANDLER.insertBill(new Bill(patient, medication, 200, payed)); 
+        JOptionPane.showMessageDialog(null, "Diagnosis for " + cbPatient.getSelectedItem().toString() + " made!\n"); 
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void cbDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDoctorActionPerformed
         // TODO add your handling code here:        
@@ -150,13 +150,19 @@ public class DoctorPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cbDoctorActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        fillData();
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbDoctor;
     private javax.swing.JComboBox<String> cbMedication;
     private javax.swing.JComboBox<String> cbPatient;
     private javax.swing.JComboBox<String> cbSpecialist;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -166,4 +172,27 @@ public class DoctorPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea taDiagnosis;
     // End of variables declaration//GEN-END:variables
+
+    private void fillData() {
+        List<Doctor> doctors = DOCTORS_HANDLER.getDoctors();
+        doctors.forEach((doctor) -> {
+        cbDoctor.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
+        });
+        
+        doctors.forEach((doctor) -> {
+        cbSpecialist.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
+        });
+        
+        List<Medication> medications = APPOINTMENTS_HANDLER.getMedications();
+        medications.forEach((medication) -> {
+        cbMedication.addItem(medication.getMedicationId()+ ": " + medication.getName() + ", " + medication.getPrice() + " HRK");
+        });        
+        
+        String[] list = cbDoctor.getSelectedItem().toString().split(":");
+        int id = Integer.parseInt(list[0]);
+        cbPatient.removeAllItems();
+        for (Patient patient : PATIENTS_HANDLER.getAppointment(id)) {
+            cbPatient.addItem(patient.getOpid() + ": " + patient.getFirstName() + " " + patient.getSurname());
+        }
+    }
 }

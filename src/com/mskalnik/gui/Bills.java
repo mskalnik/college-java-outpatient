@@ -47,6 +47,7 @@ public class Bills extends javax.swing.JPanel {
         liBill = new javax.swing.JList<>();
         btnCredit = new javax.swing.JButton();
         btnCash = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
 
         setLayout(null);
 
@@ -83,7 +84,7 @@ public class Bills extends javax.swing.JPanel {
             }
         });
         add(btnCredit);
-        btnCredit.setBounds(160, 210, 77, 32);
+        btnCredit.setBounds(170, 210, 90, 32);
 
         btnCash.setText("Cash");
         btnCash.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +93,16 @@ public class Bills extends javax.swing.JPanel {
             }
         });
         add(btnCash);
-        btnCash.setBounds(90, 210, 59, 32);
+        btnCash.setBounds(90, 210, 80, 32);
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        add(btnUpdate);
+        btnUpdate.setBounds(260, 210, 70, 32);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditActionPerformed
@@ -121,10 +131,16 @@ public class Bills extends javax.swing.JPanel {
         liBill.setModel(model);
     }//GEN-LAST:event_cbPatientActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        fillData();
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCash;
     private javax.swing.JButton btnCredit;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbPatient;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -133,9 +149,7 @@ public class Bills extends javax.swing.JPanel {
     private javax.swing.JList<String> liBill;
     // End of variables declaration//GEN-END:variables
 
-    private void fillData() {
-        cbPatient.removeAllItems();
-        
+    private void fillData() {        
         List<Patient> patients = PATIENTS_HANDLER.getExistingPatients();
         patients.forEach((patient) -> {
             cbPatient.addItem(patient.getOpid() + ": " + patient.getFirstName() + " " + patient.getSurname());

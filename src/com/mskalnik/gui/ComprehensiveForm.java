@@ -10,6 +10,7 @@ import com.mskalnik.model.Patient;
 import java.util.List;
 import java.util.Set;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -199,6 +200,7 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
         cbExistingPersons = new javax.swing.JComboBox<>();
+        btnUpdate = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -554,7 +556,7 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         personalPanel.add(jTextField40);
         jTextField40.setBounds(160, 140, 250, 24);
 
-        cbMartial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbMartial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Married", "Unmarried" }));
         personalPanel.add(cbMartial);
         cbMartial.setBounds(160, 20, 250, 26);
 
@@ -746,6 +748,11 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         cbHypertensive.setBounds(210, 40, 24, 24);
 
         btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
         medicalComplaintsPanel.add(btnRegister);
         btnRegister.setBounds(210, 340, 90, 32);
 
@@ -772,6 +779,15 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         });
         add(cbExistingPersons);
         cbExistingPersons.setBounds(239, 44, 229, 26);
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        add(btnUpdate);
+        btnUpdate.setBounds(480, 40, 70, 32);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbHomeFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHomeFoodActionPerformed
@@ -818,11 +834,22 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbMaleActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        fillComboBoxes();
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "User " + txtPatientFirstName.getText() + " " + txtPatientLastName1.getText() + " added!\n");    
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basicComplaintsPanel;
     private javax.swing.JPanel basicPanel;
     private javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbDay;
     private javax.swing.JCheckBox cbDiabetic;

@@ -14,6 +14,7 @@ import com.mskalnik.model.Patient;
 import java.time.LocalDate;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -55,6 +56,7 @@ public class Appointments extends javax.swing.JPanel {
         cbDay = new javax.swing.JComboBox<>();
         cbMonth = new javax.swing.JComboBox<>();
         btnMake = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -109,7 +111,16 @@ public class Appointments extends javax.swing.JPanel {
             }
         });
         add(btnMake);
-        btnMake.setBounds(110, 310, 180, 32);
+        btnMake.setBounds(110, 310, 170, 32);
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        add(btnUpdate);
+        btnUpdate.setBounds(290, 310, 70, 32);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeActionPerformed
@@ -129,12 +140,19 @@ public class Appointments extends javax.swing.JPanel {
         LocalDate date = LocalDate.of(year, month, day);
         
         APPOINTMENTS_HANDLER.insertAppointments(new Appointment(d, p, date));
+        JOptionPane.showMessageDialog(null, "Appointment for " + cbPatient.getSelectedItem().toString() + " made!\n"); 
         fillData();
     }//GEN-LAST:event_btnMakeActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        fillData();
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMake;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbDay;
     private javax.swing.JComboBox<String> cbDoctor;
     private javax.swing.JComboBox<String> cbMonth;
@@ -175,7 +193,7 @@ public class Appointments extends javax.swing.JPanel {
             cbMonth.addItem(String.valueOf(i));
         }
         
-        for (int i = 2019; i >= 1990; i--) {
+        for (int i = 2019; i <= 2024; i++) {
             cbYear.addItem(String.valueOf(i));
         }
         

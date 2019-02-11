@@ -23,14 +23,7 @@ public class PhysicianList extends javax.swing.JPanel {
     public PhysicianList() {
         initComponents();
         
-        List<Doctor> doctors = DOCTORS_HANDLER.getDoctors();
-        DefaultListModel model = new DefaultListModel();
-        
-        for (Doctor doctor : doctors) {
-            model.addElement(doctor.getIdDoctor() + ": " + doctor.getTitle() + " " + doctor.getFirstName() + " " + doctor.getSurname());
-        }
-        
-        liDoctors.setModel(model);
+        fillList();
     }
 
     /**
@@ -45,7 +38,7 @@ public class PhysicianList extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         liDoctors = new javax.swing.JList<>();
-        btnEdit = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
 
         setLayout(null);
@@ -60,21 +53,42 @@ public class PhysicianList extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(10, 30, 380, 260);
 
-        btnEdit.setText("Edit");
-        add(btnEdit);
-        btnEdit.setBounds(10, 300, 51, 32);
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        add(btnUpdate);
+        btnUpdate.setBounds(10, 300, 80, 32);
 
         btnDelete.setText("Delete");
         add(btnDelete);
         btnDelete.setBounds(100, 300, 66, 32);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        fillList();
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> liDoctors;
     // End of variables declaration//GEN-END:variables
+
+    private void fillList() {
+        List<Doctor> doctors = DOCTORS_HANDLER.getDoctors();
+        DefaultListModel model = new DefaultListModel();
+        
+        for (Doctor doctor : doctors) {
+            model.addElement(doctor.getIdDoctor() + ": " + doctor.getTitle() + " " + doctor.getFirstName() + " " + doctor.getSurname());
+        }
+        
+        liDoctors.setModel(model);
+    }
 }
