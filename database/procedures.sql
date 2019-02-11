@@ -255,4 +255,4 @@ AS
 	WHERE @id = PatientID
 GO
 
-exec insertDoctor "", "", "", "Dr."
+exec insertDoctor "Doctor", "Middle", "Surname", "Dr."

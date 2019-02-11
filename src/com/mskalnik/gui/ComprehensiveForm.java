@@ -771,7 +771,7 @@ public class ComprehensiveForm extends javax.swing.JPanel {
         add(jLabel73);
         jLabel73.setBounds(6, 47, 227, 19);
 
-        cbExistingPersons.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
+        cbExistingPersons.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose" }));
         cbExistingPersons.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbExistingPersonsActionPerformed(evt);
