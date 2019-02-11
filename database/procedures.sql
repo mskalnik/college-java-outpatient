@@ -255,4 +255,4 @@ AS
 	WHERE @id = PatientID
 GO
 
-select * from Appointment
+exec insertDoctor "", "", "", "Dr."

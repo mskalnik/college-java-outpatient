@@ -149,7 +149,7 @@ public class Bills extends javax.swing.JPanel {
     private javax.swing.JList<String> liBill;
     // End of variables declaration//GEN-END:variables
 
-    private void fillData() {        
+    private void fillData() {
         List<Patient> patients = PATIENTS_HANDLER.getExistingPatients();
         patients.forEach((patient) -> {
             cbPatient.addItem(patient.getOpid() + ": " + patient.getFirstName() + " " + patient.getSurname());

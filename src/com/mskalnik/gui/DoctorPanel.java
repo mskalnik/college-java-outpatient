@@ -173,19 +173,19 @@ public class DoctorPanel extends javax.swing.JPanel {
     private javax.swing.JTextArea taDiagnosis;
     // End of variables declaration//GEN-END:variables
 
-    private void fillData() {
+    private void fillData() {        
         List<Doctor> doctors = DOCTORS_HANDLER.getDoctors();
         doctors.forEach((doctor) -> {
-        cbDoctor.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
+            cbDoctor.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
         });
         
         doctors.forEach((doctor) -> {
-        cbSpecialist.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
+            cbSpecialist.addItem(doctor.getIdDoctor()+ ": " + doctor.getFirstName() + " " + doctor.getSurname());
         });
         
         List<Medication> medications = APPOINTMENTS_HANDLER.getMedications();
         medications.forEach((medication) -> {
-        cbMedication.addItem(medication.getMedicationId()+ ": " + medication.getName() + ", " + medication.getPrice() + " HRK");
+            cbMedication.addItem(medication.getMedicationId()+ ": " + medication.getName() + ", " + medication.getPrice() + " HRK");
         });        
         
         String[] list = cbDoctor.getSelectedItem().toString().split(":");
